@@ -14,8 +14,10 @@ En Rent-a-Wheels, nos enorgullece ofrecerte una experiencia de alquiler de vehí
 
 1. Clona este repositorio en tu máquina local.
 2. Asegúrate de tener Node.js instalado.
-3. Ejecuta `pnpm install` para instalar las dependencias.
-4. Ejecuta `pnpm start` para iniciar el servidor de desarrollo.
+3. Ejecuta `npm install` para instalar las dependencias.
+4. Revisa las variables de entorno en  caso de ser necesario en .env
+5. Ejecuta `npm dev` para iniciar el servidor de desarrollo.
+6. Revisa la ruta `https://localhost://5173`
 
 ## Uso
 
