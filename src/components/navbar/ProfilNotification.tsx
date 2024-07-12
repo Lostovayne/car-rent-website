@@ -45,7 +45,7 @@ export const ProfilNotification = ({ unreadNotifications }: Props) => {
 
             {/* avatar */}
             <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" className='w-24 h-24' />
+                <AvatarImage src="https://github.com/shadcn.png" className='' />
                 <AvatarFallback>CN</AvatarFallback>
             </Avatar>
 
