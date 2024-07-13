@@ -1,3 +1,7 @@
 export * from "./Footer";
-export * from "./Navbar";
+export * from "./navbar/Navbar";
 export * from "./ui/button"
+export * from "./ui/input"
+export * from "./ui/avatar"
+export * from "./AutoCard";
+
