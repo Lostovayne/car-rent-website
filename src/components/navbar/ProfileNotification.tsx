@@ -25,7 +25,7 @@ export const ProfileNotification = ({ user }: Props) => {
         >
           <Bell className="size-4 " />
           {user.unreadNotifications && (
-            <div className="size-3 absolute bg-red-400 rounded-full top-[-2px] right-[-2px]"></div>
+            <div className="size-3 absolute bg-red-500 rounded-full top-[-2px] right-[-2px] animate-pulse"></div>
           )}
         </Button>
 
