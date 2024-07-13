@@ -7,7 +7,6 @@ export const ArrayCars: AutoCardProps[] = [
     type: "Sport",
     image: "img/1.svg",
     price: 99,
-    isFavorite: true,
     specs: {
       fuel: "90L",
       transmission: "Manual",
@@ -20,7 +19,6 @@ export const ArrayCars: AutoCardProps[] = [
     type: "Sport",
     image: "img/gtr.svg",
     price: 80,
-    isFavorite: false,
     specs: {
       fuel: "80L",
       transmission: "Manual",
@@ -33,7 +31,6 @@ export const ArrayCars: AutoCardProps[] = [
     type: "Sedan",
     image: "img/3.svg",
     price: 96,
-    isFavorite: false,
     specs: {
       fuel: "70L",
       transmission: "Manual",
@@ -46,7 +43,6 @@ export const ArrayCars: AutoCardProps[] = [
     type: "Sport",
     image: "img/gtr.svg",
     price: 80,
-    isFavorite: false,
     specs: {
       fuel: "80L",
       transmission: "Manual",
@@ -59,7 +55,6 @@ export const ArrayCars: AutoCardProps[] = [
     type: "SUV",
     image: "img/rush-terios.svg",
     price: 72,
-    isFavorite: false,
     specs: {
       fuel: "70L",
       transmission: "Auto",
@@ -72,7 +67,6 @@ export const ArrayCars: AutoCardProps[] = [
     type: "SUV",
     image: "img/crv.svg",
     price: 80,
-    isFavorite: false,
     specs: {
       fuel: "80L",
       transmission: "Auto",
@@ -85,7 +79,6 @@ export const ArrayCars: AutoCardProps[] = [
     type: "SUV",
     image: "img/rush-terios.svg",
     price: 74,
-    isFavorite: false,
     specs: {
       fuel: "90L",
       transmission: "Manual",
@@ -98,7 +91,6 @@ export const ArrayCars: AutoCardProps[] = [
     type: "SUV",
     image: "img/crv.svg",
     price: 80,
-    isFavorite: false,
     specs: {
       fuel: "80L",
       transmission: "Manual",
@@ -111,7 +103,6 @@ export const ArrayCars: AutoCardProps[] = [
     type: "Hatchback",
     image: "img/mg-zx.svg",
     price: 76,
-    isFavorite: false,
     specs: {
       fuel: "70L",
       transmission: "Auto",
@@ -124,7 +115,6 @@ export const ArrayCars: AutoCardProps[] = [
     type: "SUV",
     image: "img/mg-zs.svg",
     price: 80,
-    isFavorite: false,
     specs: {
       fuel: "80L",
       transmission: "Auto",
@@ -137,7 +127,6 @@ export const ArrayCars: AutoCardProps[] = [
     type: "Hatchback",
     image: "img/mg-zx.svg",
     price: 74,
-    isFavorite: false,
     specs: {
       fuel: "90L",
       transmission: "Manual",
@@ -150,7 +139,6 @@ export const ArrayCars: AutoCardProps[] = [
     type: "SUV",
     image: "img/mg-zs.svg",
     price: 80,
-    isFavorite: false,
     specs: {
       fuel: "80L",
       transmission: "Manual",

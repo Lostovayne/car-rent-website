@@ -16,26 +16,35 @@ import {
 } from "react-icons/bs";
 import { AutoCardProps } from "../interfaces/AutoCard.interface";
 import { Button } from "./ui/button";
+import { useState } from "react";
 
 export const AutoCard = ({
+  id,
   model,
   type,
   image,
   price,
-  isFavorite = false,
   specs,
 }: AutoCardProps): JSX.Element => {
+  const [isFavoriteState, setIsFavoriteState] = useState(false);
+
   return (
-    <Card className="flex flex-col justify-between bg-white p-5 rounded-xl w-80 h-60 sm:h-96">
+    <Card className="flex flex-col justify-between bg-white border-0 p-5 rounded-xl w-80 h-60 sm:h-96">
       <CardHeader className="flex flex-col w-full p-0">
         <div className="flex justify-between items-center w-full">
           <CardTitle className="text-[#1A202C] text-lg sm:text-xl uppercase leading-5 max-sm:font-normal font-medium">
             {model}
           </CardTitle>
-          {!isFavorite ? (
-            <BsHeart className="size-5 cursor-pointer transition-all text-gray-400" />
+          {!isFavoriteState ? (
+            <BsHeart
+              className="size-5 cursor-pointer  text-gray-400"
+              onClick={() => setIsFavoriteState(!isFavoriteState)}
+            />
           ) : (
-            <BsFillHeartFill className="size-5 text-red-500 cursor-pointer transition-all" />
+            <BsFillHeartFill
+              className="size-5 text-red-500 cursor-pointer animate-pulse "
+              onClick={() => setIsFavoriteState(!isFavoriteState)}
+            />
           )}
         </div>
         <h5 className="text-[#90A3BF] text-xs sm:text-sm font-medium capitalize">
@@ -53,7 +62,10 @@ export const AutoCard = ({
             <figcaption className="absolute bottom-0 right-0 w-full h-10 sm:h-12 bg-gradient-to-t from-white via-white/80 to-transparent"></figcaption>
           </figure>
           <CardDescription className="flex justify-end w-1/3 sm:w-full sm:mt-6">
-            <ul className="flex flex-col justify-evenly gap-3 pl-4 sm:px-2 sm:flex-row sm:w-full sm:justify-between h-full [&>li]:flex [&>li]:items-center [&>li]:gap-1 [&>li>svg]:h-4 sm:[&>li>svg]:h-5 text-[#90A3BF] text-xs sm:text-sm">
+            <ul
+              className="flex flex-col justify-evenly gap-3 pl-4 sm:px-2 sm:flex-row sm:w-full sm:justify-between 
+            h-full [&>li]:flex [&>li]:items-center [&>li]:gap-1 [&>li>svg]:h-4 sm:[&>li>svg]:h-5 text-[#90A3BF] text-xs sm:text-sm"
+            >
               <li>
                 <BsFillFuelPumpFill className="size-6" />
                 <span className="font-normal">{specs?.fuel}</span>
