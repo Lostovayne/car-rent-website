@@ -1,4 +1,4 @@
-import { Button, AutoCard } from "../components";
+import { AutoCard } from "../components";
 import { SectionCards } from "../components/SectionCards";
 import { ArrayCars } from "../data";
 
@@ -10,8 +10,6 @@ export const Home = () => {
           <AutoCard key={car.id} {...car} />
         ))}
       </SectionCards>
-
-      <Button variant="outline">Button</Button>
     </div>
   );
 };
