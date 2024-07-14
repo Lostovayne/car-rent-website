@@ -7,7 +7,7 @@ En Rent-a-Wheels, nos enorgullece ofrecerte una experiencia de alquiler de vehí
 
 ## Demo
 
-<img src="https://img.remediosdigitales.com/3fba7e/autos-mas-vendidos-mexico-2023/1366_2000.jpg"  alt="vehiculos"/>
+<img src="https://acroadtrip.blob.core.windows.net/catalogo-imagenes/m/RT_V_398c1bb49f584affb6527e3bed96c069.jpg"  alt="vehiculos"/>
 
 
 ## Rendimiento
