@@ -7,5 +7,8 @@ export * from "./ui/avatar"
 
 export * from "./AutoCard";
 
-export * from "./reviews/Reviews"
+export * from "./details/CarDetails"
+export * from "./details/reviews/Reviews"
+export * from "./details/reviews/ReviewDetails"
+export * from "./details/reviews/ButtonShowAllReviews"
 

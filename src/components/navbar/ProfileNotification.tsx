@@ -11,7 +11,7 @@ interface Props {
 export const ProfileNotification = ({ user }: Props) => {
   return (
     <div className="flex gap-4">
-      <div className="sm:flex gap-4 hidden">
+      <div className="md:flex gap-4 hidden">
         {/* like */}
         <Button variant="link" size="icon" className="border rounded-full">
           <Heart className="size-4 text-red-500 fill-red-500" />

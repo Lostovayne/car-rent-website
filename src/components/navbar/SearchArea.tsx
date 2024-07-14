@@ -25,13 +25,13 @@ export const SearchArea = () => {
   };
 
   return (
-    <div className="flex border-2 items-center px-3 rounded-xl gap-3 order-last sm:order-none w-full sm:w-auto mt-3 sm:mt-0">
+    <div className="flex border-2 items-center px-3 rounded-xl gap-3 order-last md:order-none w-full mx-3 md:max-w-sm lg:max-w-2xl xl:w-full mt-3 md:mt-0">
       <Search size={24} className="text-gray-500 " />
 
       <Input
         type="text"
         placeholder="Search something here"
-        className="w-[24rem] p-1 focus:outline-none focus:border-none"
+        className="p-1 focus:outline-none focus:border-none"
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />

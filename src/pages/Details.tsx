@@ -1,7 +1,10 @@
-import { Reviews } from "../components"
+import { CarDetails } from "../components"
+import { dataCarDetails } from "../data"
 
-export const Details = () => {
+export const DetailsPage = () => {
+  const carDetails = dataCarDetails
+
   return (
-    <Reviews />
+    <CarDetails carDetails={carDetails}/>
   )
 }
