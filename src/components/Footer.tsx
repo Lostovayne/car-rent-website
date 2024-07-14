@@ -12,11 +12,9 @@ export const Footer = () => {
           </p>
         </div>
         <div className="flex justify-between sm:justify-center flex-wrap max-md:py-6  gap-3 lg:gap-16 sm:px-12 ">
-         
-            <ColumFooter section={DataColumnFooter[0]} />
-            <ColumFooter section={DataColumnFooter[1]} />
-            <ColumFooter section={DataColumnFooter[2]} />
-          
+          <ColumFooter section={DataColumnFooter[0]} />
+          <ColumFooter section={DataColumnFooter[1]} />
+          <ColumFooter section={DataColumnFooter[2]} />
         </div>
       </div>
       <div className="flex flex-col-reverse md:flex-row gap-4 md:gap-0 justify-between border-t-2 font-bold border-[#131313] border-opacity-[16%] py-4">
