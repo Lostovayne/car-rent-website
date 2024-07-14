@@ -112,4 +112,5 @@ Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para má
 
 ## 👏 Gracias a todos por sus contribuciones
 
-<img align="left" src="https://contributors-img.web.app/image?repo=Lostovayne/car-rent-website"/>
+
+[![Contribuidores](https://contrib.rocks/image?repo=Lostovayne/car-rent-website&max=500&columns=20)](https://github.com/Lostovayne/car-rent-website/graphs/contributors)
