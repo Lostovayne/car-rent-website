@@ -9,7 +9,7 @@ interface Props {
 
 export const Navbar = ({user}:Props) => {
 	return (
-		<div className='flex flex-wrap justify-between items-center py-5 bg-[#ffffff] max-w-screen-2xl lg:mx-auto max-lg:mx-8 '>
+		<div className='flex flex-wrap justify-between items-center py-5 px-5 md:px-5 max-w-screen-2xl'>
 			<Logo />
 			<SearchArea />
 			<ProfileNotification
