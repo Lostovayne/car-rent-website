@@ -24,6 +24,10 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         backgroundSecondary: "#F6F7F9",
+        primaryColor: "#3563E9",
+        textPrimary: "#1A202C",
+        textSecondary: "#90A3BF",
+        activeButton: "#1A37A7",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -73,8 +77,8 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        jakartaSans: ['Plus Jakarta Sans', 'sans-serif'],
-      }
+        jakartaSans: ["Plus Jakarta Sans", "sans-serif"],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

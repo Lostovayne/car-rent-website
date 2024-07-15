@@ -11,7 +11,7 @@ interface Props {
 export const ProfileNotification = ({ user }: Props) => {
   return (
     <div className="flex gap-4">
-      <div className="md:flex gap-4 hidden">
+      <div className="hidden min-[850px]:flex gap-4 ">
         {/* like */}
         <Button variant="link" size="icon" className="border rounded-full">
           <Heart className="size-4 text-red-500 fill-red-500" />
@@ -36,7 +36,7 @@ export const ProfileNotification = ({ user }: Props) => {
       </div>
 
       {/* avatar */}
-      <Avatar>
+      <Avatar className="size-10">
         <AvatarImage src={user.imageUrl} className="" />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>

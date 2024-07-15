@@ -25,7 +25,7 @@ export const SearchArea = () => {
   };
 
   return (
-    <div className="flex border-2 items-center px-3 rounded-xl gap-3 order-last md:order-none w-full mx-3 md:max-w-sm lg:max-w-2xl xl:w-full mt-3 md:mt-0">
+    <div className="flex border-2 items-center px-3 md:mx-3 rounded-xl gap-3 order-last md:order-none w-full md:max-w-sm lg:max-w-xl xl:w-full md:mt-0">
       <Search size={24} className="text-gray-500 " />
 
       <Input
