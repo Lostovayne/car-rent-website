@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
+import { precioAumentado } from "../helper/index";
 
 import {
   BsFillFuelPumpFill,
@@ -29,10 +30,13 @@ export const AutoCard = ({
   const [isFavoriteState, setIsFavoriteState] = useState(false);
 
   return (
-    <Card className="flex flex-col justify-between bg-white border-0 p-5 rounded-xl w-80 h-60 sm:h-96">
+    <Card
+      className="flex flex-col justify-between bg-white border-0 p-5 rounded-xl w-80 h-60 sm:h-96"
+      id={id}
+    >
       <CardHeader className="flex flex-col w-full p-0">
         <div className="flex justify-between items-center w-full">
-          <CardTitle className="text-[#1A202C] text-lg sm:text-xl uppercase leading-5 max-sm:font-normal font-medium">
+          <CardTitle className="text-textPrimary text-lg sm:text-xl uppercase leading-5 max-sm:font-normal font-medium">
             {model}
           </CardTitle>
           {!isFavoriteState ? (
@@ -47,7 +51,7 @@ export const AutoCard = ({
             />
           )}
         </div>
-        <h5 className="text-[#90A3BF] text-xs sm:text-sm font-medium capitalize">
+        <h5 className="text-textSecondary text-xs sm:text-sm font-medium capitalize">
           {type}
         </h5>
       </CardHeader>
@@ -64,7 +68,7 @@ export const AutoCard = ({
           <CardDescription className="flex justify-end w-1/3 sm:w-full sm:mt-6">
             <ul
               className="flex flex-col justify-evenly gap-3 pl-4 sm:px-2 sm:flex-row sm:w-full sm:justify-between 
-            h-full [&>li]:flex [&>li]:items-center [&>li]:gap-1 [&>li>svg]:h-4 sm:[&>li>svg]:h-5 text-[#90A3BF] text-xs sm:text-sm"
+            h-full [&>li]:flex [&>li]:items-center [&>li]:gap-1 [&>li>svg]:h-4 sm:[&>li>svg]:h-5 text-textSecondary text-xs sm:text-sm"
             >
               <li>
                 <BsFillFuelPumpFill className="size-6" />
@@ -83,15 +87,15 @@ export const AutoCard = ({
         </CardContent>
         <CardFooter className="flex justify-between items-center w-full p-0 mt-5 sm:mt-6">
           <div>
-            <span className="font-medium text-[#1A202C] text-lg sm:text-2xl">
+            <span className="font-medium text-textPrimary text-lg sm:text-2xl">
               ${price}/
             </span>
-            <span className="text-[#90A3BF] text-sm">&nbsp;day</span>
-            <span className="block text-xs sm:text-sm text-[#90A3BF] font-medium line-through">
-              $100
+            <span className="text-textSecondary text-sm">&nbsp;day</span>
+            <span className="block text-xs sm:text-sm text-textSecondary font-medium line-through">
+              ${precioAumentado(price)}
             </span>
           </div>
-          <Button className="bg-[#3563e9] font-medium px-4 py-2 rounded-sm text-white text-xs sm:text-base">
+          <Button className=" font-medium px-4 py-2 rounded-sm text-white text-xs sm:text-base">
             Rental Now
           </Button>
         </CardFooter>
