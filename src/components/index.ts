@@ -11,4 +11,5 @@ export * from "./details/CarDetails"
 export * from "./details/reviews/Reviews"
 export * from "./details/reviews/ReviewDetails"
 export * from "./details/reviews/ButtonShowAllReviews"
+export * from "./details/reviews/StarReviewRating"
 
