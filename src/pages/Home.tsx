@@ -4,7 +4,7 @@ import { ArrayCars } from "../data";
 
 export const Home = () => {
   return (
-    <div className="bg-backgroundSecondary mx-auto max-w-screen-2xl min-h-dvh">
+    <div className=" mx-auto max-w-screen-2xl min-h-dvh">
       <SectionCards title="Popular Car" moreContent={true}>
         {ArrayCars.map((car) => (
           <AutoCard key={car.id} {...car} />

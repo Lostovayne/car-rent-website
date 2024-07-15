@@ -6,9 +6,9 @@ export const UserLayout = () => {
   const user = dataUser;
 
   return (
-    <div className=" container mx-auto">
+    <div className="bg-white ">
       <Navbar user={user} />
-      <main>
+      <main className="bg-backgroundSecondary">
         <Outlet />
       </main>
       <Footer />

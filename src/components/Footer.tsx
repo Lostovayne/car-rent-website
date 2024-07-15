@@ -2,7 +2,7 @@ import ColumFooter from "./ColumFooter";
 import { DataColumnFooter } from "../constants/DataColumnFooter";
 export const Footer = () => {
   return (
-    <footer className=" w-full pb-12 pt-16 ">
+    <footer className=" pb-12 pt-16 container mx-auto ">
       <div className="flex flex-col md:flex-row  justify-between  pb-6 ">
         <header className="md:w-[292px]">
           <h3 className="text-primaryColor font-bold text-3xl pb-4">MORENT</h3>

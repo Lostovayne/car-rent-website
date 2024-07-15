@@ -9,7 +9,7 @@ interface Props {
 
 export const Navbar = ({ user }: Props) => {
   return (
-    <nav className="flex flex-wrap items-center justify-between gap-y-5  p-5 max-w-screen-2xl">
+    <nav className="flex flex-wrap items-center justify-between gap-y-5  p-5 container mx-auto">
       <Logo />
       <SearchArea />
       <ProfileNotification user={user} />

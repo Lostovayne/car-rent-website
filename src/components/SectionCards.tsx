@@ -10,7 +10,7 @@ export const SectionCards = ({
   moreContent?: boolean;
 }) => {
   return (
-    <section>
+    <section className="container py-5" >
       <div className=" p-5 flex items-center justify-between">
         <h2 className="text-textSecondary font-medium">{title}</h2>
         {moreContent ? (
