@@ -1,7 +1,8 @@
 import { Star } from "lucide-react"
 import { Avatar, AvatarImage } from "../../ui/avatar"
 import type { IReview } from "../../../interfaces"
-import { formatDate } from "../../../lib"
+import { formatDate } from "../../../helper"
+
 
 
 export const ReviewDetails = ({ review }: { review: IReview }) => {

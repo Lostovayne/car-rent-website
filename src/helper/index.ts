@@ -1,4 +1,4 @@
-export * from "../lib/date.lib"
+export * from "./date.helper"
 
 // TODO: mover a otro fichero
 export function precioAumentado(price: number) {
