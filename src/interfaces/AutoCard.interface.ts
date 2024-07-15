@@ -4,7 +4,6 @@ export interface AutoCardProps {
   type: string;
   image: string;
   price: number;
-  isFavorite: boolean;
   specs: {
     fuel: string;
     transmission: string;

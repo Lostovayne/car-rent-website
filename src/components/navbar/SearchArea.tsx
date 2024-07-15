@@ -1,18 +1,46 @@
-import { Search, SlidersHorizontal } from "lucide-react"
-import { Input } from "../ui/input"
+import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { Search, SlidersHorizontal } from "lucide-react";
+import { Input } from "../ui/input";
 
 export const SearchArea = () => {
-    return (
-        <div className='flex border-2 items-center px-3 rounded-xl gap-3 border-[#C3D4E9] order-last sm:order-none w-full sm:w-auto mt-3 sm:mt-0'>
-            <Search width={24} height={24} />
+  const [inputValue, setInputValue] = useState<string>("");
 
-            <Input
-                type='text'
-                placeholder='Search something here'
-                className="w-[24rem] p-1 focus:outline-none focus:border-none"
-            />
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      doSearch(inputValue);
+    }
+  };
 
-            <SlidersHorizontal width={24} height={24} onClick={()=>alert('eeeee')}/>
-        </div>
-    )
-}
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleClick = () => {
+    doSearch(inputValue);
+  };
+
+  const doSearch = (query: string) => {
+    alert(`Searching for: ${query}`);
+    // Aquí puedes agregar la lógica de búsqueda
+  };
+
+  return (
+    <div className="flex border-2 items-center px-3 md:mx-3 rounded-xl gap-3 order-last md:order-none w-full md:max-w-sm lg:max-w-xl xl:w-full md:mt-0">
+      <Search size={24} className="text-gray-500 " />
+
+      <Input
+        type="text"
+        placeholder="Search something here"
+        className="p-1 focus:outline-none focus:border-none"
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+      />
+
+      <SlidersHorizontal
+        size={24}
+        onClick={handleClick}
+        className="text-gray-500 cursor-pointer"
+      />
+    </div>
+  );
+};

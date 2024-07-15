@@ -1,17 +1,18 @@
-import { Logo } from './Logo';
-import { ProfilNotification } from './ProfilNotification';
-import { SearchArea } from './SearchArea';
+import { IUser } from "../../interfaces/user.interface";
+import { Logo } from "./Logo";
+import { ProfileNotification } from "./ProfileNotification";
+import { SearchArea } from "./SearchArea";
 
-export const Navbar = () => {
-	return (
-		<div className='flex flex-wrap justify-between items-center py-5 bg-[#ffffff] mx-[29.06px]'>
-			<Logo />
-			<SearchArea />
-			<ProfilNotification
-				unreadNotifications={true}
-			/>
-		</div>
-	)
+interface Props {
+  user: IUser;
+}
+
+export const Navbar = ({ user }: Props) => {
+  return (
+    <nav className="flex flex-wrap items-center justify-between gap-y-5  p-5 container mx-auto">
+      <Logo />
+      <SearchArea />
+      <ProfileNotification user={user} />
+    </nav>
+  );
 };
-
-
