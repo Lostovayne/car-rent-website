@@ -7,7 +7,7 @@ export const StarReviewRating = ({ rating }: { rating: number }) => {
           Array.from({ length: 5 }).map((_, index) => (
             <div key={index}>
               {
-              (index < rating)
+              (index < Math.round(rating))
                 ? <Star size={18} className="fill-yellow-500 text-yellow-500" />
                 : <Star size={18} className="text-gray-400" />
               }

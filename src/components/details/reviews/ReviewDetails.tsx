@@ -10,11 +10,11 @@ export const ReviewDetails = ({ review }: { review: IReview }) => {
     <div className="flex w-full gap-3">
 
       {/* avatar */}
-      <div className="flex w-[4rem] justify-center">
+      <figure className="flex w-[4rem] justify-center">
         <Avatar className="size-12">
           <AvatarImage src={review.user.imageUrl} alt={'ed'} className="" />
         </Avatar>
-      </div>
+      </figure>
 
       {/* review */}
       <div className="flex flex-col gap-2 w-full">

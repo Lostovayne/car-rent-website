@@ -20,6 +20,11 @@ export const Reviews = ({ reviews }: Props) => {
         <span className="bg-blue-500 text-white py-0 px-4">{totalReviews}</span>
       </div>
 
+      {
+        !totalReviews 
+        && <div>Aún no hay reseñas</div>
+      }
+
       {/* reviews */}
       <div className="flex flex-col gap-7 mt-3">
         {
@@ -31,10 +36,15 @@ export const Reviews = ({ reviews }: Props) => {
           ))
         }
 
-        <ButtonShowAllReviews
-          isShowAllReviews={isShowAllReviews}
-          handleOnClick={() => setIsShowAllReviews(!isShowAllReviews)}
-        />
+        {
+          totalReviews>0
+          && (
+            <ButtonShowAllReviews
+              isShowAllReviews={isShowAllReviews}
+              handleOnClick={() => setIsShowAllReviews(!isShowAllReviews)}
+            />
+          )
+        }
 
         {
           (isShowAllReviews) &&
