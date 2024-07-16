@@ -16,7 +16,7 @@ export const CarTotales = () => {
         </div>
   
         {/* apply now */}
-        <div className="flex justify-between px-10 bg-gray-200 p-2">
+        <div className="flex justify-between px-10 bg-gray-100 p-2">
           <span className="font-light">Apply promo code</span>
           <span className="font-bold">Apply now</span>
         </div>
