@@ -3,11 +3,13 @@ import { AdminLayout, UserLayout } from "../layout";
 import { DetailsPage, Home, PaymentPage } from "../pages";
 import { Category } from "../pages/Category";
 import { FilterLayout } from "../layout/FilterLayout";
+import { Error } from "../pages/Error";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <UserLayout />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
