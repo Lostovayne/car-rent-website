@@ -1,6 +1,6 @@
 import { Button } from "../components";
-import { ViewCars } from "../components/section-car/ViewCars";
-import { SectionCards } from "../components/section-car/SectionCards";
+import { ViewCars } from "../components/sectionCar/ViewCars";
+import { SectionCards } from "../components/sectionCar/SectionCards";
 
 export const Home: React.FC = () => {
   return (
