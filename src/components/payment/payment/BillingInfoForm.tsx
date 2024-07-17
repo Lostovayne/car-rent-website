@@ -43,8 +43,6 @@ export const BillingInfo = () => {
   }
 
   return (
-    <div className="p-3">
-      
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -119,7 +117,6 @@ export const BillingInfo = () => {
 
         </form>
       </Form>
-    </div>
   )
 }
 
