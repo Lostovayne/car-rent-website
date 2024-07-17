@@ -1,8 +1,8 @@
-import { ICarDetails } from "../../interfaces"
+import { ICar } from "../../interfaces"
 import { Reviews } from "./reviews/Reviews"
 
 interface Props {
-  carDetails: ICarDetails
+  carDetails: ICar
 }
 
 export const CarDetails = ({ carDetails }: Props) => {
@@ -22,7 +22,7 @@ export const CarDetails = ({ carDetails }: Props) => {
         </div>
 
         {/* reviews */}
-        <Reviews reviews={carDetails.reviews} />
+        <Reviews reviews={carDetails.reviews?? []} />
 
         {/* recent car */}
         <div className="bg-blue-300">Recent Car</div>

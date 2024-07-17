@@ -36,10 +36,12 @@ export const ProfileNotification = ({ user }: Props) => {
       </div>
 
       {/* avatar */}
-      <Avatar className="size-10">
-        <AvatarImage src={user.imageUrl} className="" />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
+      <figure>
+        <Avatar className="size-10">
+          <AvatarImage src={user.imageUrl} className="" />
+          <AvatarFallback>...</AvatarFallback>
+        </Avatar>
+      </figure>
     </div>
   );
 };

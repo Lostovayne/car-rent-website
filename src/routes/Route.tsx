@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { AdminLayout, UserLayout } from "../layout";
-import { DetailsPage, Home } from "../pages";
+import { DetailsPage, Home, PaymentPage } from "../pages";
+
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "payment",
-        element: <div>Payment</div>,
+        element: <PaymentPage />,
       },
     ],
   },

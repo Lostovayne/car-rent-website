@@ -1,9 +1,12 @@
 import { IUser } from "./user.interface"
 
 export interface IReview {
-    user: IUser
+    carId: string
+    userId: string
     createAt: Date
     rating: number
     text: string
+
+    user: IUser
 }
 
