@@ -9,7 +9,7 @@ interface Props {
 
 export const Reviews = ({ reviews }: Props) => {
   const [isShowAllReviews, setIsShowAllReviews] = useState(false)
-  const totalViews = reviews.length
+  const totalReviews = reviews.length
 
   return (
     <div className="bg-background round rounded-md p-6 border border-blue-800 flex flex-col gap-2">
@@ -17,8 +17,13 @@ export const Reviews = ({ reviews }: Props) => {
       {/* title */}
       <div className="flex justify-start gap-4 items-center">
         <span className="text-xl sm:text-2xl">Reviews</span>
-        <span className="bg-blue-500 text-white py-0 px-4">{totalViews}</span>
+        <span className="bg-blue-500 text-white py-0 px-4">{totalReviews}</span>
       </div>
+
+      {
+        !totalReviews 
+        && <div>Aún no hay reseñas</div>
+      }
 
       {/* reviews */}
       <div className="flex flex-col gap-7 mt-3">
@@ -31,10 +36,15 @@ export const Reviews = ({ reviews }: Props) => {
           ))
         }
 
-        <ButtonShowAllReviews
-          isShowAllReviews={isShowAllReviews}
-          handleOnClick={() => setIsShowAllReviews(!isShowAllReviews)}
-        />
+        {
+          totalReviews>0
+          && (
+            <ButtonShowAllReviews
+              isShowAllReviews={isShowAllReviews}
+              handleOnClick={() => setIsShowAllReviews(!isShowAllReviews)}
+            />
+          )
+        }
 
         {
           (isShowAllReviews) &&
