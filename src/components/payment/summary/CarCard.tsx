@@ -25,10 +25,10 @@ export const CarCard = ({ car, carReviews }: Props ) => {
         </div>
   
         <div className="col-span-2 flex flex-col gap-2 px-3 justify-center">
-          <span className="text-3xl font-bold">{car.model}</span>
+          <h1 className="text-3xl font-bold">{car.model}</h1>
           <div className="flex gap-3 ">
             <StarReviewRating rating={carReviews.averageRating} />
-            <span>{carReviews.total} Reviews </span>
+            <h2>{carReviews.total} Reviews </h2>
           </div>
         </div>
       </div >
