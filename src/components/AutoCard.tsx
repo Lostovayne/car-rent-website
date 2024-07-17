@@ -1,23 +1,22 @@
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "../components/ui/card";
 import { precioAumentado } from "../helper/index";
 
+import { useState } from "react";
 import {
   BsFillFuelPumpFill,
-  BsGearWideConnected,
-  BsPeopleFill,
   BsFillHeartFill,
+  BsGearWideConnected,
   BsHeart,
+  BsPeopleFill,
 } from "react-icons/bs";
 import { AutoCardProps } from "../interfaces/AutoCard.interface";
 import { Button } from "./ui/button";
-import { useState } from "react";
 
 export const AutoCard = ({
   id,
@@ -65,7 +64,7 @@ export const AutoCard = ({
             />
             <figcaption className="absolute bottom-0 right-0 w-full h-10 sm:h-12 bg-gradient-to-t from-white via-white/80 to-transparent"></figcaption>
           </figure>
-          <CardDescription className="flex justify-end w-1/3 sm:w-full sm:mt-6">
+          <div className="flex justify-end w-1/3 sm:w-full sm:mt-6">
             <ul
               className="flex flex-col justify-evenly gap-3 pl-4 sm:px-2 sm:flex-row sm:w-full sm:justify-between 
             h-full [&>li]:flex [&>li]:items-center [&>li]:gap-1 [&>li>svg]:h-4 sm:[&>li>svg]:h-5 text-textSecondary text-xs sm:text-sm"
@@ -83,7 +82,7 @@ export const AutoCard = ({
                 <span className="font-normal">{specs?.capacity} People</span>
               </li>
             </ul>
-          </CardDescription>
+          </div>
         </CardContent>
         <CardFooter className="flex justify-between items-center w-full p-0 mt-5 sm:mt-6">
           <div>

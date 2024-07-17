@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import { AdminLayout, UserLayout } from "../layout";
 import { DetailsPage, Home, PaymentPage } from "../pages";
-
+import { Category } from "../pages/Category";
+import { FilterLayout } from "../layout/FilterLayout";
 
 export const router = createBrowserRouter([
   {
@@ -12,13 +13,24 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+
       {
-        path: "category",
-        element: <div>Category</div>,
-      },
-      {
-        path: "details",
-        element: <DetailsPage />,
+        path: "cars/",
+        element: <FilterLayout />,
+        children: [
+          {
+            path: "category",
+            element: <Category />,
+          },
+          {
+            path: "details",
+            element: <DetailsPage />,
+          },
+          {
+            index: true,
+            element: <Category />,
+          },
+        ],
       },
       {
         path: "payment",

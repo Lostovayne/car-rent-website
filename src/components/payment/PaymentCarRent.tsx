@@ -1,27 +1,25 @@
-import { RentalSummary } from "./summary/RentalSummary"
-import { dataCarDetails, dataReviews } from "../../data"
-import { BillingInfo } from "./payment/BillingInfo"
-import { ConfirmationRental } from "./payment/ConfirmationRental"
+import { RentalSummary } from "./summary/RentalSummary";
+import { dataCarDetails, dataReviews } from "../../data";
+import { BillingInfo } from "./payment/BillingInfo";
+import { ConfirmationRental } from "./payment/ConfirmationRental";
 
-
-
-const carDetails = dataCarDetails
+const carDetails = dataCarDetails;
 
 export const PaymentCarRent = () => {
-
-  const averageRating = (carDetails.reviews?.reduce((acum, current) => (current.rating + acum), 0) ?? 0) / dataReviews.length
-  const totalReviews = carDetails.reviews?.length ?? 0
+  const averageRating =
+    (carDetails.reviews?.reduce((acum, current) => current.rating + acum, 0) ??
+      0) / dataReviews.length;
+  const totalReviews = carDetails.reviews?.length ?? 0;
 
   return (
     <div className="grid w-full grid-cols-1 md:grid-cols-5 gap-2">
-
       {/* rental summary */}
       <div className="col-span-2 bg-red-300 order-first md:order-last">
         <RentalSummary
           car={carDetails}
           carReviews={{
             total: totalReviews,
-            averageRating: averageRating
+            averageRating: averageRating,
           }}
         />
       </div>
@@ -39,8 +37,6 @@ export const PaymentCarRent = () => {
           </div>
         </div>
       </div>
-
     </div>
-
-  )
-}
+  );
+};

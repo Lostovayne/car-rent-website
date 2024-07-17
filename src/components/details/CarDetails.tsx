@@ -9,8 +9,6 @@ export const CarDetails = ({ carDetails }: Props) => {
   return (
     <div className="flex bg-backgroundSecondary">
 
-      {/* NavBarSide */}
-      <div className="hidden md:flex w-3/12 bg-red-500">Nav Bar Side</div>
 
       {/* right side : details*/}
       <div className="flex flex-col w-full bg-yellow-300">
