@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
             element: <Category />,
           },
           {
-            path: "details",
+            path: "details/:carId",
             element: <DetailsPage />,
           },
           {
