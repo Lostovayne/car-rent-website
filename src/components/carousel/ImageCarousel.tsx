@@ -1,20 +1,19 @@
 import { useState } from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "../../components/ui/carousel";
-import { ImageUrl } from "./index";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 interface ImagesCarouselProps {
   images: ImageUrl[];
+}
+
+interface ImageUrl {
+  url: string;
 }
 
 export const ImageCarousel: React.FC<ImagesCarouselProps> = ({ images }) => {
   const [selectedImage, setSelectedImage] = useState(images[0].url);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
-  const handleImageClick = (index: number) => {
+  const handleImageClick = (index: number): void => {
     setSelectedImage(images[index].url);
     setSelectedImageIndex(index);
   };
@@ -36,10 +35,9 @@ export const ImageCarousel: React.FC<ImagesCarouselProps> = ({ images }) => {
           {images.map((image, index) => (
             <CarouselItem
               key={index}
-              className={`w-full h-full  ${
-                selectedImageIndex === index
-                  ? "p-1 border-2 border-primaryColor transition-all duration-100 "
-                  : "p-0"
+              className={`w-full h-full p-0 ${
+                selectedImageIndex === index &&
+                "p-1 border-2 border-primaryColor transition-all duration-100 "
               }`}
               onClick={() => handleImageClick(index)}
             >
@@ -55,3 +53,5 @@ export const ImageCarousel: React.FC<ImagesCarouselProps> = ({ images }) => {
     </div>
   );
 };
+
+// Todo: Componetizar la imagen del carrusel => Remplazar el Template String por cn , quitar el estado adicional, agregar el id al array

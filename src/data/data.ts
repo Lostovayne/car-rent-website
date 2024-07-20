@@ -1,5 +1,5 @@
 import { AutoCardProps } from "../interfaces/AutoCard.interface";
-import { ImageUrl } from "../lib/carousel";
+import { ImageUrl } from "../components/carousel";
 
 export const ArrayCars: AutoCardProps[] = [
   {

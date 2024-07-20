@@ -1,7 +1,8 @@
 import { ICar } from "../../interfaces";
 import { Reviews } from "./reviews/Reviews";
-import { ImageCarousel } from "../../lib";
+
 import { imagesUrl } from "../../data/data";
+import { ImageCarousel } from "../carousel/ImageCarousel";
 
 interface Props {
   carDetails: ICar;
