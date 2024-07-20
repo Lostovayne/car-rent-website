@@ -1,4 +1,5 @@
 import { AutoCardProps } from "../interfaces/AutoCard.interface";
+import { ImageUrl } from "../lib/carousel";
 
 export const ArrayCars: AutoCardProps[] = [
   {
@@ -144,5 +145,17 @@ export const ArrayCars: AutoCardProps[] = [
       transmission: "Manual",
       capacity: 6,
     },
+  },
+];
+
+export const imagesUrl: ImageUrl[] = [
+  {
+    url: "https://wallpapers.com/images/high/white-audi-r8-side-view-iwxjm6fqrg44uufq.png",
+  },
+  {
+    url: "https://images.pexels.com/photos/10535667/pexels-photo-10535667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
+    url: "https://images.pexels.com/photos/17156920/pexels-photo-17156920/free-photo-of-automatic-gearbox-lever.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
 ];
