@@ -7,6 +7,8 @@ export * from "./ui/card"
 export * from "./ui/input"
 export * from "./ui/label"
 export * from "./ui/form"
+export * from "./ui/popover"
+export * from "./ui/calendar"
 
 export * from "./AutoCard";
 
