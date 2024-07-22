@@ -1,8 +1,8 @@
 import { RentalSummary } from "./summary/RentalSummary";
 import { dataCarDetails, dataReviews } from "../../data";
-import { BillingInfo } from "./payment/BillingInfo";
-import { ConfirmationRental } from "./payment/ConfirmationRental";
+import { PaymentInfoForm } from "./payment/PaymentInfoForm";
 
+import { ConfirmationRental } from "./payment/ConfirmationRental";
 const carDetails = dataCarDetails;
 
 export const PaymentCarRent = () => {
@@ -28,9 +28,8 @@ export const PaymentCarRent = () => {
       <div className="col-span-3 ">
         <div className="flex flex-col ">
           <div className=" bg-cyan-200">
-            <BillingInfo />
+            <PaymentInfoForm />
           </div>
-          <div className=" bg-cyan-400">Rental info</div>
           <div className=" bg-cyan-700">Payment method</div>
           <div className=" bg-orange-300">
             <ConfirmationRental />

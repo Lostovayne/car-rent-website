@@ -21,7 +21,7 @@ const formSchema = z.object({
   city: z.string().min(3).max(30),
 });
 
-export const BillingInfo = () => {
+export const PaymentInfoForm = () => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
