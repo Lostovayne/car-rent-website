@@ -14,7 +14,7 @@ export const PaymentCarRent = () => {
   return (
     <div className="grid w-full grid-cols-1 md:grid-cols-5 gap-2">
       {/* rental summary */}
-      <div className="col-span-2 bg-red-300 order-first md:order-last">
+      <div className="col-span-2 order-first md:order-last">
         <RentalSummary
           car={carDetails}
           carReviews={{
@@ -27,7 +27,7 @@ export const PaymentCarRent = () => {
       {/* payment */}
       <div className="col-span-3 ">
         <div className="flex flex-col ">
-          <div className=" bg-cyan-200">
+          <div className=" ">
             <PaymentInfoForm />
           </div>
           <div className=" bg-cyan-700">Payment method</div>

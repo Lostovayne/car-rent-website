@@ -22,3 +22,4 @@ export * from "./payment/summary/CarTotales"
 export * from "./payment/summary/RentalSummary"
 export * from "./payment/payment/ConfirmationRental"
 
+export * from "./sectionCar/SectionCards"
