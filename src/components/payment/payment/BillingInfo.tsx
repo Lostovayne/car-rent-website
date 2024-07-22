@@ -47,6 +47,7 @@ export const BillingInfo = () => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="grid grid-cols-0 sm:grid-cols-2 gap-7"
         >
+
           {/* name */}
           <FormField
             control={form.control}
@@ -110,9 +111,12 @@ export const BillingInfo = () => {
             )}
           />
 
+
           <Button type="submit">Submit</Button>
         </form>
       </Form>
     </div>
   );
 };
+
+
