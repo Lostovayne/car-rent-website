@@ -1,27 +1,11 @@
-import { useState } from "react";
+import { useSelected } from "../../hooks/useSelected";
+import { ImagesCarouselProps } from "../../interfaces";
+import { cn } from "../../lib/utils";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import { Image } from "./Image";
-import { cn } from "../../lib/utils";
-
-interface ImagesCarouselProps {
-  images: ImageUrl[];
-}
-
-interface ImageUrl {
-  url: string;
-  alt: string;
-  id: number;
-}
 
 export const ImageCarousel: React.FC<ImagesCarouselProps> = ({ images }) => {
-  const [selectedImage, setSelectedImage] = useState(images[0].url);
-
-  const handleImageClick = (id: number): void => {
-    const clickedImage = images.find((image) => image.id === id);
-    if (clickedImage) {
-      setSelectedImage(clickedImage.url);
-    }
-  };
+  const { selectedImage, handleImageClick } = useSelected({ images });
 
   return (
     <div className="flex flex-col gap-y-2 w-full h-full max-w-md">
@@ -33,16 +17,16 @@ export const ImageCarousel: React.FC<ImagesCarouselProps> = ({ images }) => {
 
       <Carousel className="w-full">
         <CarouselContent className="px-4 gap-2 [&>div]:basis-1/3 [&>div]:bg-white [&>div]:rounded-lg [&>div]:h-24 [&>div]:overflow-hidden [&>div>img]:w-full [&>div>img]:h-full [&>div>img]:object-cover ">
-          {images.map((image) => (
+          {images.map(({ id, url, alt }) => (
             <CarouselItem
-              key={image.id}
+              key={id}
               className={cn` p-0 ${
-                selectedImage === image.url &&
+                selectedImage === url &&
                 "p-1 border-2 border-primaryColor/60 transition-all duration-100 ease-in-out"
               }`}
-              onClick={() => handleImageClick(image.id)}
+              onClick={() => handleImageClick(id)}
             >
-              <Image src={image.url} className="rounded-lg" alt={image.alt} />
+              <Image src={url} className="rounded-lg" alt={alt} />
             </CarouselItem>
           ))}
         </CarouselContent>
