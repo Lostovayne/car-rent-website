@@ -14,7 +14,7 @@ export const ConfirmationRental = () => {
       <PaymentSectionHeader
         title="Confirmation"
         description="We are getting to the end. Just few clicks and your rental is ready!"
-        stepLabel="step 4 of 4"
+        stepLabel={4}
       />
 
       <CardContent className="flex flex-col space-y-8">
