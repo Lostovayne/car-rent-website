@@ -1,4 +1,4 @@
-export * from "./data"
+export * from "./cars.data"
 export * from "./user.data"
 export * from "./details.data"
 
