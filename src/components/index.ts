@@ -7,6 +7,9 @@ export * from "./ui/card"
 export * from "./ui/input"
 export * from "./ui/label"
 export * from "./ui/form"
+export * from "./ui/popover"
+export * from "./ui/calendar"
+export * from "./ui/select"
 
 export * from "./AutoCard";
 
@@ -21,3 +24,5 @@ export * from "./payment/summary/CarCard"
 export * from "./payment/summary/CarTotales"
 export * from "./payment/summary/RentalSummary"
 export * from "./payment/payment/ConfirmationRental"
+
+export * from "./sectionCar/SectionCards"
