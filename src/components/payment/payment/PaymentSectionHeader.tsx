@@ -3,7 +3,7 @@ import { CardDescription, CardHeader, CardTitle } from "../../ui/card"
 interface Props {
   title: string,
   description: string
-  stepLabel: number
+  stepLabel: string
   levels?: number
 }
 

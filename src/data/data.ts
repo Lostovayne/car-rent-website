@@ -1,5 +1,4 @@
 import { AutoCardProps } from "../interfaces/AutoCard.interface";
-import { ImageUrl } from "../components/carousel";
 
 export const ArrayCars: AutoCardProps[] = [
   {
@@ -148,7 +147,7 @@ export const ArrayCars: AutoCardProps[] = [
   },
 ];
 
-export const imagesUrl: ImageUrl[] = [
+export const imagesUrl: { url: string }[] = [
   {
     url: "https://wallpapers.com/images/high/white-audi-r8-side-view-iwxjm6fqrg44uufq.png",
   },
