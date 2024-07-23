@@ -3,7 +3,7 @@ import { CardDescription, CardHeader, CardTitle } from "../../ui/card"
 interface Props {
   title: string,
   description: string
-  stepLabel: string
+  stepLabel: number
   levels?: number
 }
 
@@ -11,7 +11,7 @@ export const PaymentSectionHeader: React.FC<Props> = ({
   title,
   description,
   stepLabel,
-  levels=3
+  levels=4
 }) => {
 
   return (
