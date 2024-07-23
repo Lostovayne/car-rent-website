@@ -5,7 +5,6 @@ import { z } from "zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   //FormDescription,
   FormField,
   FormItem,
@@ -20,6 +19,8 @@ import { cn } from "../../../lib/utils";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { Calendar } from "../../ui/calendar";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/select";
+import { PaymentSectionHeader } from "./PaymentSectionHeader";
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
@@ -30,6 +31,8 @@ const formSchema = z.object({
   pickUpDate: z.date({
     required_error: "A date of birth is required.",
   }),
+  pickUpLocation: z.string().min(2).max(50),
+  pickUpTime: z.string().min(2).max(50),
 });
 
 export const PaymentInfoForm = () => {
@@ -56,11 +59,19 @@ export const PaymentInfoForm = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="grid grid-cols-0 gap-7"
+          className=""
         >
-
+          
           {/* Billing Info */}
+
+          <PaymentSectionHeader 
+            title="Billing Info"
+            description="Please enter your billing info"
+            stepLabel={1}
+          />
+
           <SectionCards className="grid grid-cols-0 sm:grid-cols-2 gap-7">
+
             {/* name */}
             <FormField
               control={form.control}
@@ -128,50 +139,113 @@ export const PaymentInfoForm = () => {
 
 
           {/* Rental Info */}
-          <SectionCards className="grid grid-cols-0 sm:grid-cols-2 gap-7">
+
+          <PaymentSectionHeader 
+            title="Rental Info"
+            description="Please select your rental date"
+            stepLabel={2}
+          />
+
+          <SectionCards className="grid grid-cols-0 sm:grid-cols-0 gap-7 ">
 
             {/* Pick Up */}
-            <FormField
-              control={form.control}
-              name="pickUpDate"
-              render={({ field }) => (
-                <FormItem className="flex flex-col">
-                  <FormLabel>Date</FormLabel>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <FormControl>
-                        <Button
-                          variant={"outline"}
-                          className={cn(
-                            "w-[240px] pl-3 text-left font-normal",
-                            !field.value && "text-muted-foreground"
-                          )}
-                        >
-                          {field.value ? (
-                            format(field.value, "PPP")
-                          ) : (
-                            <span>Selecciona tu fecha</span>
-                          )}
-                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                        </Button>
-                      </FormControl>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={field.value}
-                        onSelect={field.onChange}
-                        disabled={(date) =>
-                          date > new Date() || date < new Date("1900-01-01")
-                        }
 
-                      />
-                    </PopoverContent>
-                  </Popover>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <h1 className="font-bold">Pick - Up</h1>
+
+            <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7">
+
+              {/* location */}
+              <FormField
+                control={form.control}
+                name="pickUpLocation"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Locations</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select your city" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent className="">
+                        <SelectItem value="m@example.com">San Isidro</SelectItem>
+                        <SelectItem value="m@google.com">Miraflores</SelectItem>
+                        <SelectItem value="m@support.com">Barranco</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* date */}
+              <FormField
+                control={form.control}
+                name="pickUpDate"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col">
+                    <FormLabel>Date</FormLabel>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl className="">
+                          <Button
+                            variant={"outline"}
+                            className={cn(
+                              "w-[240px] pl-3 text-left font-normal",
+                              !field.value && "text-muted-foreground"
+                            )}
+                          >
+                            {field.value ? (
+                              format(field.value, "PPP")
+                            ) : (
+                              <span>Selecciona tu fecha</span>
+                            )}
+                            <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={field.value}
+                          onSelect={field.onChange}
+                          disabled={(date) =>
+                            date > new Date() || date < new Date("1900-01-01")
+                          }
+
+                        />
+                      </PopoverContent>
+                    </Popover>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* time */}
+              <FormField
+                control={form.control}
+                name="pickUpTime"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Time</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select your time" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent className="">
+                        <SelectItem value="06:00-10:00">06:00-10:00</SelectItem>
+                        <SelectItem value="10:00-12:00">10:00-12:00</SelectItem>
+                        <SelectItem value="12:00-18:00">12:00-18:00</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+            </SectionCards>
 
           </SectionCards>
 

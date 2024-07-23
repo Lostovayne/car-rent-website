@@ -9,6 +9,7 @@ export * from "./ui/label"
 export * from "./ui/form"
 export * from "./ui/popover"
 export * from "./ui/calendar"
+export * from "./ui/select"
 
 export * from "./AutoCard";
 
