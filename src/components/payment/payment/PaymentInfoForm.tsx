@@ -158,7 +158,7 @@ export const PaymentInfoForm = () => {
             stepLabel={2}
           />
 
-          <SectionCards className="grid grid-cols-0 sm:grid-cols-0 gap-7 bg-yellow-400 ">
+          <SectionCards className="grid grid-cols-0 sm:grid-cols-0 gap-7 ">
 
             {/* Pick Up */}
 
@@ -197,7 +197,7 @@ export const PaymentInfoForm = () => {
               />
 
               {/* pick-up date */}
-              <FormField
+              <FormField 
                 control={form.control}
                 name="pickUpDate"
                 render={({ field }) => (
@@ -233,18 +233,6 @@ export const PaymentInfoForm = () => {
                     
                   />
                 </PopoverContent>
-                      <PopoverContent className="w-full p-0 bg-red-500 relative" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={field.value}
-                          onSelect={field.onChange}
-                          disabled={(date) =>
-                            // date > new Date() || date < new Date("1900-01-01")
-                            date < new Date("1900-01-01")
-                          }
-
-                        />
-                      </PopoverContent>
                     </Popover>
                     <FormMessage />
                   </FormItem>
@@ -408,5 +396,3 @@ export const PaymentInfoForm = () => {
     </div>
   );
 };
-
-
