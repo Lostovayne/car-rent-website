@@ -13,11 +13,11 @@ export const CarDetails = ({ carDetails }: Props) => {
       {/* right side : details*/}
       <div className="flex flex-col w-full ">
         {/* view car && detail car */}
-        <div className="flex flex-col sm:flex-row w-full ">
-          <div className="w-full p-1 sm:w-1/2 ">
+        <div className="flex flex-col md:flex-row w-full ">
+          <div className="flex items-center justify-center w-full p-1 md:w-1/2 ">
             <ImageCarousel images={imagesUrl} />
           </div>
-          <div className="w-full sm:w-1/2 bg-indigo-300">Detail Car</div>
+          <div className="w-full md:w-1/2 bg-indigo-300">Detail Car</div>
         </div>
 
         {/* reviews */}
