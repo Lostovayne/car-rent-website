@@ -146,3 +146,22 @@ export const ArrayCars: AutoCardProps[] = [
     },
   },
 ];
+
+
+export const imagesUrl = [
+  {
+    id: 1,
+    url: "https://vehicle-images.driveway.com/t_dw_iso/t_gallery/101011/new/51533/T9PA.png",
+    alt: "Auto Audi R8 blanco",
+  },
+  {
+    id: 2,
+    url: "https://images.pexels.com/photos/10535667/pexels-photo-10535667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    alt: "Interior de auto Audi",
+  },
+  {
+    id: 3,
+    url: "https://images.pexels.com/photos/17156920/pexels-photo-17156920/free-photo-of-automatic-gearbox-lever.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    alt: "Interior de auto Audi",
+  },
+];
