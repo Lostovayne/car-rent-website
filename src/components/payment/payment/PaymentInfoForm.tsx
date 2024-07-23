@@ -66,7 +66,9 @@ export const PaymentInfoForm = () => {
 
   return (
     <div className="bg-card">
+
       <Form {...form}>
+
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className=""
@@ -195,7 +197,7 @@ export const PaymentInfoForm = () => {
               />
 
               {/* pick-up date */}
-              <FormField
+              <FormField 
                 control={form.control}
                 name="pickUpDate"
                 render={({ field }) => (
@@ -220,7 +222,7 @@ export const PaymentInfoForm = () => {
                           </Button>
                         </FormControl>
                       </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
+                      <PopoverContent className="w-auto p-0 bg-red-500 flex" align="start">
                         <Calendar
                           mode="single"
                           selected={field.value}
@@ -263,6 +265,16 @@ export const PaymentInfoForm = () => {
               />
 
             </SectionCards>
+
+
+
+            
+                  
+                
+
+
+
+
 
 
             {/* Drop off */}
