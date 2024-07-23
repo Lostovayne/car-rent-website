@@ -147,6 +147,7 @@ export const ArrayCars: AutoCardProps[] = [
   },
 ];
 
+
 export const imagesUrl = [
   {
     id: 1,
