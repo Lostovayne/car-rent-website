@@ -1,7 +1,7 @@
 import { useSelected } from "../../hooks/useSelected";
 import { ImagesCarouselProps } from "../../interfaces";
 import { cn } from "../../lib/utils";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import { Carousel, CarouselItem } from "../ui/carousel";
 import { Image } from "./Image";
 
 export const ImageCarousel: React.FC<ImagesCarouselProps> = ({ images }) => {
@@ -15,22 +15,25 @@ export const ImageCarousel: React.FC<ImagesCarouselProps> = ({ images }) => {
         </CarouselItem>
       </Carousel>
 
-      <Carousel className="w-full">
-        <CarouselContent className="px-4 gap-2 [&>div]:basis-1/3 [&>div]:bg-white [&>div]:rounded-lg [&>div]:h-24 [&>div]:overflow-hidden [&>div>img]:w-full [&>div>img]:h-full [&>div>img]:object-cover ">
+      <section className="w-full ">
+        <div
+          className=" flex flex-row aspect-square size-36 w-full justify-between
+         "
+        >
           {images.map(({ id, url, alt }) => (
-            <CarouselItem
+            <div
               key={id}
-              className={cn` p-0 ${
+              className={cn` cursor-pointer aspect-square transition-all border-2 border-transparent  ${
                 selectedImage === url &&
-                "p-1 border-2 border-primaryColor/60 transition-all duration-100 ease-in-out"
+                "scale-95 p-1 border-2 border-primaryColor/60  rounded-lg"
               }`}
               onClick={() => handleImageClick(id)}
             >
               <Image src={url} className="rounded-lg" alt={alt} />
-            </CarouselItem>
+            </div>
           ))}
-        </CarouselContent>
-      </Carousel>
+        </div>
+      </section>
     </div>
   );
 };
