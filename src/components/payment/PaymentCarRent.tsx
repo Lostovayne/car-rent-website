@@ -12,7 +12,7 @@ export const PaymentCarRent = () => {
   const totalReviews = carDetails.reviews?.length ?? 0;
 
   return (
-    <div className="grid w-full grid-cols-1 md:grid-cols-5 gap-2">
+    <div className="grid w-full grid-cols-1 md:grid-cols-5 gap-2 container">
       {/* rental summary */}
       <div className="col-span-2 order-first md:order-last">
         <RentalSummary
@@ -25,8 +25,8 @@ export const PaymentCarRent = () => {
       </div>
 
       {/* payment */}
-      <div className="col-span-3 ">
-        <div className="flex flex-col ">
+      <div className="col-span-3">
+        <div className="flex flex-col">
           <div className=" ">
             <PaymentInfoForm />
           </div>

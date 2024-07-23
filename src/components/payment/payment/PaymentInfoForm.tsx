@@ -55,16 +55,16 @@ export const PaymentInfoForm = () => {
   }
 
   return (
-    <div className="p-3 bg-card">
+    <div className="bg-card">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className=""
         >
-          
+
           {/* Billing Info */}
 
-          <PaymentSectionHeader 
+          <PaymentSectionHeader
             title="Billing Info"
             description="Please enter your billing info"
             stepLabel={1}
@@ -140,7 +140,7 @@ export const PaymentInfoForm = () => {
 
           {/* Rental Info */}
 
-          <PaymentSectionHeader 
+          <PaymentSectionHeader
             title="Rental Info"
             description="Please select your rental date"
             stepLabel={2}
@@ -152,7 +152,7 @@ export const PaymentInfoForm = () => {
 
             <h1 className="font-bold">Pick - Up</h1>
 
-            <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7">
+            <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7 p-0"  >
 
               {/* location */}
               <FormField
@@ -168,9 +168,9 @@ export const PaymentInfoForm = () => {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="">
-                        <SelectItem value="m@example.com">San Isidro</SelectItem>
-                        <SelectItem value="m@google.com">Miraflores</SelectItem>
-                        <SelectItem value="m@support.com">Barranco</SelectItem>
+                        <SelectItem value="San Isidro">San Isidro</SelectItem>
+                        <SelectItem value="Miraflores">Miraflores</SelectItem>
+                        <SelectItem value="Barranco">Barranco</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -210,7 +210,8 @@ export const PaymentInfoForm = () => {
                           selected={field.value}
                           onSelect={field.onChange}
                           disabled={(date) =>
-                            date > new Date() || date < new Date("1900-01-01")
+                            // date > new Date() || date < new Date("1900-01-01")
+                            date < new Date("1900-01-01")
                           }
 
                         />
@@ -247,12 +248,14 @@ export const PaymentInfoForm = () => {
 
             </SectionCards>
 
+
+            <div>
+              <Button type="submit">Submit</Button>
+            </div>
+
           </SectionCards>
 
 
-          <div>
-            <Button type="submit">Submit</Button>
-          </div>
 
         </form>
       </Form>

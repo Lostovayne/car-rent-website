@@ -1,16 +1,17 @@
 import { CardDescription, CardHeader, CardTitle } from "../../ui/card"
 
-
-export const PaymentSectionHeader = ({
-  title,
-  description,
-  stepLabel,
-  levels=3
-}: {
+interface Props {
   title: string,
   description: string
   stepLabel: number
   levels?: number
+}
+
+export const PaymentSectionHeader: React.FC<Props> = ({
+  title,
+  description,
+  stepLabel,
+  levels=3
 }) => {
 
   return (
