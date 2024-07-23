@@ -34,5 +34,3 @@ export const ImageCarousel: React.FC<ImagesCarouselProps> = ({ images }) => {
     </div>
   );
 };
-
-// Todo: Componetizar la imagen del carrusel => Remplazar el Template String por cn , quitar el estado adicional, agregar el id al array
