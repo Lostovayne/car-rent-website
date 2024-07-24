@@ -8,15 +8,15 @@ export const ImageCarousel: React.FC<ImagesCarouselProps> = ({ images }) => {
 
   return (
     <div className="flex flex-col gap-y-2 w-full h-full max-w-[500px] max-h-[500px]">
-      <header className="w-full aspect-square bg-[url('/img/carouselBackground.png')] bg-cover bg-no-repeat rounded-lg overflow-hidden ">
+      <header className="w-full aspect-square bg-[url('/img/carousel/carouselBackground.png')] bg-cover bg-no-repeat rounded-lg overflow-hidden ">
         <Image src={selectedImage} alt="" />
       </header>
 
-      <section className="w-full flex">
+      <section className="w-full flex justify-between gap-x-1">
         {images.map(({ id, url, alt }) => (
           <div
             key={id}
-            className={cn` w-1/3 aspect-square cursor-pointer transition-all border-2 border-transparent  ${
+            className={cn`first:object-contain w-1/3 aspect-square cursor-pointer transition-all border-2 border-transparent  ${
               selectedImage === url &&
               "scale-95 p-1 border-2 border-primaryColor/60 rounded-lg"
             }`}
