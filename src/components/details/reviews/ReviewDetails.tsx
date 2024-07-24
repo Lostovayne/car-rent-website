@@ -17,7 +17,7 @@ export const ReviewDetails = ({ review }: { review: IReview }) => {
       <div className="flex flex-col gap-3 w-full">
         <div className="flex justify-between">
           {/* user. name and titte */}
-          <div className="flex flex-col">
+          <div className="flex flex-col h-12">
             <h1 className="font-medium text-lg md:text-xl text-textPrimary">
               {review.user.name}
             </h1>
