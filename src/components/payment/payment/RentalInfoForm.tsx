@@ -1,71 +1,50 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { format } from "date-fns";
 
 import {
   Form,
   FormControl,
-  //FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "../../ui/form";
-import { Input } from "../../ui/input";
-import { SectionCards } from "../../sectionCar/SectionCards";
 import { Popover, PopoverContent, PopoverTrigger } from "../../ui/popover";
-import { Button } from "../../ui/button";
-import { cn } from "../../../lib/utils";
-import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
+import { Button } from "../../ui/button";
 import { Calendar } from "../../ui/calendar";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/select";
+
+import { cn } from "../../../lib/utils";
+import { SectionCards } from "../../sectionCar/SectionCards";
 import { PaymentSectionHeader } from "./PaymentSectionHeader";
+import type { RentalInfoFormSchema } from "./forms-schema/rentalInfoForm.schema";
 import { dataCities } from "../../../data/city.data";
 
-const formSchema = z.object({
-  name: z.string().min(2).max(50),
-  phoneNumber: z.string(),
-  address: z.string().min(3).max(50),
-  city: z.string().min(3).max(30),
+interface RentalInfoFormProps {
+  schema: RentalInfoFormSchema,
+  onSubmit: (values: z.infer<RentalInfoFormSchema>) => void
+}
 
-  pickUpDate: z.date({
-    required_error: "A date of birth is required.",
-  }),
-  pickUpLocation: z.string().min(2).max(50),
-  pickUpTime: z.string().min(2).max(50),
 
-  dropOffDate: z.date({
-    required_error: "A date of birth is required.",
-  }),
-  dropOffLocation: z.string().min(2).max(50),
-  dropOffTime: z.string().min(2).max(50),
-});
-
-export const PaymentInfoForm = () => {
+export const RentalInfoForm:React.FC<RentalInfoFormProps> = ({schema, onSubmit}) => {
 
   const cities = dataCities
 
   // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof schema>>({
+    resolver: zodResolver(schema),
     defaultValues: {
-      name: "",
-      phoneNumber: "",
-      address: "",
-      city: "",
     },
   });
 
-  // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-  }
-
+  
   return (
-    <div className="bg-card">
+    // TODO; usar "pointer-events-none opacity-40" para deshabilitar, dependerá de estado
+    // <div className="bg-card pointer-events-none opacity-40">  
+    <div className="bg-card ">
 
       <Form {...form}>
 
@@ -73,84 +52,6 @@ export const PaymentInfoForm = () => {
           onSubmit={form.handleSubmit(onSubmit)}
           className=""
         >
-
-          {/* Billing Info */}
-
-          <PaymentSectionHeader
-            title="Billing Info"
-            description="Please enter your billing info"
-            stepLabel={1}
-          />
-
-          <SectionCards className="grid grid-cols-0 sm:grid-cols-2 gap-7">
-
-            {/* name */}
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Your name" {...field} />
-                  </FormControl>
-                  {/* <FormDescription>
-                  This is your public display name.
-                </FormDescription> */}
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* phone number */}
-            <FormField
-              control={form.control}
-              name="phoneNumber"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Phone Number</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Phone number" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* address */}
-            <FormField
-              control={form.control}
-              name="address"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Address</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Address" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* town/city */}
-            <FormField
-              control={form.control}
-              name="city"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>City</FormLabel>
-                  <FormControl>
-                    <Input placeholder="City" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-          </SectionCards>
-
-
-          {/* Rental Info */}
 
           <PaymentSectionHeader
             title="Rental Info"
@@ -197,7 +98,7 @@ export const PaymentInfoForm = () => {
               />
 
               {/* pick-up date */}
-              <FormField 
+              <FormField
                 control={form.control}
                 name="pickUpDate"
                 render={({ field }) => (
@@ -223,16 +124,17 @@ export const PaymentInfoForm = () => {
                         </FormControl>
                       </PopoverTrigger>
                       <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date > new Date() || date < new Date("1900-01-01")
-                    }
-                    
-                  />
-                </PopoverContent>
+                        <Calendar
+                          mode="single"
+                          selected={field.value}
+                          onSelect={field.onChange}
+                          disabled={(date) =>
+                            //date > new Date() || 
+                            date < new Date("1900-01-01")
+                          }
+
+                        />
+                      </PopoverContent>
                     </Popover>
                     <FormMessage />
                   </FormItem>
@@ -264,16 +166,6 @@ export const PaymentInfoForm = () => {
               />
 
             </SectionCards>
-
-
-
-            
-                  
-                
-
-
-
-
 
 
             {/* Drop off */}
@@ -382,10 +274,10 @@ export const PaymentInfoForm = () => {
 
             </SectionCards>
 
-
-            <div>
-              <Button type="submit">Submit</Button>
-            </div>
+            <SectionCards className="flex justify-end">
+              <Button variant={"link"} type="submit">Regresar</Button>
+              <Button variant={"default"} type="submit">Continuar</Button>
+            </SectionCards>
 
           </SectionCards>
 
