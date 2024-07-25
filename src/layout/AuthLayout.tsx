@@ -8,7 +8,7 @@ export const AuthLayout = () => {
   }
 
   return (
-    <div>
+    <div className="container  min-h-screen flex justify-center items-center">
       <Outlet />
     </div>
   );

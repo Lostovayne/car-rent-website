@@ -19,7 +19,13 @@ import { cn } from "../../../lib/utils";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { Calendar } from "../../ui/calendar";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../../ui/select";
 import { PaymentSectionHeader } from "./PaymentSectionHeader";
 import { dataCities } from "../../../data/city.data";
 
@@ -43,8 +49,7 @@ const formSchema = z.object({
 });
 
 export const PaymentInfoForm = () => {
-
-  const cities = dataCities
+  const cities = dataCities;
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -66,14 +71,8 @@ export const PaymentInfoForm = () => {
 
   return (
     <div className="bg-card">
-
       <Form {...form}>
-
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className=""
-        >
-
+        <form onSubmit={form.handleSubmit(onSubmit)} className="">
           {/* Billing Info */}
 
           <PaymentSectionHeader
@@ -83,7 +82,6 @@ export const PaymentInfoForm = () => {
           />
 
           <SectionCards className="grid grid-cols-0 sm:grid-cols-2 gap-7">
-
             {/* name */}
             <FormField
               control={form.control}
@@ -146,9 +144,7 @@ export const PaymentInfoForm = () => {
                 </FormItem>
               )}
             />
-
           </SectionCards>
-
 
           {/* Rental Info */}
 
@@ -159,13 +155,11 @@ export const PaymentInfoForm = () => {
           />
 
           <SectionCards className="grid grid-cols-0 sm:grid-cols-0 gap-7 ">
-
             {/* Pick Up */}
 
             <h1 className="font-bold">Pick - Up</h1>
 
-            <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7 p-0"  >
-
+            <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7 p-0">
               {/* pick-up location */}
               <FormField
                 control={form.control}
@@ -173,22 +167,24 @@ export const PaymentInfoForm = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Locations</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="Select your city" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="">
-                        {
-                          cities.map(city => (
-                            <SelectItem
-                              key={city.id ?? city.description}
-                              value={city.id ?? city.description}
-                            >{city.description}</SelectItem>
-                          )
-                          )
-                        }
+                        {cities.map((city) => (
+                          <SelectItem
+                            key={city.id ?? city.description}
+                            value={city.id ?? city.description}
+                          >
+                            {city.description}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -197,7 +193,7 @@ export const PaymentInfoForm = () => {
               />
 
               {/* pick-up date */}
-              <FormField 
+              <FormField
                 control={form.control}
                 name="pickUpDate"
                 render={({ field }) => (
@@ -223,16 +219,15 @@ export const PaymentInfoForm = () => {
                         </FormControl>
                       </PopoverTrigger>
                       <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date > new Date() || date < new Date("1900-01-01")
-                    }
-                    
-                  />
-                </PopoverContent>
+                        <Calendar
+                          mode="single"
+                          selected={field.value}
+                          onSelect={field.onChange}
+                          disabled={(date) =>
+                            date > new Date() || date < new Date("1900-01-01")
+                          }
+                        />
+                      </PopoverContent>
                     </Popover>
                     <FormMessage />
                   </FormItem>
@@ -246,7 +241,10 @@ export const PaymentInfoForm = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Time</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="Select your time" />
@@ -262,26 +260,13 @@ export const PaymentInfoForm = () => {
                   </FormItem>
                 )}
               />
-
             </SectionCards>
-
-
-
-            
-                  
-                
-
-
-
-
-
 
             {/* Drop off */}
 
             <h1 className="font-bold">Drop - Off</h1>
 
-            <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7 p-0"  >
-
+            <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7 p-0">
               {/* drop-off location */}
               <FormField
                 control={form.control}
@@ -289,22 +274,24 @@ export const PaymentInfoForm = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Locations</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="Select your city" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="">
-                        {
-                          cities.map(city => (
-                            <SelectItem
-                              key={city.id ?? city.description}
-                              value={city.id ?? city.description}
-                            >{city.description}</SelectItem>
-                          )
-                          )
-                        }
+                        {cities.map((city) => (
+                          <SelectItem
+                            key={city.id ?? city.description}
+                            value={city.id ?? city.description}
+                          >
+                            {city.description}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -347,7 +334,6 @@ export const PaymentInfoForm = () => {
                             // date > new Date() || date < new Date("1900-01-01")
                             date < new Date("1900-01-01")
                           }
-
                         />
                       </PopoverContent>
                     </Popover>
@@ -363,7 +349,10 @@ export const PaymentInfoForm = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Time</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="Select your time" />
@@ -379,22 +368,14 @@ export const PaymentInfoForm = () => {
                   </FormItem>
                 )}
               />
-
             </SectionCards>
-
 
             <div>
               <Button type="submit">Submit</Button>
             </div>
-
           </SectionCards>
-
-
-
         </form>
       </Form>
     </div>
   );
 };
-
-
