@@ -60,13 +60,11 @@ export const RentalInfoForm:React.FC<RentalInfoFormProps> = ({schema, onSubmit})
           />
 
           <SectionCards className="grid grid-cols-0 sm:grid-cols-0 gap-7 ">
-
             {/* Pick Up */}
 
             <h1 className="font-bold">Pick - Up</h1>
 
-            <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7 p-0"  >
-
+            <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7 p-0">
               {/* pick-up location */}
               <FormField
                 control={form.control}
@@ -74,22 +72,24 @@ export const RentalInfoForm:React.FC<RentalInfoFormProps> = ({schema, onSubmit})
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Locations</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="Select your city" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="">
-                        {
-                          cities.map(city => (
-                            <SelectItem
-                              key={city.id ?? city.description}
-                              value={city.id ?? city.description}
-                            >{city.description}</SelectItem>
-                          )
-                          )
-                        }
+                        {cities.map((city) => (
+                          <SelectItem
+                            key={city.id ?? city.description}
+                            value={city.id ?? city.description}
+                          >
+                            {city.description}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -148,7 +148,10 @@ export const RentalInfoForm:React.FC<RentalInfoFormProps> = ({schema, onSubmit})
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Time</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="Select your time" />
@@ -164,16 +167,13 @@ export const RentalInfoForm:React.FC<RentalInfoFormProps> = ({schema, onSubmit})
                   </FormItem>
                 )}
               />
-
             </SectionCards>
-
 
             {/* Drop off */}
 
             <h1 className="font-bold">Drop - Off</h1>
 
-            <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7 p-0"  >
-
+            <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7 p-0">
               {/* drop-off location */}
               <FormField
                 control={form.control}
@@ -181,22 +181,24 @@ export const RentalInfoForm:React.FC<RentalInfoFormProps> = ({schema, onSubmit})
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Locations</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="Select your city" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="">
-                        {
-                          cities.map(city => (
-                            <SelectItem
-                              key={city.id ?? city.description}
-                              value={city.id ?? city.description}
-                            >{city.description}</SelectItem>
-                          )
-                          )
-                        }
+                        {cities.map((city) => (
+                          <SelectItem
+                            key={city.id ?? city.description}
+                            value={city.id ?? city.description}
+                          >
+                            {city.description}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -239,7 +241,6 @@ export const RentalInfoForm:React.FC<RentalInfoFormProps> = ({schema, onSubmit})
                             // date > new Date() || date < new Date("1900-01-01")
                             date < new Date("1900-01-01")
                           }
-
                         />
                       </PopoverContent>
                     </Popover>
@@ -255,7 +256,10 @@ export const RentalInfoForm:React.FC<RentalInfoFormProps> = ({schema, onSubmit})
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Time</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="Select your time" />
@@ -271,7 +275,6 @@ export const RentalInfoForm:React.FC<RentalInfoFormProps> = ({schema, onSubmit})
                   </FormItem>
                 )}
               />
-
             </SectionCards>
 
             <SectionCards className="flex justify-end">
@@ -280,9 +283,6 @@ export const RentalInfoForm:React.FC<RentalInfoFormProps> = ({schema, onSubmit})
             </SectionCards>
 
           </SectionCards>
-
-
-
         </form>
       </Form>
     </div>
