@@ -1,43 +1,34 @@
-import { z } from "zod";
-
 import { RentalSummary } from "./summary/RentalSummary";
-
 import { BillingInfoForm } from "./payment/BillingInfoForm";
 import { RentalInfoForm } from "./payment/RentalInfoForm";
 import { ConfirmationRental } from "./payment/ConfirmationRental";
-import { schemaBillingInfoForm, type BillingInfoFormSchema } from "./payment/forms-schema/billingInfoForm.schema";
-import { schemaRentalInfoForm, type RentalInfoFormSchema } from "./payment/forms-schema/rentalInfoForm.schema";
+import type { BillingInfoSchemaType, RentalInfoSchemaType } from "../../schemas";
 import { dataCarDetails, dataReviews } from "../../data";
+
 
 // TODO: obtener luego desde donde corresponda
 const carDetails = dataCarDetails;
 
-
-export const PaymentCarRent = () => {
+export const PaymentMain = () => {
   const averageRating =
-    (carDetails.reviews?.reduce((acum, current) => current.rating + acum, 0) ??
-      0) / dataReviews.length;
+    (carDetails.reviews?.reduce((acum, current) => current.rating + acum, 0) ?? 0) / dataReviews.length;
   const totalReviews = carDetails.reviews?.length ?? 0;
 
-
-  function onSubmitBillingInfo(values: z.infer<BillingInfoFormSchema>) {
+  const onSubmitBillingInfo = (values: BillingInfoSchemaType) => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
   }
 
-  function onSubmitRentalInfo(values: z.infer<RentalInfoFormSchema>) {
+  const onSubmitRentalInfo = (values: RentalInfoSchemaType) => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
   }
-
 
 
   // TODO: navegar entre secciones del formulario (agregar state para deshabilitar seccion entre continuar/regresar)
   // TODO: ver el onclick del select del Time cuando está encima del boton continuar
-  
-
 
   return (
     <div className="grid w-full grid-cols-1 md:grid-cols-5 gap-2 container">
@@ -57,16 +48,17 @@ export const PaymentCarRent = () => {
         <div className="flex flex-col">
           <div className=" ">
             <BillingInfoForm
-              schema={schemaBillingInfoForm}
               onSubmit={onSubmitBillingInfo}
             />
             <RentalInfoForm
-              schema={schemaRentalInfoForm}
               onSubmit={onSubmitRentalInfo}
             />
           </div>
+          
+          {/* TODO: Pendiente Payment Method */}
           <div className=" bg-cyan-700">Payment method</div>
-          <div className=" bg-orange-300">
+          
+          <div className="">
             <ConfirmationRental />
           </div>
         </div>

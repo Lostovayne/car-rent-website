@@ -1,7 +1,5 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-
+import { Button } from "../../ui/button";
+import { Input } from "../../ui/input";
 import {
   Form,
   FormControl,
@@ -10,32 +8,20 @@ import {
   FormLabel,
   FormMessage,
 } from "../../ui/form";
-import { Input } from "../../ui/input";
-import { Button } from "../../ui/button";
 import { SectionCards } from "../../sectionCar/SectionCards";
 import { PaymentSectionHeader } from "./PaymentSectionHeader";
-import type { BillingInfoFormSchema } from "./forms-schema/billingInfoForm.schema";
+import { useBillingInfo } from "../../../hooks";
+import { BillingInfoSchemaType } from "../../../schemas";
 
 
 interface BillingInfoFormProps {
-  schema: BillingInfoFormSchema,
-  onSubmit: (values: z.infer<BillingInfoFormSchema>) => void
+  onSubmit: (values: BillingInfoSchemaType) => void
 }
 
 
-export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ schema, onSubmit }) => {
+export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ onSubmit }) => {
 
-  // 1. Define your form.
-  const form = useForm<z.infer<typeof schema>>({
-    resolver: zodResolver(schema),
-    defaultValues: {
-      name: "",
-      phoneNumber: "",
-      address: "",
-      city: "",
-    },
-  });
-
+  const form = useBillingInfo()
 
   return (
     <div className="bg-card">
