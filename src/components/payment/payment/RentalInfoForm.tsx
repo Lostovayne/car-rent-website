@@ -1,8 +1,6 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { format } from "date-fns";
-
+import { Button } from "../../ui/button";
+import { Calendar } from "../../ui/calendar";
 import {
   Form,
   FormControl,
@@ -12,34 +10,25 @@ import {
   FormMessage,
 } from "../../ui/form";
 import { Popover, PopoverContent, PopoverTrigger } from "../../ui/popover";
-import { CalendarIcon } from "lucide-react";
-import { Button } from "../../ui/button";
-import { Calendar } from "../../ui/calendar";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/select";
 
-import { cn } from "../../../lib/utils";
+import { CalendarIcon } from "lucide-react";
+import { cn } from "../../../lib";
+
 import { SectionCards } from "../../sectionCar/SectionCards";
 import { PaymentSectionHeader } from "./PaymentSectionHeader";
-import type { RentalInfoFormSchema } from "./forms-schema/rentalInfoForm.schema";
+import type { RentalInfoSchemaType } from "../../../schemas";
+import { useRentalInfo } from "../../../hooks";
 import { dataCities } from "../../../data/city.data";
 
 interface RentalInfoFormProps {
-  schema: RentalInfoFormSchema,
-  onSubmit: (values: z.infer<RentalInfoFormSchema>) => void
+  onSubmit: (values: RentalInfoSchemaType) => void
 }
 
 
-export const RentalInfoForm:React.FC<RentalInfoFormProps> = ({schema, onSubmit}) => {
-
+export const RentalInfoForm:React.FC<RentalInfoFormProps> = ({onSubmit}) => {
+  const form = useRentalInfo()
   const cities = dataCities
-
-  // 1. Define your form.
-  const form = useForm<z.infer<typeof schema>>({
-    resolver: zodResolver(schema),
-    defaultValues: {
-    },
-  });
-
   
   return (
     // TODO; usar "pointer-events-none opacity-40" para deshabilitar, dependerá de estado

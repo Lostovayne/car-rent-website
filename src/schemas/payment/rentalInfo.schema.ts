@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const schemaRentalInfoForm = z.object({
+export const RentalInfoSchema = z.object({
     pickUpDate: z.date({
         required_error: "A date of birth is required.",
     }),
@@ -14,4 +14,4 @@ export const schemaRentalInfoForm = z.object({
     dropOffTime: z.string().min(2).max(50),
 });
 
-export type RentalInfoFormSchema = typeof schemaRentalInfoForm;
+export type RentalInfoSchemaType = z.infer<typeof RentalInfoSchema>;

@@ -11,7 +11,7 @@ import {
 import { CarCard } from "./CarCard"
 import { CarTotales } from "./CarTotales"
 
-interface Props {
+interface RentalSumaryProps {
   car: ICar
   carReviews:{
     total: number
@@ -19,7 +19,7 @@ interface Props {
   }
 }
 
-export const RentalSummary = ({car, carReviews}:Props) => {
+export const RentalSummary:React.FC<RentalSumaryProps> = ({car, carReviews}) => {
 
   return (
     <Card>
