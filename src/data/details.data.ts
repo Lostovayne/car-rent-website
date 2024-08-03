@@ -94,7 +94,7 @@ export const dataCarDetails:ICar = {
     id: "2",
     model: "Nissan GT - R",
     type: "Sport",
-    image: "img/gtr.svg",
+    image: "img/cars/gtr.svg",
     price: 80,
     specs: {
       fuel: "80L",

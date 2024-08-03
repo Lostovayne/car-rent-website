@@ -3,6 +3,6 @@ export interface IUser {
     name: string
     email: string
     title?: string
-    imageUrl: string
-    unreadNotifications: boolean
+    imageUrl?: string
+    unreadNotifications?: boolean
 }
