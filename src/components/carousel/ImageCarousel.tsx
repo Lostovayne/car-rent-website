@@ -1,7 +1,7 @@
 import { useSelected } from "../../hooks/useSelected";
 import { ImagesCarouselProps } from "../../interfaces";
-import { cn } from "../../lib/utils";
 import { Image } from "./Image";
+import { ImageIterator } from "./ImageIterator";
 
 export const ImageCarousel: React.FC<ImagesCarouselProps> = ({ images }) => {
   const { selectedImage, handleImageClick } = useSelected({ images });
@@ -13,18 +13,11 @@ export const ImageCarousel: React.FC<ImagesCarouselProps> = ({ images }) => {
       </header>
 
       <section className="w-full flex justify-between gap-x-1">
-        {images.map(({ id, url, alt }) => (
-          <div
-            key={id}
-            className={cn`first:object-contain w-1/3 aspect-square cursor-pointer transition-all border-2 border-transparent  ${
-              selectedImage === url &&
-              "scale-95 p-1 border-2 border-primaryColor/60 rounded-lg"
-            }`}
-            onClick={() => handleImageClick(id)}
-          >
-            <Image src={url} className="rounded-lg" alt={alt} />
-          </div>
-        ))}
+        <ImageIterator
+          images={images}
+          selectedImage={selectedImage}
+          handleImageClick={handleImageClick}
+        />
       </section>
     </div>
   );
