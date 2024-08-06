@@ -1,18 +1,17 @@
+import { useFavorite } from "../hooks";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "../components/ui/card";
+import { IsFavoriteIcon } from "../components";
 import { precioAumentado } from "../helper/index";
 
-import { useState } from "react";
 import {
   BsFillFuelPumpFill,
-  BsFillHeartFill,
   BsGearWideConnected,
-  BsHeart,
   BsPeopleFill,
 } from "react-icons/bs";
 import { AutoCardProps } from "../interfaces/AutoCard.interface";
@@ -26,7 +25,7 @@ export const AutoCard = ({
   price,
   specs,
 }: AutoCardProps): JSX.Element => {
-  const [isFavoriteState, setIsFavoriteState] = useState(false);
+  const { isFavorite, handleToggleFavorite } = useFavorite();
 
   return (
     <Card
@@ -38,17 +37,10 @@ export const AutoCard = ({
           <CardTitle className="text-textPrimary text-lg sm:text-xl uppercase leading-5 max-sm:font-normal font-medium">
             {model}
           </CardTitle>
-          {!isFavoriteState ? (
-            <BsHeart
-              className="size-5 cursor-pointer  text-gray-400"
-              onClick={() => setIsFavoriteState(!isFavoriteState)}
-            />
-          ) : (
-            <BsFillHeartFill
-              className="size-5 text-red-500 cursor-pointer animate-pulse "
-              onClick={() => setIsFavoriteState(!isFavoriteState)}
-            />
-          )}
+          <IsFavoriteIcon
+            isFavorite={isFavorite}
+            handleToggleFavorite={handleToggleFavorite}
+          />
         </div>
         <h5 className="text-textSecondary text-xs sm:text-sm font-medium capitalize">
           {type}

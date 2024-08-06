@@ -13,6 +13,9 @@ export * from "./payment/PaymentMain";
 
 export * from "./carDetail/CarDetail";
 
-export * from "./carousel/ImageCarousel"
+export * from "./carousel/ImageCarousel";
 
-export * from "./details/reviews/Reviews"
+export * from "./details/reviews/Reviews";
+
+export * from "./details/CarDetailsCard/CarDetailsCard";
+export * from "./IsFavoriteIcon";
