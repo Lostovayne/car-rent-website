@@ -32,28 +32,28 @@ export const CarDetailsCard = () => {
           </div>
           <span className="flex items-center gap-x-3">
             <StarReviewRating rating={4} />
-            <span className="text-textSecondary text-xs sm:text-sm font-medium">
+            <h5 className="text-gray-600 text-xs sm:text-sm font-normal">
               440+ Reviews
-            </span>
+            </h5>
           </span>
         </CardHeader>
 
         <CardContent className="flex flex-col justify-center gap-5 w-full h-full p-0">
-          <p className="text-xl leading-10 text-pretty font-light text-gray-500">
+          <p className="text-xl leading-10 text-pretty font-light text-gray-600">
             NISMO has become the embodiment of Nissan's outstanding performance,
             inspired by the most unforgiving proving ground, the "race track".
           </p>
 
-          <table className="w-full flex text-xl font-light">
-            <tr className="flex flex-col gap-2 w-1/2">
+          <table className="w-full flex text-xl font-normal">
+            <tbody className="flex flex-col gap-2 w-1/2">
               <CarDetailsRow label="Type" value="Sedan" />
               <CarDetailsRow label="Transm" value="Auto" />
-            </tr>
+            </tbody>
 
-            <tr className="flex flex-col gap-2 w-1/2">
+            <tbody className="flex flex-col gap-2 w-1/2">
               <CarDetailsRow label="Capacity" value="2 Person" />
               <CarDetailsRow label="Gasoline" value="70L" />
-            </tr>
+            </tbody>
           </table>
         </CardContent>
         <CardFooter className="flex justify-between items-center w-full p-0 mt-5 sm:mt-6">

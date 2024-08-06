@@ -9,8 +9,8 @@ export const CarDetailsRow: React.FC<CarDetailsRowProps> = ({
 }) => {
   return (
     <tr className="flex justify-between px-3">
-      <td className="text-textSecondary">{label}:</td>
-      <td>{value}</td>
+      <th className="text-textSecondary font-normal">{label}:</th>
+      <td className="text-gray-600">{value}</td>
     </tr>
   );
 };
