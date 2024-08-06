@@ -1,8 +1,15 @@
 import { Star } from "lucide-react";
+import { cn } from "../../../lib";
 
-export const StarReviewRating = ({ rating }: { rating: number }) => {
+export const StarReviewRating = ({
+  rating,
+  className = "",
+}: {
+  rating: number;
+  className?: string;
+}) => {
   return (
-    <div className="flex gap-1 justify-end">
+    <div className={cn("flex gap-1 ", className)}>
       {Array.from({ length: 5 }).map((_, index) => (
         <div key={index}>
           {index < Math.round(rating) ? (

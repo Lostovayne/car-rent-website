@@ -1,4 +1,9 @@
-import { CarDetail, ImageCarousel,Reviews } from "../components";
+import {
+  CarDetail,
+  ImageCarousel,
+  Reviews,
+  CarDetailsCard,
+} from "../components";
 import { dataCarDetails, imagesUrl } from "../data";
 import { ICar } from "../interfaces";
 
@@ -10,6 +15,7 @@ export const DetailsPage = () => {
     <CarDetail>
       <CarDetail.View>
         <ImageCarousel images={imagesUrl} />
+        <CarDetailsCard />
       </CarDetail.View>
       <Reviews reviews={reviews} />
       <CarDetail.Sections />

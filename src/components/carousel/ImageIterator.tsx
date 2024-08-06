@@ -23,7 +23,7 @@ export const ImageIterator: React.FC<ImageIteratorProps> = ({
           }`}
           onClick={() => handleImageClick(id)}
         >
-          <Image src={url} className="rounded-lg" alt={alt} />
+          <Image src={url} className="rounded-lg bg-white" alt={alt} />
         </div>
       ))}
     </>

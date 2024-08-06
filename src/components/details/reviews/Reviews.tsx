@@ -12,7 +12,7 @@ export const Reviews = ({ reviews }: Props) => {
   const totalReviews = reviews.length;
 
   return (
-    <div className="bg-background round rounded-md p-6 border border-blue-800 flex flex-col gap-2">
+    <div className="bg-background rounded-md p-6 flex flex-col gap-2 drop-shadow-sm">
       {/* title */}
       <div className="flex justify-start gap-4 items-center">
         <span className="text-xl">Reviews</span>
