@@ -6,9 +6,13 @@ import {
   CardHeader,
   CardTitle,
 } from "../../ui/card";
-import { CarDetailsRow } from "./CarDetailsRow";
+
 import { Button } from "../../ui/button";
-import { IsFavoriteIcon } from "../../../components";
+import {
+  IsFavoriteIcon,
+  StarReviewRating,
+  CarDetailsRow,
+} from "../../../components";
 export const CarDetailsCard = () => {
   const { isFavorite, handleToggleFavorite } = useFavorite();
 
@@ -25,8 +29,11 @@ export const CarDetailsCard = () => {
               handleToggleFavorite={handleToggleFavorite}
             />
           </div>
-          <span className="text-textSecondary text-xs sm:text-sm font-medium ">
-            440+ Reviews
+          <span className="flex items-center gap-x-3">
+            <StarReviewRating rating={4.5} />
+            <span className="text-textSecondary text-xs sm:text-sm font-medium">
+              440+ Reviews
+            </span>
           </span>
         </CardHeader>
 
