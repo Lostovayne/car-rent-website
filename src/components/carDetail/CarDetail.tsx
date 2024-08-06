@@ -11,7 +11,9 @@ export const CarDetail = ({ children }: React.PropsWithChildren) => {
 };
 
 CarDetail.View = function CarDetailView({ children }: CarViewProps) {
-  return <div className="flex flex-col md:flex-row">{children}</div>;
+  return (
+    <div className="flex flex-col items-center lg:flex-row">{children}</div>
+  );
 };
 
 CarDetail.Sections = function CarDetailRecent() {
