@@ -1,31 +1,26 @@
 import { useSelected } from "../../hooks/useSelected";
 import { ImagesCarouselProps } from "../../interfaces";
-import { cn } from "../../lib/utils";
 import { Image } from "./Image";
+import { ImageIterator } from "./ImageIterator";
 
 export const ImageCarousel: React.FC<ImagesCarouselProps> = ({ images }) => {
   const { selectedImage, handleImageClick } = useSelected({ images });
 
   return (
-    <div className="flex flex-col gap-y-2 w-full h-full max-w-[500px] max-h-[500px]">
-      <header className="w-full aspect-square bg-[url('/img/carousel/carouselBackground.png')] bg-cover bg-no-repeat rounded-lg overflow-hidden ">
-        <Image src={selectedImage} alt="" />
-      </header>
+    <div className=" w-full p-1 lg:w-1/2 flex justify-center">
+      <div className="flex flex-col gap-y-2 w-full h-full max-w-[500px] max-h-[500px]">
+        <header className="w-full aspect-square bg-[url('/img/carousel/carouselBackground.png')] bg-cover bg-no-repeat rounded-lg overflow-hidden ">
+          <Image src={selectedImage} alt="" />
+        </header>
 
-      <section className="w-full flex justify-between gap-x-1">
-        {images.map(({ id, url, alt }) => (
-          <div
-            key={id}
-            className={cn`first:object-contain w-1/3 aspect-square cursor-pointer transition-all border-2 border-transparent  ${
-              selectedImage === url &&
-              "scale-95 p-1 border-2 border-primaryColor/60 rounded-lg"
-            }`}
-            onClick={() => handleImageClick(id)}
-          >
-            <Image src={url} className="rounded-lg" alt={alt} />
-          </div>
-        ))}
-      </section>
+        <section className="w-full flex justify-between gap-x-1">
+          <ImageIterator
+            images={images}
+            selectedImage={selectedImage}
+            handleImageClick={handleImageClick}
+          />
+        </section>
+      </div>
     </div>
   );
 };

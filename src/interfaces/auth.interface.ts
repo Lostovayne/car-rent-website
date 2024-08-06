@@ -1,9 +1,10 @@
-import { IUser } from "./user.interface";
+import { User } from "../auth/auth.service";
 
 export interface AuthState {
   status: status;
-  user?: IUser 
+  user?: User;
   token?: string;
+  loginUser: (email: string, password: string) => Promise<void>;
 }
 
 export type status = "checking" | "authenticated" | "not-authenticated";
