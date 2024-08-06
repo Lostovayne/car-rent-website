@@ -18,10 +18,10 @@ export const CarDetailsCard = () => {
 
   return (
     <div className="w-full h-full flex justify-center lg:w-1/2">
-      <Card className="flex flex-col  bg-white border-0 p-5 rounded-xl w-full h-full max-w-[500px] max-h-[500px]">
+      <Card className="flex flex-col  bg-white border-0 p-5 rounded-lg w-full h-full max-w-[500px] max-h-[500px] drop-shadow">
         <CardHeader className="flex flex-col w-full p-0">
           <div className="flex justify-between items-center w-full">
-            <CardTitle className="text-textPrimary text-lg sm:text-2xl xl:text-3xl leading-5 max-sm:font-normal font-medium">
+            <CardTitle className="text-textPrimary text-lg sm:text-2xl xl:text-3xl leading-5 max-sm:font-normal font-medium ">
               Nissan GT - R
             </CardTitle>
             <IsFavoriteIcon

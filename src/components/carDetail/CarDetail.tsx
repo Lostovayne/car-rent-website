@@ -5,14 +5,18 @@ interface CarViewProps {
 export const CarDetail = ({ children }: React.PropsWithChildren) => {
   return (
     <main className="flex bg-backgroundSecondary">
-      <section className="flex flex-col w-full ">{children}</section>
+      <section className="flex flex-col w-full lg:pl-4 py-4 gap-10">
+        {children}
+      </section>
     </main>
   );
 };
 
 CarDetail.View = function CarDetailView({ children }: CarViewProps) {
   return (
-    <div className="flex flex-col items-center lg:flex-row">{children}</div>
+    <div className="flex flex-col items-center lg:flex-row gap-y-7 gap-x-4">
+      {children}
+    </div>
   );
 };
 

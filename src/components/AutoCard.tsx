@@ -29,7 +29,7 @@ export const AutoCard = ({
 
   return (
     <Card
-      className="flex flex-col justify-between bg-white border-0 p-5 rounded-xl w-80 h-60 sm:h-96"
+      className="flex flex-col justify-between bg-white border-0 p-5 rounded-xl w-80 h-60 sm:h-96 drop-shadow-sm"
       id={id}
     >
       <CardHeader className="flex flex-col w-full p-0">
