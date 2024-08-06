@@ -27,10 +27,11 @@ export const CarDetailsCard = () => {
             <IsFavoriteIcon
               isFavorite={isFavorite}
               handleToggleFavorite={handleToggleFavorite}
+              className="size-6"
             />
           </div>
           <span className="flex items-center gap-x-3">
-            <StarReviewRating rating={4.5} />
+            <StarReviewRating rating={4} />
             <span className="text-textSecondary text-xs sm:text-sm font-medium">
               440+ Reviews
             </span>
