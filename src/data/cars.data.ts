@@ -1,6 +1,6 @@
-import { AutoCardProps } from "../interfaces/AutoCard.interface";
+import { carDetailsProps } from "../interfaces/carDetails.interface";
 
-export const ArrayCars: AutoCardProps[] = [
+export const ArrayCars: carDetailsProps[] = [
   {
     id: "1",
     model: "Koenigsegg",

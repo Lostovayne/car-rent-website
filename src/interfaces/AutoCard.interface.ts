@@ -9,5 +9,4 @@ export interface AutoCardProps {
     transmission: string;
     capacity: number;
   };
-  description: string;
 }

@@ -1,21 +1,15 @@
-import { useFavorite } from "../hooks";
+import { useFavorite } from "../../hooks";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../components/ui/card";
-import { IsFavoriteIcon } from "../components";
-import { precioAumentado } from "../helper/index";
+} from "../../components/ui/card";
+import { IsFavoriteIcon, SpecsContainer, PriceDisplay } from "../../components";
 
-import {
-  BsFillFuelPumpFill,
-  BsGearWideConnected,
-  BsPeopleFill,
-} from "react-icons/bs";
-import { AutoCardProps } from "../interfaces/AutoCard.interface";
-import { Button } from "./ui/button";
+import { AutoCardProps } from "../../interfaces/AutoCard.interface";
+import { Button } from "../ui/button";
 
 export const AutoCard = ({
   id,
@@ -56,38 +50,13 @@ export const AutoCard = ({
             />
             <figcaption className="absolute bottom-0 right-0 w-full h-10 sm:h-12 bg-gradient-to-t from-white via-white/80 to-transparent"></figcaption>
           </figure>
-          <div className="flex justify-end w-1/3 sm:w-full sm:mt-6">
-            <ul
-              className="flex flex-col justify-evenly gap-3 pl-4 sm:px-2 sm:flex-row sm:w-full sm:justify-between 
-            h-full [&>li]:flex [&>li]:items-center [&>li]:gap-1 [&>li>svg]:h-4 sm:[&>li>svg]:h-5 text-textSecondary text-xs sm:text-sm"
-            >
-              <li>
-                <BsFillFuelPumpFill className="size-6" />
-                <span className="font-normal">{specs?.fuel}</span>
-              </li>
-              <li>
-                <BsGearWideConnected className="size-6" />
-                <span className="font-normal">{specs?.transmission}</span>
-              </li>
-              <li>
-                <BsPeopleFill className="size-6" />
-                <span className="font-normal">{specs?.capacity} People</span>
-              </li>
-            </ul>
-          </div>
+
+          <SpecsContainer specs={specs} />
         </CardContent>
         <CardFooter className="flex justify-between items-center w-full p-0 mt-5 sm:mt-6">
-          <div>
-            <span className="font-medium text-textPrimary text-lg sm:text-2xl">
-              ${price}/
-            </span>
-            <span className="text-textSecondary text-sm">&nbsp;day</span>
-            <span className="block text-xs sm:text-sm text-textSecondary font-medium line-through">
-              ${precioAumentado(price)}
-            </span>
-          </div>
+          <PriceDisplay price={price} />
           <Button className=" font-medium px-4 py-2 rounded-sm text-white text-xs sm:text-base">
-            Rental Now
+            Rent Now
           </Button>
         </CardFooter>
       </div>
