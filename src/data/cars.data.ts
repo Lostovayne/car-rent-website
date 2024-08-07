@@ -12,6 +12,8 @@ export const ArrayCars: AutoCardProps[] = [
       transmission: "Manual",
       capacity: 2,
     },
+    description:
+      "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the 'race track'. With its sleek design and powerful engine, the Koenigsegg is the perfect vehicle for those who seek adrenaline-pumping excitement on the road.",
   },
   {
     id: "2",
@@ -24,6 +26,8 @@ export const ArrayCars: AutoCardProps[] = [
       transmission: "Manual",
       capacity: 2,
     },
+    description:
+      "Inspired by the legendary GT-R, this ultra-competitive sports car is a testament to Nissan's commitment to performance. With its powerful engine and responsive handling, the GT-R is the perfect vehicle for those who seek the thrill of the racetrack on the road.",
   },
   {
     id: "3",
@@ -36,6 +40,8 @@ export const ArrayCars: AutoCardProps[] = [
       transmission: "Manual",
       capacity: 4,
     },
+    description:
+      "For those who seek the ultimate in luxury and comfort, the Rolls-Royce is the perfect choice. With its sleek design and spacious interior, this luxury sedan is the epitome of refinement and sophistication. Whether you're traveling for business or pleasure, the Rolls-Royce is the perfect vehicle for any occasion.",
   },
   {
     id: "4",
@@ -48,6 +54,8 @@ export const ArrayCars: AutoCardProps[] = [
       transmission: "Manual",
       capacity: 2,
     },
+    description:
+      "Inspired by the legendary GT-R, this ultra-competitive sports car is a testament to Nissan's commitment to performance. With its powerful engine and responsive handling, the GT-R is the perfect vehicle for those who seek the thrill of the racetrack on the road.",
   },
   {
     id: "5",
@@ -60,6 +68,8 @@ export const ArrayCars: AutoCardProps[] = [
       transmission: "Auto",
       capacity: 6,
     },
+    description:
+      "Designed to be an all-terrain adventure vehicle, the All New Rush is the perfect vehicle for those who seek the freedom and versatility of an SUV. With its spacious interior and powerful engine, the All New Rush is capable of handling just about any terrain.",
   },
   {
     id: "6",
@@ -72,6 +82,8 @@ export const ArrayCars: AutoCardProps[] = [
       transmission: "Auto",
       capacity: 6,
     },
+    description:
+      "With its bold design and spacious interior, the CR-V is the perfect vehicle for those who seek the convenience and flexibility of an SUV. Whether you're hauling around the whole family or just running errands, the CR-V has got you covered.",
   },
   {
     id: "7",
@@ -84,6 +96,8 @@ export const ArrayCars: AutoCardProps[] = [
       transmission: "Manual",
       capacity: 6,
     },
+    description:
+      "Inspired by the legendary Terios, this all-terrain adventure vehicle is the perfect vehicle for those who seek the freedom and versatility of an SUV. With its powerful engine and responsive handling, the All New Terios is capable of handling just about any terrain.",
   },
   {
     id: "8",
@@ -96,6 +110,8 @@ export const ArrayCars: AutoCardProps[] = [
       transmission: "Manual",
       capacity: 6,
     },
+    description:
+      "With its bold design and spacious interior, the CR-V is the perfect vehicle for those who seek the convenience and flexibility of an SUV. Whether you're hauling around the whole family or just running errands, the CR-V has got you covered.",
   },
   {
     id: "9",
@@ -108,6 +124,8 @@ export const ArrayCars: AutoCardProps[] = [
       transmission: "Auto",
       capacity: 4,
     },
+    description:
+      "Inspired by the legendary ZX, this hatchback is the perfect vehicle for those who seek the thrill of the road. With its powerful engine and responsive handling, the MG ZX Exclusice is capable of delivering smooth and exhilarating driving experiences.",
   },
   {
     id: "10",
@@ -120,6 +138,8 @@ export const ArrayCars: AutoCardProps[] = [
       transmission: "Auto",
       capacity: 6,
     },
+    description:
+      "Designed to be an all-terrain adventure vehicle, the New MG ZS is the perfect vehicle for those who seek the freedom and versatility of an SUV. With its spacious interior and powerful engine, the New MG ZS is capable of handling just about any terrain.",
   },
   {
     id: "11",
@@ -132,6 +152,8 @@ export const ArrayCars: AutoCardProps[] = [
       transmission: "Manual",
       capacity: 4,
     },
+    description:
+      "Inspired by the legendary ZX, this hatchback is the perfect vehicle for those who seek the thrill of the road. With its powerful engine and responsive handling, the MG ZX Excite is capable of delivering smooth and exhilarating driving experiences.",
   },
   {
     id: "12",
@@ -144,6 +166,8 @@ export const ArrayCars: AutoCardProps[] = [
       transmission: "Manual",
       capacity: 6,
     },
+    description:
+      "Designed to be an all-terrain adventure vehicle, the New MG ZS is the perfect vehicle for those who seek the freedom and versatility of an SUV. With its spacious interior and powerful engine, the New MG ZS is capable of handling just about any terrain.",
   },
 ];
 
