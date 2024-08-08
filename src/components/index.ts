@@ -12,7 +12,6 @@ export * from "./navbar";
 export * from "./ui/label";
 export * from "./ui/form";
 
-export * from "./payment/PaymentMain";
 
 export * from "./carDetail/CarDetail";
 
@@ -24,3 +23,6 @@ export * from "./details/CarDetailsCard/CarDetailsCard";
 export * from "./details/CarDetailsCard/CarDetailsRow";
 export * from "./IsFavoriteIcon";
 export * from "./details/reviews/StarReviewRating";
+
+export * from "./payment/payment/PaymentMain";
+export * from "./payment/summary/RentalSummary";
