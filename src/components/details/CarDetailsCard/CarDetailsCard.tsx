@@ -13,6 +13,7 @@ import {
   StarReviewRating,
   CarDetailsRow,
 } from "../../../components";
+
 export const CarDetailsCard = () => {
   const { isFavorite, handleToggleFavorite } = useFavorite();
 

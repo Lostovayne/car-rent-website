@@ -1,6 +1,6 @@
 type CarDetailsRowProps = {
   label: string;
-  value: string;
+  value: string | number;
 };
 
 export const CarDetailsRow: React.FC<CarDetailsRowProps> = ({
