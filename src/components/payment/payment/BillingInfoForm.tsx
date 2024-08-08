@@ -8,10 +8,10 @@ import {
   FormLabel,
   FormMessage,
 } from "../../ui/form";
+import { BillingInfoSchemaType } from "../../../schemas";
+import { useBillingInfo } from "../../../hooks";
 import { SectionCards } from "../../sectionCar/SectionCards";
 import { PaymentSectionHeader } from "./PaymentSectionHeader";
-import { useBillingInfo } from "../../../hooks";
-import { BillingInfoSchemaType } from "../../../schemas";
 
 
 interface BillingInfoFormProps {
@@ -99,11 +99,9 @@ export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ onSubmit }) =>
 
           </SectionCards>
 
-
           <SectionCards className="flex justify-end">
             <Button variant={"default"} type="submit">Continuar</Button>
           </SectionCards>
-
 
         </form>
       </Form>

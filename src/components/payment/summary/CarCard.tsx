@@ -4,7 +4,7 @@ import { StarReviewRating } from "../../details/reviews/StarReviewRating"
 interface Props {
     car: ICar
     carReviews:{
-      total: number
+      totalReviews: number
       averageRating: number
     }
   }
@@ -28,7 +28,7 @@ export const CarCard = ({ car, carReviews }: Props ) => {
           <h1 className="text-2xl sm:text-3xl font-bold">{car.model}</h1>
           <div className="flex gap-3 ">
             <StarReviewRating rating={carReviews.averageRating} />
-            <h2>{carReviews.total} Reviews </h2>
+            <h2>{carReviews.totalReviews} Reviews </h2>
           </div>
         </div>
       </div >
