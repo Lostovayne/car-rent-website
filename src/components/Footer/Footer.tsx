@@ -1,5 +1,5 @@
 import ColumFooter from "./ColumFooter";
-import { DataColumnFooter } from "../constants/DataColumnFooter";
+import { DataColumnFooter } from "../../constants/DataColumnFooter";
 export const Footer = () => {
   return (
     <footer className=" pb-12 pt-16 container mx-auto ">
