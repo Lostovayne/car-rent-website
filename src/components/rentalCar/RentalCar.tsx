@@ -7,7 +7,7 @@ export function RentalCar() {
   return (
     <div className="flex flex-col   max-w-[1336px]  m-auto justify-between items-center ">
       <div className="flex w-full justify-between  py-8 px-2">
-        <div className="max-md:m-auto  flex bg-red-200 ">
+        <div className="max-md:m-auto  flex  ">
           <CardRentalCar
             title={RentalData[0].title}
             description={RentalData[0].description}
@@ -16,7 +16,7 @@ export function RentalCar() {
             car={RentalData[0].car}
           />
         </div>
-        <div className="    hidden md:flex  bg-green-300">
+        <div className="    hidden md:flex   ">
           <CardRentalCar
             title={RentalData[1].title}
             description={RentalData[1].description}
