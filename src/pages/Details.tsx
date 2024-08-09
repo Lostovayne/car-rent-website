@@ -1,10 +1,24 @@
-import { CarDetails } from "../components"
-import { dataCarDetails } from "../data"
+import {
+  CarDetail,
+  ImageCarousel,
+  Reviews,
+  CarDetailsCard,
+} from "../components";
+import { dataCarDetails, imagesUrl } from "../data";
+import { ICar } from "../interfaces";
 
 export const DetailsPage = () => {
-  const carDetails = dataCarDetails
+  const { reviews = [] } = dataCarDetails as ICar; // =>  If reviews is null or undefined, set it to an empty array
 
   return (
-    <CarDetails carDetails={carDetails}/>
-  )
-}
+    // HOC
+    <CarDetail>
+      <CarDetail.View>
+        <ImageCarousel images={imagesUrl} />
+        <CarDetailsCard />
+      </CarDetail.View>
+      <Reviews reviews={reviews} />
+      <CarDetail.Sections />
+    </CarDetail>
+  );
+};

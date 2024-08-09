@@ -1,23 +1,26 @@
-export * from "./Footer";
-export * from "./navbar/Navbar";
+export * from "./AutoCard/AutoCard";
+export * from "./AutoCard/SpecsContainer";
+export * from "./AutoCard/SpecsItem";
+export * from "./AutoCard/PriceDisplay";
+export * from "./Footer/ColumFooter";
+export * from "./Footer/Footer";
+export * from "./ui/card";
+export * from "./ui/button";
+export * from "./ui/input";
+export * from "./details";
+export * from "./navbar";
+export * from "./ui/label";
+export * from "./ui/form";
 
-export * from "./ui/avatar"
-export * from "./ui/button"
-export * from "./ui/card"
-export * from "./ui/input"
-export * from "./ui/label"
-export * from "./ui/form"
+export * from "./payment/PaymentMain";
 
-export * from "./AutoCard";
+export * from "./carDetail/CarDetail";
 
-export * from "./details/CarDetails"
-export * from "./details/reviews/ButtonShowAllReviews"
-export * from "./details/reviews/Reviews"
-export * from "./details/reviews/ReviewDetails"
-export * from "./details/reviews/StarReviewRating"
+export * from "./carousel/ImageCarousel";
 
-export * from "./payment/PaymentCarRent"
-export * from "./payment/summary/CarCard"
-export * from "./payment/summary/CarTotales"
-export * from "./payment/summary/RentalSummary"
-export * from "./payment/payment/ConfirmationRental"
+export * from "./details/reviews/Reviews";
+
+export * from "./details/CarDetailsCard/CarDetailsCard";
+export * from "./details/CarDetailsCard/CarDetailsRow";
+export * from "./IsFavoriteIcon";
+export * from "./details/reviews/StarReviewRating";

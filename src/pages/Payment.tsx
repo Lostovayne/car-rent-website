@@ -1,8 +1,8 @@
-import { PaymentCarRent } from "../components"
+import { PaymentMain } from "../components"
 
 
 export const PaymentPage = () => {
   return (
-    <PaymentCarRent />
+    <PaymentMain />
   )
 }

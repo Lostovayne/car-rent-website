@@ -1,43 +1,49 @@
-import { Avatar, AvatarImage } from "../../ui/avatar"
-import type { IReview } from "../../../interfaces"
-import { formatDate } from "../../../helper"
-import { StarReviewRating } from "./StarReviewRating"
-
-
+import { Avatar, AvatarImage } from "../../ui/avatar";
+import type { IReview } from "../../../interfaces";
+import { formatDate } from "../../../helper";
+import { StarReviewRating } from "./StarReviewRating";
 
 export const ReviewDetails = ({ review }: { review: IReview }) => {
   return (
-    <div className="flex w-full gap-3">
-
-      {/* avatar */}
-      <figure className="flex w-[4rem] justify-center">
-        <Avatar className="size-12">
-          <AvatarImage src={review.user.imageUrl} alt={'ed'} className="" />
-        </Avatar>
-      </figure>
-
+    <article className="flex w-full gap-3">
       {/* review */}
-      <div className="flex flex-col gap-2 w-full">
+      <section className="flex flex-col gap-3 w-full ">
         <div className="flex justify-between">
-
-          {/* user. name and titte */}
-          <div className="flex flex-col">
-            <h1 className="font-bold text-xl">{review.user.name}</h1>
-            <h2 className="font-light">{review.user.title ?? '-'}</h2>
-          </div>
+          <header className="flex gap-3">
+            <figure className="flex justify-center ">
+              <Avatar className="size-12">
+                <AvatarImage
+                  src={review.user.imageUrl}
+                  alt={"ed"}
+                  className=""
+                />
+              </Avatar>
+            </figure>
+            {/* user. name and titte */}
+            <div className="flex flex-col h-12 ">
+              <h1 className="font-medium text-lg md:text-xl text-textPrimary">
+                {review.user.name}
+              </h1>
+              <h2 className="font-light text-textSecondary text-sm">
+                {review.user.title ?? ""}
+              </h2>
+            </div>
+          </header>
 
           {/* date and rating */}
-          <div className="flex flex-col gap-1">
-            <span className="font-light">{formatDate(review.createAt)}</span>
+          <div className="flex flex-col justify-between items-end pb-1">
+            <time className="font-light text-sm text-textSecondary">
+              {formatDate(review.createAt)}
+            </time>
             <StarReviewRating rating={review.rating} />
           </div>
         </div>
 
         {/* review text */}
-        <span className="font-light">{review.text}</span>
-      </div>
-
-    </div>
-  )
-}
-
+        <p className="font-light text-gray-600 text-sm px-1 sm:pl-[60px] text-pretty">
+          {review.text}
+        </p>
+      </section>
+    </article>
+  );
+};

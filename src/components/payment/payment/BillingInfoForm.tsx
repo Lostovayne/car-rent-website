@@ -1,122 +1,112 @@
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-
-
-import { Button } from "../../ui/button"
+import { Button } from "../../ui/button";
+import { Input } from "../../ui/input";
 import {
   Form,
   FormControl,
-  //FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from "../../ui/form"
-import { Input } from "../../ui/input"
-
-const formSchema = z.object({
-  name: z.string().min(2).max(50),
-  phoneNumber: z.string(),
-  address: z.string().min(3).max(50),
-  city: z.string().min(3).max(30)
-})
+} from "../../ui/form";
+import { SectionCards } from "../../sectionCar/SectionCards";
+import { PaymentSectionHeader } from "./PaymentSectionHeader";
+import { useBillingInfo } from "../../../hooks";
+import { BillingInfoSchemaType } from "../../../schemas";
 
 
-export const BillingInfo = () => {
-  // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: '',
-      phoneNumber: '',
-      address: '',
-      city: ''
-    },
-  })
+interface BillingInfoFormProps {
+  onSubmit: (values: BillingInfoSchemaType) => void
+}
 
-  // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
-  }
+
+export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ onSubmit }) => {
+
+  const form = useBillingInfo()
 
   return (
+    <div className="bg-card">
+
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="grid grid-cols-0 sm:grid-cols-2 gap-7"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)}>
 
-          {/* name */}
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
-                <FormControl>
-                  <Input placeholder="Your name" {...field} />
-                </FormControl>
-                {/* <FormDescription>
-                  This is your public display name.
-                </FormDescription> */}
-                <FormMessage />
-              </FormItem>
-            )}
+          <PaymentSectionHeader
+            title="Billing Info"
+            description="Please enter your billing info"
+            stepLabel={1}
           />
 
-          {/* phone number */}
-          <FormField
-            control={form.control}
-            name="phoneNumber"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Phone Number</FormLabel>
-                <FormControl>
-                  <Input placeholder="Phone number" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <SectionCards className="grid grid-cols-0 sm:grid-cols-2 gap-7">
 
-          {/* address */}
-          <FormField
-            control={form.control}
-            name="address"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Address</FormLabel>
-                <FormControl>
-                  <Input placeholder="Address" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+            {/* name */}
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Your name" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-          {/* town/city */}
-          <FormField
-            control={form.control}
-            name="city"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>City</FormLabel>
-                <FormControl>
-                  <Input placeholder="City" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+            {/* phone number */}
+            <FormField
+              control={form.control}
+              name="phoneNumber"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Phone Number</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Phone number" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* address */}
+            <FormField
+              control={form.control}
+              name="address"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Address</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Address" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* town/city */}
+            <FormField
+              control={form.control}
+              name="city"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>City</FormLabel>
+                  <FormControl>
+                    <Input placeholder="City" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+          </SectionCards>
 
 
-          <Button type="submit">Submit</Button>
+          <SectionCards className="flex justify-end">
+            <Button variant={"default"} type="submit">Continuar</Button>
+          </SectionCards>
+
 
         </form>
       </Form>
-  )
-}
-
+    </div>
+  );
+};

@@ -25,7 +25,7 @@ export const CarCard = ({ car, carReviews }: Props ) => {
         </div>
   
         <div className="col-span-2 flex flex-col gap-2 px-3 justify-center">
-          <h1 className="text-3xl font-bold">{car.model}</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold">{car.model}</h1>
           <div className="flex gap-3 ">
             <StarReviewRating rating={carReviews.averageRating} />
             <h2>{carReviews.total} Reviews </h2>
