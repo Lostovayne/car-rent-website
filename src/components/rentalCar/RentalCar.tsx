@@ -16,7 +16,7 @@ export function RentalCar() {
             car={RentalData[0].car}
           />
         </div>
-        <div className="    hidden md:flex   ">
+        <div className="hidden md:flex">
           <CardRentalCar
             title={RentalData[1].title}
             description={RentalData[1].description}
@@ -27,9 +27,9 @@ export function RentalCar() {
         </div>
       </div>
       <div className="flex flex-col xl:flex-row justify-between items-center w-full">
-        <SelectDate title="Pick Up"/>
+        <SelectDate title="Pick Up" />
         <Button>
-          <TbArrowsDownUp className=""/>
+          <TbArrowsDownUp className="" />
         </Button>
         <SelectDate title="Drop Off" />
       </div>
