@@ -19,7 +19,7 @@ export * from "./payment/PaymentMain";
 
 export * from "./carDetail/CarDetail";
 
-export * from "./carousel/ImageCarousel";
+export * from "./carousel/CarouselOfImages";
 
 export * from "./details/reviews/Reviews";
 
