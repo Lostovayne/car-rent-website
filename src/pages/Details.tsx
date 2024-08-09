@@ -1,6 +1,6 @@
 import {
   CarDetail,
-  ImageCarousel,
+  CarouselOfImages,
   Reviews,
   CarDetailsCard,
 } from "../components";
@@ -14,7 +14,7 @@ export const DetailsPage = () => {
     // HOC
     <CarDetail>
       <CarDetail.View>
-        <ImageCarousel images={imagesUrl} />
+        <CarouselOfImages images={imagesUrl} />
         <CarDetailsCard />
       </CarDetail.View>
       <Reviews reviews={reviews} />
