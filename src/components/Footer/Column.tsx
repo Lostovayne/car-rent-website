@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-interface Props {
+interface ColumnProps {
   section: {
     title: string;
     links: {
@@ -10,7 +10,7 @@ interface Props {
   };
 }
 
-const ColumFooter: React.FC<Props> = ({ section }) => {
+export const Column: React.FC<ColumnProps> = ({ section }) => {
   return (
     <div className="flex flex-col gap-8">
       <h3 className="font-bold text-xl text-textPrimary">{section.title}</h3>
@@ -26,5 +26,3 @@ const ColumFooter: React.FC<Props> = ({ section }) => {
     </div>
   );
 };
-
-export default ColumFooter;
