@@ -1,37 +1,31 @@
+import { useState } from "react";
 import { BillingInfoSchemaType, RentalInfoSchemaType } from "../../../schemas";
 import { ConfirmationRental } from "./ConfirmationRental";
 import { BillingInfoForm } from "./BillingInfoForm";
 import { RentalInfoForm } from "./RentalInfoForm";
+import { PaymentMethod } from "./PaymentMethodForm";
 
 export const PaymentMain = () => {
+  const [step, setStep] = useState<number>(1);
+
   const onSubmitBillingInfo = (values: BillingInfoSchemaType) => {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+    setStep((prev) => prev + 1);
     console.log(values);
   }
 
   const onSubmitRentalInfo = (values: RentalInfoSchemaType) => {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+    setStep((prev) => prev + 1);
     console.log(values);
   }
 
-  // TODO: navegar entre secciones del formulario (agregar state para deshabilitar seccion entre continuar/regresar)
-  // TODO: ver el onclick del select del Time cuando está encima del boton continuar
+  // TODO: Revisar el onclick del select del Time cuando está encima del boton continuar
 
   return (
     <div className="flex flex-col">
-      <div className=" ">
-        <BillingInfoForm onSubmit={onSubmitBillingInfo} />
-        <RentalInfoForm onSubmit={onSubmitRentalInfo} />
-      </div>
-
-      {/* TODO: Pendiente Payment Method */}
-      <div className=" bg-cyan-700">Payment method</div>
-
-      <div className="">
-        <ConfirmationRental />
-      </div>
+      {step === 1 && <BillingInfoForm onSubmit={onSubmitBillingInfo} />}
+      {step === 2 && <RentalInfoForm onSubmit={onSubmitRentalInfo} setStep={setStep}/>}
+      {step === 3 && <PaymentMethod setStep={setStep} />}
+      {step === 4 && <ConfirmationRental />}
     </div>
   );
 };

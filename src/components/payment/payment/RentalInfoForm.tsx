@@ -23,31 +23,34 @@ import { dataCities } from "../../../data/city.data";
 
 interface RentalInfoFormProps {
   onSubmit: (values: RentalInfoSchemaType) => void
+  setStep: React.Dispatch<React.SetStateAction<number>>
 }
 
 
-export const RentalInfoForm:React.FC<RentalInfoFormProps> = ({onSubmit}) => {
+export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ onSubmit, setStep }) => {
   const form = useRentalInfo()
   const cities = dataCities
-  
+
+  const onClickPrevious = () => {
+    setStep((prev) => prev - 1)
+  }
+
   return (
     // TODO; usar "pointer-events-none opacity-40" para deshabilitar, dependerá de estado
     // <div className="bg-card pointer-events-none opacity-40">  
-    <div className="bg-card ">
+    <section className="bg-card ">
 
       <Form {...form}>
+        <PaymentSectionHeader
+          title="Rental Info"
+          description="Please select your rental date"
+          stepLabel={2}
+        />
 
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className=""
         >
-
-          <PaymentSectionHeader
-            title="Rental Info"
-            description="Please select your rental date"
-            stepLabel={2}
-          />
-
           <SectionCards className="grid grid-cols-0 sm:grid-cols-0 gap-7 ">
             {/* Pick Up */}
 
@@ -266,14 +269,14 @@ export const RentalInfoForm:React.FC<RentalInfoFormProps> = ({onSubmit}) => {
               />
             </SectionCards>
 
-            <SectionCards className="flex justify-end">
-              <Button variant={"link"} type="submit">Regresar</Button>
+            <SectionCards className="flex justify-end gap-7">
+              <Button variant={"link"} type="button" onClick={onClickPrevious}>Regresar</Button>
               <Button variant={"default"} type="submit">Continuar</Button>
             </SectionCards>
 
           </SectionCards>
         </form>
       </Form>
-    </div>
+    </section>
   );
 };

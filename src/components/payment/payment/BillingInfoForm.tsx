@@ -14,10 +14,11 @@ export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ onSubmit }) =>
   const form = useBillingInfo();
 
   return (
-    <div className="bg-card">
+    <section className="bg-card">
+      <PaymentSectionHeader title="Billing Info" description="Please enter your billing info" stepLabel={1} />
+      
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <PaymentSectionHeader title="Billing Info" description="Please enter your billing info" stepLabel={1} />
 
           <SectionCards className="grid grid-cols-0 sm:grid-cols-2 gap-7">
             {/* name */}
@@ -88,6 +89,6 @@ export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ onSubmit }) =>
           </SectionCards>
         </form>
       </Form>
-    </div>
+    </section>
   );
 };
