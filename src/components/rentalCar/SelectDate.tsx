@@ -2,16 +2,16 @@ import { estadosDeUSA, hoursOfDay } from "../../data";
 import { DatePicker } from "./DataPicker";
 import SelectComponent from "./SelectComponent";
 
-function SelectDate({title}: {title:string}) {
+function SelectDate({ title }: { title: string }) {
   return (
     <div className="bg-white border border-gray-200 p-6 rounded-lg shadow-gray-200">
-      <p>{title}</p>
+      <div className="flex justify-start items-center">
+        <img src="/assets/rentalCar/mark.png" alt="" className="size-4" />
+        <p>{title}</p>
+      </div>
       <div className="flex gap-2">
         <div>
-          <div className="flex justify-start items-center">
-            <img src="/assets/rentalCar/mark.png" alt="" className="size-4" />
-            <p className="pl-3 font-bold text-md">Locations</p>
-          </div>
+          <p className="pl-3 font-bold text-md">Locations</p>
           <SelectComponent
             array={estadosDeUSA}
             placeholder="Select your city"
