@@ -1,9 +1,11 @@
 import { useSelected } from "../../hooks/useSelected";
-import { ImagesCarouselProps } from "../../interfaces";
+import { CarouselOfImagesProps } from "../../interfaces";
 import { Image } from "./Image";
 import { ImageIterator } from "./ImageIterator";
 
-export const ImageCarousel: React.FC<ImagesCarouselProps> = ({ images }) => {
+export const CarouselOfImages: React.FC<CarouselOfImagesProps> = ({
+  images,
+}) => {
   const { selectedImage, handleImageClick } = useSelected({ images });
 
   return (

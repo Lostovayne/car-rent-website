@@ -11,7 +11,8 @@ import { Button } from "../../ui/button";
 import {
   IsFavoriteIcon,
   StarReviewRating,
-  CarDetailsRow,
+  TableRow,
+  TableContainer,
 } from "../../../components";
 
 export const CarDetailsCard = () => {
@@ -46,15 +47,15 @@ export const CarDetailsCard = () => {
           </p>
 
           <table className="w-full flex flex-col min-[390px]:flex-row text-base  xl:text-xl gap-3 ">
-            <tbody className="flex flex-col gap-2 max-[390px]:w-full w-1/2">
-              <CarDetailsRow label="Type" value="Sedan" />
-              <CarDetailsRow label="Transm" value="Auto" />
-            </tbody>
+            <TableContainer>
+              <TableRow label="Type" value="Sedan" />
+              <TableRow label="Transm" value="Auto" />
+            </TableContainer>
 
-            <tbody className="flex flex-col gap-2 max-[390px]:w-full w-1/2">
-              <CarDetailsRow label="Capacity" value="2 Person" />
-              <CarDetailsRow label="Gasoline" value="70L" />
-            </tbody>
+            <TableContainer>
+              <TableRow label="Capacity" value="2 Person" />
+              <TableRow label="Gasoline" value="70L" />
+            </TableContainer>
           </table>
         </CardContent>
         <CardFooter className="flex justify-between items-center w-full p-0 mt-5 sm:mt-6">
