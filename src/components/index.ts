@@ -24,6 +24,7 @@ export * from "./carousel/CarouselOfImages";
 export * from "./details/reviews/Reviews";
 
 export * from "./details/CarDetailsCard/CarDetailsCard";
-export * from "./details/CarDetailsCard/CarDetailsRow";
+export * from "./details/CarDetailsCard/TableRow";
+export * from "./details/CarDetailsCard/TableContainer";
 export * from "./IsFavoriteIcon";
 export * from "./details/reviews/StarReviewRating";

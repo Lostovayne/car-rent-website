@@ -1,12 +1,9 @@
-type CarDetailsRowProps = {
+type TableRowProps = {
   label: string;
   value: string | number;
 };
 
-export const CarDetailsRow: React.FC<CarDetailsRowProps> = ({
-  label,
-  value,
-}) => {
+export const TableRow: React.FC<TableRowProps> = ({ label, value }) => {
   return (
     <tr className="flex justify-between ">
       <th className="text-textSecondary font-normal sm:font-light">{label}:</th>
