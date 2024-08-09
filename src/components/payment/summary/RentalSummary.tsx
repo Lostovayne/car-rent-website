@@ -1,26 +1,25 @@
-import type { ICar } from "../../../interfaces"
 
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "../../ui/card"
+import { ICar } from "../../../interfaces"
 import { CarCard } from "./CarCard"
 import { CarTotales } from "./CarTotales"
+import { dataReviews } from "../../../data"
 
 interface RentalSumaryProps {
   car: ICar
-  carReviews:{
-    total: number
-    averageRating: number
-  }
 }
 
-export const RentalSummary:React.FC<RentalSumaryProps> = ({car, carReviews}) => {
-
+export const RentalSummary:React.FC<RentalSumaryProps> = ({car}) => {
+  const averageRating =
+    (car.reviews?.reduce((acum, current) => current.rating + acum, 0) ?? 0) / dataReviews.length;
+  const totalReviews = car.reviews?.length ?? 0;
+  
   return (
     <Card>
       <CardHeader>
@@ -29,15 +28,10 @@ export const RentalSummary:React.FC<RentalSumaryProps> = ({car, carReviews}) => 
       </CardHeader>
 
       <CardContent className="flex flex-col gap-2">
-        <CarCard car={car} carReviews={carReviews} />
+        <CarCard car={car} carReviews={{totalReviews, averageRating}} />
         <CarTotales />
       </CardContent>
-
-      <CardFooter>
-        
-      </CardFooter>
     </Card>
-
   )
 }
 
