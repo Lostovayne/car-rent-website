@@ -1,6 +1,6 @@
 import { Image } from "./Image";
 import { ImagesCarouselProps } from "../../interfaces";
-import { cn } from "../../lib";
+import { cn } from "../../lib/utils";
 
 interface ImageIteratorProps extends ImagesCarouselProps {
   selectedImage: string;

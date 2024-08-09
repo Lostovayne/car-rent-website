@@ -13,8 +13,8 @@ function SelectComponent({array,placeholder, title}:{array:string[],title:string
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder={placeholder} />
           </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
+          <SelectContent position="item-aligned">
+            <SelectGroup  >
               <SelectLabel>{title}</SelectLabel>
               {array.map((estado:string) => (
                 <SelectItem key={estado} value={estado}>

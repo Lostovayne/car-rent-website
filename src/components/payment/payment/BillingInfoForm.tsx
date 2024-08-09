@@ -1,42 +1,25 @@
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "../../ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../../ui/form";
 import { BillingInfoSchemaType } from "../../../schemas";
 import { useBillingInfo } from "../../../hooks";
 import { SectionCards } from "../../sectionCar/SectionCards";
 import { PaymentSectionHeader } from "./PaymentSectionHeader";
 
-
 interface BillingInfoFormProps {
-  onSubmit: (values: BillingInfoSchemaType) => void
+  onSubmit: (values: BillingInfoSchemaType) => void;
 }
 
-
 export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ onSubmit }) => {
-
-  const form = useBillingInfo()
+  const form = useBillingInfo();
 
   return (
     <div className="bg-card">
-
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-
-          <PaymentSectionHeader
-            title="Billing Info"
-            description="Please enter your billing info"
-            stepLabel={1}
-          />
+          <PaymentSectionHeader title="Billing Info" description="Please enter your billing info" stepLabel={1} />
 
           <SectionCards className="grid grid-cols-0 sm:grid-cols-2 gap-7">
-
             {/* name */}
             <FormField
               control={form.control}
@@ -96,13 +79,13 @@ export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ onSubmit }) =>
                 </FormItem>
               )}
             />
-
           </SectionCards>
 
           <SectionCards className="flex justify-end">
-            <Button variant={"default"} type="submit">Continuar</Button>
+            <Button variant={"default"} type="submit">
+              Continuar
+            </Button>
           </SectionCards>
-
         </form>
       </Form>
     </div>
