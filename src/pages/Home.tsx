@@ -1,10 +1,12 @@
 import { Button } from "../components";
 import { ViewCars } from "../components/sectionCar/ViewCars";
 import { SectionCards } from "../components/sectionCar/SectionCards";
+import { RentalCar } from "../components/rentalCar/RentalCar";
 
 export const Home: React.FC = () => {
   return (
     <div className=" mx-auto max-w-screen-2xl min-h-dvh">
+      <RentalCar />
 
       <SectionCards>
         <div className=" p-5 flex items-center justify-between">
@@ -22,7 +24,6 @@ export const Home: React.FC = () => {
         </h3>
         <ViewCars cuantity={8} />
       </SectionCards>
-      
     </div>
   );
 };

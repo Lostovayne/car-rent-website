@@ -1,4 +1,6 @@
 export * from "./cars.data"
 export * from "./user.data"
 export * from "./details.data"
-
+export * from "./rental.data"
+export * from "./cities.data"
+export * from "./hours.data"
