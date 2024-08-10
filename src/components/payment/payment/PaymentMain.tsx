@@ -3,7 +3,7 @@ import { BillingInfoSchemaType, RentalInfoSchemaType } from "../../../schemas";
 import { ConfirmationRental } from "./ConfirmationRental";
 import { BillingInfoForm } from "./BillingInfoForm";
 import { RentalInfoForm } from "./RentalInfoForm";
-import { PaymentMethod } from "./PaymentMethodForm";
+import { PaymentMethod } from "./PaymentMethod";
 
 export const PaymentMain = () => {
   const [step, setStep] = useState<number>(1);
