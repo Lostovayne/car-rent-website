@@ -10,14 +10,11 @@ import {
   Label,
   Form,
 } from "../components";
-import { useLogin } from "../hooks/useLogin";
-
+import { useLogin } from "../hooks/auth/useLogin";
 
 export function Login() {
   const { form, onSubmit } = useLogin();
   // Logear al usuario
-
-
 
   return (
     <Form {...form}>
