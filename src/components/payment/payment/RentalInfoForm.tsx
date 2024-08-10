@@ -22,13 +22,13 @@ import { useRentalInfo } from "../../../hooks";
 import { dataCities } from "../../../data/city.data";
 
 interface RentalInfoFormProps {
+  defaultValues: RentalInfoSchemaType
   onSubmit: (values: RentalInfoSchemaType) => void
   setStep: React.Dispatch<React.SetStateAction<number>>
 }
 
-
-export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ onSubmit, setStep }) => {
-  const form = useRentalInfo()
+export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues,onSubmit, setStep }) => {
+  const form = useRentalInfo(defaultValues)
   const cities = dataCities
 
   const onClickPrevious = () => {

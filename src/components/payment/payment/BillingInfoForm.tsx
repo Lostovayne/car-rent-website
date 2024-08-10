@@ -7,11 +7,12 @@ import { SectionCards } from "../../sectionCar/SectionCards";
 import { PaymentSectionHeader } from "./PaymentSectionHeader";
 
 interface BillingInfoFormProps {
+  defaultValues: BillingInfoSchemaType;
   onSubmit: (values: BillingInfoSchemaType) => void;
 }
 
-export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ onSubmit }) => {
-  const form = useBillingInfo();
+export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ defaultValues, onSubmit }) => {
+  const form = useBillingInfo(defaultValues);
 
   return (
     <section className="bg-card">
