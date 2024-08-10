@@ -22,7 +22,7 @@ interface PaymentMethodFormProps {
 
 export const PaymentMethodForm: React.FC<PaymentMethodFormProps> = ({ setStep, onSubmit }) => {
   const form = usePaymentMethod()
-  
+
   const onClickPrevious = () => {
     setStep((prev) => prev - 1)
   }
@@ -38,7 +38,10 @@ export const PaymentMethodForm: React.FC<PaymentMethodFormProps> = ({ setStep, o
               <FormItem className="space-y-3">
                 <FormControl>
                   <RadioGroup
-                    onValueChange={field.onChange}
+                    onValueChange={(value) => {
+                      field.onChange(value)
+                      form.handleSubmit(onSubmit)();
+                    }}
                     defaultValue={field.value}
                     className="flex flex-col space-y-1"
                   >
@@ -48,7 +51,15 @@ export const PaymentMethodForm: React.FC<PaymentMethodFormProps> = ({ setStep, o
                           <FormControl>
                             <RadioGroupItem value={method} />
                           </FormControl>
-                          <FormLabel className="font-normal">{method}</FormLabel>
+                          <FormLabel className="font-normal w-full">
+                            <div className="flex items-center justify-between">
+                              {method}
+                              <div className="flex gap-5">
+                                <img src="/assets/icons/visa.svg" alt="Visa Icon" width={28} height={28} />
+                                <img src="/assets/icons/mastercard.svg" alt="Visa Icon" width={28} height={28} />
+                              </div>
+                            </div>
+                          </FormLabel>
                         </FormItem>
                       ))
                     }
@@ -62,7 +73,7 @@ export const PaymentMethodForm: React.FC<PaymentMethodFormProps> = ({ setStep, o
 
         <SectionCards className="flex justify-end gap-7 ">
           <Button variant={"link"} type="button" onClick={onClickPrevious}>Regresar</Button>
-          <Button variant={"default"} type="submit">Continuar</Button>
+          {/* <Button variant={"default"} type="submit">Continuar</Button> */}
         </SectionCards>
 
       </form>
