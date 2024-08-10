@@ -1,29 +1,24 @@
-import { SectionCards } from "../../sectionCar/SectionCards"
-import { Button } from "../../ui/button"
+import { PaymentMethodSchemaType } from "../../../schemas/payment/paymentMethod.schema"
 import { PaymentMethodForm } from "./PaymentMethodForm"
 import { PaymentSectionHeader } from "./PaymentSectionHeader"
 
 interface PaymentMethodFormProps {
-  //onSubmit: (values: RentalInfoSchemaType) => void
   setStep: React.Dispatch<React.SetStateAction<number>>
 }
 
 
 export const PaymentMethod: React.FC<PaymentMethodFormProps> = ({setStep}) => {
-  const onClickPrevious = () => {
-    setStep((prev) => prev - 1)
+  
+  const onSubmitPaymentMethod = (data: PaymentMethodSchemaType) => {
+    console.log({ data })
   }
 
   return (
-    <section className="bg-card">
+    <section className="bg-card ">
       <PaymentSectionHeader title="Payment Method" description="Please enter your payment method" stepLabel={3} />
 
-      <PaymentMethodForm />     
-
-      <SectionCards className="flex justify-end gap-7">
-        <Button variant={"link"} type="button" onClick={onClickPrevious}>Regresar</Button>
-        <Button variant={"default"} type="submit">Continuar</Button>
-      </SectionCards>
+      <PaymentMethodForm setStep={setStep} onSubmit={onSubmitPaymentMethod} />     
+      
     </section>
 
   )

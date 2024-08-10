@@ -24,7 +24,7 @@ export const PaymentMain = () => {
     <div className="flex flex-col">
       {step === 1 && <BillingInfoForm onSubmit={onSubmitBillingInfo} />}
       {step === 2 && <RentalInfoForm onSubmit={onSubmitRentalInfo} setStep={setStep}/>}
-      {step === 3 && <PaymentMethod setStep={setStep} />}
+      <PaymentMethod setStep={setStep} />
       {step === 4 && <ConfirmationRental />}
     </div>
   );
