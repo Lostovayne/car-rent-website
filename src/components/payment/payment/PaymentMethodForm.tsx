@@ -52,13 +52,7 @@ export const PaymentMethodForm: React.FC<PaymentMethodFormProps> = ({ setStep, o
                             <RadioGroupItem value={method} />
                           </FormControl>
                           <FormLabel className="font-normal w-full">
-                            <div className="flex items-center justify-between">
-                              {method}
-                              <div className="flex gap-5">
-                                <img src="/assets/icons/visa.svg" alt="Visa Icon" width={28} height={28} />
-                                <img src="/assets/icons/mastercard.svg" alt="Visa Icon" width={28} height={28} />
-                              </div>
-                            </div>
+                            <PaymentMethod method={method} />
                           </FormLabel>
                         </FormItem>
                       ))
@@ -81,3 +75,26 @@ export const PaymentMethodForm: React.FC<PaymentMethodFormProps> = ({ setStep, o
   )
 }
 
+
+const PaymentMethod: React.FC<{ method: typeof PAYMENT_METHODS[number] }> = ({ method }) => {
+  return (
+    <div className="flex items-center justify-between">
+      {method}
+      {
+        method === "Credit Card"
+        && <div className="flex gap-5">
+          <img src="/assets/icons/visa.svg" alt="Visa Icon" width={28} height={28} />
+          <img src="/assets/icons/mastercard.svg" alt="MasterCard Icon" width={28} height={28} />
+        </div>
+      }
+      {
+        method === "Paypal"
+        && <img src="/assets/icons/paypal.svg" alt="Visa Icon" width={20} height={20} />
+      }
+      {
+        method === "Bitcoin"
+        && <img src="/assets/icons/bitcoin.svg" alt="Visa Icon" width={20} height={20} />
+      }
+    </div>
+  )
+}
