@@ -25,11 +25,15 @@ export const PaymentMain = () => {
       {step === 2
         && <RentalInfoForm
           defaultValues={paymentInfoForm.rentalInfo}
-          onSubmit={onSubmitRentalInfo} 
+          onSubmit={onSubmitRentalInfo}
           setStep={setStep}
         />}
-      {step === 3 && <PaymentMethod setStep={setStep} />}
-      {step === 4 && <ConfirmationRental />}
+      {step === 3
+        && <ConfirmationRental
+          values={paymentInfoForm}
+          setStep={setStep}
+        />}
+      {step === 4 && <PaymentMethod setStep={setStep} />}
     </div>
   );
 };

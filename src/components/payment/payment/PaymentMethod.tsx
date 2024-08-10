@@ -24,7 +24,11 @@ export const PaymentMethod: React.FC<PaymentMethodFormProps> = ({setStep}) => {
 
   return (
     <section className="bg-card ">
-      <PaymentSectionHeader title="Payment Method" description="Please enter your payment method" stepLabel={3} />
+      <PaymentSectionHeader 
+        title="Payment Method" 
+        description="Please enter your payment method" 
+        stepLabel={4} 
+      />
       <PaymentMethodForm setStep={setStep} onSubmit={onSubmitPaymentMethod} />     
       {paymnentMethod==="Credit Card" && <CreditCardForm onSubmit={onSubmitCreditCard} />}
     </section>
