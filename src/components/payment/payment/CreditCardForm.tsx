@@ -2,7 +2,7 @@ import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../../ui/form";
 import { CreditCardSchemaType } from "../../../schemas/payment/creditcard.schema";
-import { useCreditCard } from "../../../hooks/payment/useCreditCard";
+import { useCreditCardForm } from "../../../hooks/payment/useCreditCardForm";
 import { SectionCards } from "../../sectionCar/SectionCards";
 
 interface CreditCardFormProps {
@@ -10,7 +10,7 @@ interface CreditCardFormProps {
 }
 
 export const CreditCardForm: React.FC<CreditCardFormProps> = ({ onSubmit }) => {
-  const form = useCreditCard();
+  const form = useCreditCardForm();
 
   return (
     <section className="bg-card">

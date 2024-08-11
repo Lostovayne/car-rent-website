@@ -14,11 +14,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 
 import { CalendarIcon } from "lucide-react";
 import { cn } from "../../../lib";
-
+import { useRentalInfoForm } from "../../../hooks";
 import { SectionCards } from "../../sectionCar/SectionCards";
 import { PaymentSectionHeader } from "./PaymentSectionHeader";
 import type { RentalInfoSchemaType } from "../../../schemas";
-import { useRentalInfo } from "../../../hooks";
 import { dataCities } from "../../../data/city.data";
 
 interface RentalInfoFormProps {
@@ -28,7 +27,7 @@ interface RentalInfoFormProps {
 }
 
 export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues,onSubmit, setStep }) => {
-  const form = useRentalInfo(defaultValues)
+  const form = useRentalInfoForm(defaultValues)
   const cities = dataCities
 
   const onClickPrevious = () => {

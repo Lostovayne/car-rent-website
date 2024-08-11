@@ -2,7 +2,7 @@ import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../../ui/form";
 import { BillingInfoSchemaType } from "../../../schemas";
-import { useBillingInfo } from "../../../hooks";
+import { useBillingInfoForm } from "../../../hooks";
 import { SectionCards } from "../../sectionCar/SectionCards";
 import { PaymentSectionHeader } from "./PaymentSectionHeader";
 
@@ -12,7 +12,7 @@ interface BillingInfoFormProps {
 }
 
 export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ defaultValues, onSubmit }) => {
-  const form = useBillingInfo(defaultValues);
+  const form = useBillingInfoForm(defaultValues);
 
   return (
     <section className="bg-card">
