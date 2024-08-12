@@ -256,7 +256,7 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues,on
                           <SelectValue placeholder="Select your time" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="">
+                      <SelectContent side="top" className="">
                         <SelectItem value="06:00-10:00">06:00-10:00</SelectItem>
                         <SelectItem value="10:00-12:00">10:00-12:00</SelectItem>
                         <SelectItem value="12:00-18:00">12:00-18:00</SelectItem>
