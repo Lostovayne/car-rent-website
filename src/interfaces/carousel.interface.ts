@@ -1,4 +1,4 @@
-export interface ImagesCarouselProps {
+export interface CarouselOfImagesProps {
   images: {
     url: string;
     alt: string;

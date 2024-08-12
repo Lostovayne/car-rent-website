@@ -1,8 +1,8 @@
 import { Image } from "./Image";
-import { ImagesCarouselProps } from "../../interfaces";
-import { cn } from "../../lib";
+import { CarouselOfImagesProps } from "../../interfaces";
+import { cn } from "../../lib/utils";
 
-interface ImageIteratorProps extends ImagesCarouselProps {
+interface ImageIteratorProps extends CarouselOfImagesProps {
   selectedImage: string;
   handleImageClick: (id: number) => void;
 }

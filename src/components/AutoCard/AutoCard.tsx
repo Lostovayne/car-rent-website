@@ -1,4 +1,5 @@
 import { useFavorite } from "../../hooks";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -55,9 +56,11 @@ export const AutoCard = ({
         </CardContent>
         <CardFooter className="flex justify-between items-center w-full p-0 mt-5 sm:mt-6">
           <PriceDisplay price={price} />
-          <Button className=" font-medium px-4 py-2 rounded-sm text-white text-xs sm:text-base">
-            Rent Now
-          </Button>
+          <Link to={`/cars/details/${id}`}>
+            <Button className=" font-medium px-4 py-2 rounded-sm text-white text-xs sm:text-base">
+              Rent Now
+            </Button>
+          </Link>
         </CardFooter>
       </div>
     </Card>
