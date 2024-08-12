@@ -5,8 +5,8 @@ import { TbArrowsDownUp } from "react-icons/tb";
 import { Button } from "../ui/button";
 export function RentalCar() {
   return (
-    <div className="flex flex-col   max-w-[1336px]  m-auto justify-between items-center ">
-      <div className="flex w-full justify-between  py-8 px-2">
+    <div className="flex flex-col   max-w-[1176px]   m-auto justify-between items-center ">
+      <div className="flex w-full justify-between  py-8 px-4 gap-2">
         <div className="max-md:m-auto  flex  ">
           <CardRentalCar
             title={RentalData[0].title}
@@ -26,7 +26,7 @@ export function RentalCar() {
           />
         </div>
       </div>
-      <div className="flex flex-col xl:flex-row justify-between items-center w-full">
+      <div className="flex flex-col xl:flex-row justify-between items-center w-full px-4">
         <SelectDate title="Pick Up"/>
         <Button>
           <TbArrowsDownUp className=""/>

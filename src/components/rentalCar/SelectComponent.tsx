@@ -10,7 +10,7 @@ import {
 function SelectComponent({array,placeholder, title}:{array:string[],title:string, placeholder: string}) {
   return (
     <Select>
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-full">
             <SelectValue placeholder={placeholder} />
           </SelectTrigger>
           <SelectContent position="item-aligned">

@@ -17,12 +17,12 @@ export function DatePicker() {
   const [date, setDate] = React.useState<Date>()
 
   return (
-    <Popover>
+    <Popover  >
       <PopoverTrigger asChild>
         <Button
           variant={"outline"}
           className={cn(
-            "w-[180px] justify-start text-left font-normal",
+            "w-full justify-start text-left font-normal",
             !date && "text-muted-foreground"
           )}
         >
