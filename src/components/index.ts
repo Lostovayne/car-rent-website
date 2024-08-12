@@ -14,10 +14,7 @@ export * from "./details";
 export * from "./navbar";
 export * from "./ui/label";
 export * from "./ui/form";
-<<<<<<< HEAD
-=======
-export * from "./ui/radio-group";
->>>>>>> de0aa17c4645ad0be8daaf142c5cb406b2736d0c
+export * from "./ui/calendar";
 
 export * from "./carDetail/CarDetail";
 
