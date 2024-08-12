@@ -8,8 +8,8 @@ export const useCreditCardForm = () => {
     defaultValues: {
       cardNumber: "",
       expirationDate: "",
-      cardHolder: "",
-      cvc: "",
+      cardHolderName: "",
+      cvv: "",
     },
   });
 
@@ -17,3 +17,4 @@ export const useCreditCardForm = () => {
     form
   )
 }
+

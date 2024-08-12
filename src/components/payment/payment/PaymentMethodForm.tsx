@@ -11,7 +11,7 @@ import {
 } from "../../ui/form"
 import { RadioGroup, RadioGroupItem } from "./../../ui/radio-group"
 import { SectionCards } from "../../sectionCar/SectionCards"
-import { usePaymentMethod } from "../../../hooks/payment/usePaymentMethod"
+import { usePaymentMethodForm } from "../../../hooks/payment/usePaymentMethodForm"
 import { PaymentMethodSchemaType } from "../../../schemas/payment/paymentMethod.schema"
 import { PAYMENT_METHODS } from "../../../constants"
 
@@ -21,7 +21,7 @@ interface PaymentMethodFormProps {
 }
 
 export const PaymentMethodForm: React.FC<PaymentMethodFormProps> = ({ setStep, onSubmit }) => {
-  const form = usePaymentMethod()
+  const form = usePaymentMethodForm()
 
   const onClickPrevious = () => {
     setStep((prev) => prev - 1)

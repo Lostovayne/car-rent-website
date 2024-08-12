@@ -1,10 +1,10 @@
 import { useState } from "react"
+import { PAYMENT_METHODS } from "../../../constants"
 import { CreditCardSchemaType } from "../../../schemas/payment/creditcard.schema"
 import { PaymentMethodSchemaType } from "../../../schemas/payment/paymentMethod.schema"
-import { CreditCardForm } from "./CreditCardForm"
 import { PaymentMethodForm } from "./PaymentMethodForm"
 import { PaymentSectionHeader } from "./PaymentSectionHeader"
-import { PAYMENT_METHODS } from "../../../constants"
+import { CreditCardForm } from "./CreditCardForm"
 
 interface PaymentMethodFormProps {
   setStep: React.Dispatch<React.SetStateAction<number>>
