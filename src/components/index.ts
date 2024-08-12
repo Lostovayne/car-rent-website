@@ -14,7 +14,7 @@ export * from "./details";
 export * from "./navbar";
 export * from "./ui/label";
 export * from "./ui/form";
-
+export * from "./ui/radio-group";
 
 export * from "./carDetail/CarDetail";
 
