@@ -13,9 +13,9 @@ export const CreditCardSchema = z.object({
     .refine((value) => {
       const year = value.split('/').map(Number)[1]??'';
       const fullYear = 2000 + year; // Convertir los últimos dos dígitos a un año completo
-      return fullYear <= currentYear + 10;
+      return (fullYear <= currentYear + 10 && fullYear >= currentYear);
     }, {
-      message: `The year must not be greater than ${currentYear + 10}`,
+      message: `The year must not be: ${currentYear} - ${currentYear + 10}`,
     }),
   cvv: z.string().min(3, 'El CVV debe tener 3 dígitos').max(3, 'El CVV debe tener 3 dígitos'),
   cardHolderName: z.string().min(2, 'El nombre del titular es requerido'),
