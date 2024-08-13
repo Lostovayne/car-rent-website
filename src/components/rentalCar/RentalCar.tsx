@@ -1,7 +1,7 @@
 import React from "react";
 import { TbArrowsDownUp } from "react-icons/tb";
 import { useMediaQuery } from "usehooks-ts";
-import { RentalData } from "../../data";
+import { RentalData } from "@/data";
 import type { RentalCar as RentalCarInterface } from "../../interfaces";
 import { Button } from "../ui/button";
 import { CardRentalCar } from "./CardRentalCar";
