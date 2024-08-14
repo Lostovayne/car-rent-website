@@ -27,7 +27,6 @@ module.exports = {
         primaryColor: "#3563E9",
         textPrimary: "#1A202C",
         textSecondary: "#90A3BF",
-        activeButton: "#1A37A7",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
