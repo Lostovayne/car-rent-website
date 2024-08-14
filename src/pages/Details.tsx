@@ -1,9 +1,4 @@
-import {
-  CarDetail,
-  ImageCarousel,
-  Reviews,
-  CarDetailsCard,
-} from "../components";
+import { CarDetail, CarouselOfImages, Reviews, CarDetailsCard } from "../components";
 import { dataCarDetails, imagesUrl } from "../data";
 import { ICar } from "../interfaces";
 
@@ -14,10 +9,15 @@ export const DetailsPage = () => {
     // HOC
     <CarDetail>
       <CarDetail.View>
-        <ImageCarousel images={imagesUrl} />
+        <CarouselOfImages images={imagesUrl} />
         <CarDetailsCard />
       </CarDetail.View>
-      <Reviews reviews={reviews} />
+      <Reviews reviews={reviews}>
+        <Reviews.Title>
+          <Reviews.CommentCount />
+        </Reviews.Title>
+        <Reviews.List />
+      </Reviews>
       <CarDetail.Sections />
     </CarDetail>
   );

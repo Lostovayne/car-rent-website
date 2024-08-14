@@ -6,16 +6,13 @@ export interface User {
   fullName: string;
   email: string;
   password: string;
-  roles: string[];
   token?: string;
 }
 
 export class AuthService {
   static login = async (email: string, password: string): Promise<User> => {
     try {
-      console.log(
-        "Me estoy ejecutando pero no hay backend :" + email + " " + password
-      );
+      console.log("Me estoy ejecutando pero no hay backend :" + email + " " + password);
 
       // Todo: Hacer aqui la peticion al backend para los datos del usuario
       const { data } = await authApi.post("/login", {

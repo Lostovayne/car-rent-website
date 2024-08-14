@@ -2,15 +2,10 @@ import { useForm } from "react-hook-form";
 import { BillingInfoSchema, BillingInfoSchemaType } from "../../schemas/payment/billingInfo.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-export const useBillingInfo = () => {
+export const useBillingInfoForm = (defaultValues: BillingInfoSchemaType) => {
   const form = useForm<BillingInfoSchemaType>({
     resolver: zodResolver(BillingInfoSchema),
-    defaultValues: {
-      name: "",
-      phoneNumber: "",
-      address: "",
-      city: "",
-    },
+    defaultValues,
   });
 
   return (

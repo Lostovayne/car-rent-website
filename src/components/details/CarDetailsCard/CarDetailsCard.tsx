@@ -11,8 +11,10 @@ import { Button } from "../../ui/button";
 import {
   IsFavoriteIcon,
   StarReviewRating,
-  CarDetailsRow,
+  TableRow,
+  TableContainer,
 } from "../../../components";
+
 export const CarDetailsCard = () => {
   const { isFavorite, handleToggleFavorite } = useFavorite();
 
@@ -30,33 +32,33 @@ export const CarDetailsCard = () => {
               className="sm:size-6"
             />
           </div>
-          <span className="flex items-center gap-x-3">
+          <div className="w-full flex items-center gap-x-3">
             <StarReviewRating rating={4} />
-            <h5 className="text-gray-600 text-xs sm:text-sm font-normal">
+            <span className="text-gray-600 text-xs sm:text-sm font-normal">
               440+ Reviews
-            </h5>
-          </span>
+            </span>
+          </div>
         </CardHeader>
 
-        <CardContent className="flex flex-col justify-center gap-5 w-full h-full p-0">
-          <p className="text-base mt-4 sm:text-lg xl:text-xl leading-8 sm:leading-10 xl:leading-loose font-light text-textSecondary sm:text-gray-600">
+        <CardContent className="flex justify-center flex-col  gap-5 xl:gap-7 w-full h-full p-0 ">
+          <p className="text-base pt-4 lg:pt-0 sm:text-lg  leading-6  font-light text-textSecondary sm:text-gray-600 text-pretty">
             NISMO has become the embodiment of Nissan's outstanding performance,
             inspired by the most unforgiving proving ground, the "race track".
           </p>
 
-          <table className="w-full flex flex-col min-[390px]:flex-row text-base  xl:text-xl gap-3 ">
-            <tbody className="flex flex-col gap-2 max-[390px]:w-full w-1/2">
-              <CarDetailsRow label="Type" value="Sedan" />
-              <CarDetailsRow label="Transm" value="Auto" />
-            </tbody>
+          <table className="w-full flex flex-col min-[390px]:flex-row min-[1060px]:flex-col text-base min-[1060px]:text-lg xl:text-xl  gap-3 ">
+            <TableContainer>
+              <TableRow label="Type" value="Sedan" />
+              <TableRow label="Transm" value="Auto" />
+            </TableContainer>
 
-            <tbody className="flex flex-col gap-2 max-[390px]:w-full w-1/2">
-              <CarDetailsRow label="Capacity" value="2 Person" />
-              <CarDetailsRow label="Gasoline" value="70L" />
-            </tbody>
+            <TableContainer>
+              <TableRow label="Capacity" value="2 Person" />
+              <TableRow label="Gasoline" value="70L" />
+            </TableContainer>
           </table>
         </CardContent>
-        <CardFooter className="flex justify-between items-center w-full p-0 mt-5 sm:mt-6">
+        <CardFooter className="flex justify-between items-center w-full p-0 pt-5 lg:pt-0">
           <div>
             <span className="font-medium text-textPrimary text-lg sm:text-2xl xl:text-3xl">
               $150.00/

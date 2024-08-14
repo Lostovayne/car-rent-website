@@ -1,42 +1,27 @@
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "../../ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../../ui/form";
+import { BillingInfoSchemaType } from "../../../schemas";
+import { useBillingInfoForm } from "../../../hooks";
 import { SectionCards } from "../../sectionCar/SectionCards";
 import { PaymentSectionHeader } from "./PaymentSectionHeader";
-import { useBillingInfo } from "../../../hooks";
-import { BillingInfoSchemaType } from "../../../schemas";
-
 
 interface BillingInfoFormProps {
-  onSubmit: (values: BillingInfoSchemaType) => void
+  defaultValues: BillingInfoSchemaType;
+  onSubmit: (values: BillingInfoSchemaType) => void;
 }
 
-
-export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ onSubmit }) => {
-
-  const form = useBillingInfo()
+export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ defaultValues, onSubmit }) => {
+  const form = useBillingInfoForm(defaultValues);
 
   return (
-    <div className="bg-card">
-
+    <section className="bg-card">
+      <PaymentSectionHeader title="Billing Info" description="Please enter your billing info" stepLabel={1} />
+      
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
 
-          <PaymentSectionHeader
-            title="Billing Info"
-            description="Please enter your billing info"
-            stepLabel={1}
-          />
-
           <SectionCards className="grid grid-cols-0 sm:grid-cols-2 gap-7">
-
             {/* name */}
             <FormField
               control={form.control}
@@ -96,17 +81,15 @@ export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ onSubmit }) =>
                 </FormItem>
               )}
             />
-
           </SectionCards>
-
 
           <SectionCards className="flex justify-end">
-            <Button variant={"default"} type="submit">Continuar</Button>
+            <Button variant={"default"} type="submit">
+              Continuar
+            </Button>
           </SectionCards>
-
-
         </form>
       </Form>
-    </div>
+    </section>
   );
 };
