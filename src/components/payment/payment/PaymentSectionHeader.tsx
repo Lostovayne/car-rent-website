@@ -19,7 +19,7 @@ export const PaymentSectionHeader: React.FC<Props> = ({
       <CardTitle className="text-xl">{title}</CardTitle>
       <CardDescription className="font-light flex justify-between w-full">
         <span className="w-2/3">{description}</span>
-        <span className="">{`step ${stepLabel} of ${levels}`}</span>
+        <span className="text-lg font-bold">{`step ${stepLabel} of ${levels}`}</span>
       </CardDescription>
     </CardHeader>
   )
