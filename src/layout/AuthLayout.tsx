@@ -8,7 +8,7 @@ export const AuthLayout = () => {
   }
 
   return (
-    <div className="container  min-h-screen flex justify-center items-center">
+    <div className="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-30%,rgba(53,99,233,0.5),rgba(255,255,255,0))] flex items-center justify-center m-auto">
       <Outlet />
     </div>
   );
