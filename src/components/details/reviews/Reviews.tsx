@@ -1,7 +1,6 @@
-import { CommentIterator } from "../..";
-
+import { CommentIterator } from "@/components";
 import { createContext, useContext } from "react";
-import { IReview } from "../../../interfaces";
+import { IReview } from "@/interfaces";
 
 interface ReviewsProps {
   reviews: IReview[];
