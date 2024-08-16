@@ -12,8 +12,8 @@ export function RentalCar() {
   const [carSelect, setCarSelect] = React.useState<RentalCarInterface[] | []>(RentalData);
   console.log(setCarSelect);
   return (
-    <div className="flex flex-col   max-w-[1176px]   m-auto justify-between items-center ">
-      <div className="flex w-full justify-center md:justify-between   py-8 px-2">
+    <section className="flex flex-col  justify-between items-center ">
+      <div className="w-full flex gap-5 justify-center md:justify-between py-8 px-2">
         {isMobile ? (
           <CardRentalCar {...carSelect[0]} />
         ) : (
@@ -27,6 +27,6 @@ export function RentalCar() {
         </Button>
         <SelectDate title="Drop Off" />
       </div>
-    </div>
+    </section>
   );
 }
