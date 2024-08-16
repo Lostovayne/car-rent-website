@@ -20,11 +20,11 @@ export * from "./carDetail/CarDetail";
 
 export * from "./carousel/CarouselOfImages";
 
-// export * from "./details/reviews/Reviews";
-export * from "./details/reviews/Reviewscopy";
-export * from "./details/reviews/ReviewDetailscopy";
+export * from "./details/reviews/Reviews";
+export * from "./details/reviews/ReviewDetails";
 export * from "./details/reviews/ButtonShowAllReviews";
 export * from "./details/reviews/CommentIterator";
+export * from "./details/reviews/UserReviewComment";
 
 export * from "./details/CarDetailsCard/CarDetailsCard";
 export * from "./details/CarDetailsCard/TableRow";
