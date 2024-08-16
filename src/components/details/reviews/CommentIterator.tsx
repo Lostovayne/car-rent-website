@@ -7,9 +7,13 @@ export const CommentIterator = ({ reviews }: { reviews: IReview[] }) => {
   const totalReviews = reviews.length;
   return (
     <>
-      {reviews.slice(0, 2).map((review) => (
-        <UserReviewComment key={review.user.id} review={review} />
-      ))}
+      {reviews
+        .slice(0, 2)
+        .map(
+          (review) => (
+            console.table(review), (<UserReviewComment key={review.user.id} review={review} />)
+          )
+        )}
       {totalReviews > 0 && (
         <ButtonShowAllReviews
           isShowAllReviews={ShowAllReviews}

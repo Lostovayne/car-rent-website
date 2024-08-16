@@ -1,6 +1,17 @@
+import { IReview } from "@/interfaces";
 import { formatDate } from "@/helper";
 
-export const transformCommentData = ({ review }) => {
+interface ReviewData {
+  id: string;
+  imageUrl: string;
+  name: string;
+  title: string;
+  rating: number;
+  text: string;
+  createAt: string;
+}
+
+export const transformCommentData = (review: IReview): ReviewData => {
   return {
     id: review.user.id,
     imageUrl: review.user.imageUrl ?? "",

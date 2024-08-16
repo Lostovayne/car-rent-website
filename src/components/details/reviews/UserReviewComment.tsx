@@ -1,18 +1,12 @@
 import { ReviewsDetails, StarReviewRating } from "@/components";
 import { transformCommentData } from "@/adapters";
-// import { IReview } from "@/interfaces";
-interface Props {
-  review: {
-    id: string;
-    imageUrl: string;
-    name: string;
-    title: string;
-    rating: number;
-    text: string;
-    createAt: Date;
-  };
+import { IReview } from "@/interfaces";
+
+interface UserReviewCommentProps {
+  review: IReview;
 }
-export const UserReviewComment = ({ review }: { review: Props }) => {
+
+export const UserReviewComment = ({ review }: UserReviewCommentProps) => {
   const { id, imageUrl, name, title, createAt, rating, text } = transformCommentData(review);
   return (
     <ReviewsDetails key={id}>

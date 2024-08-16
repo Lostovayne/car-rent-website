@@ -19,7 +19,7 @@ ReviewsDetails.UserAvatar = function ReviewUserAvatar({
     <header className="flex gap-3">
       <figure className="flex justify-center ">
         <Avatar className="size-12">
-          <AvatarImage src={imageUrl} alt={"ed"} className="" />
+          <AvatarImage src={imageUrl} alt={"ed"} />
         </Avatar>
       </figure>
       {children}
