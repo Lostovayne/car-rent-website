@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 export function CardRentalCar({ title, description, image, button, car }: RentalCar) {
   return (
     <div
-      className={` flex flex-col justify-between p-5 rounded-lg w-full  h-[320px] lg:h-[360px] bg-cover bg-center `}
+      className={`flex flex-col justify-between p-5 rounded-lg w-full h-[320px] md:h-[360px] bg-cover bg-center `}
       style={{ backgroundImage: `url(${image})` }}>
       <div>
         <h3 className="w-full md:w-3/4 lg:w-[290px] text-xl min-[468px]:text-2xl lg:text-3xl lg:leading-9 font-semibold md:font-normal text-white">
