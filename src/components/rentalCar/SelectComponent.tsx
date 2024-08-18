@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-function SelectComponent({
+export function SelectComponent({
   array,
   placeholder,
   title,
@@ -18,12 +18,12 @@ function SelectComponent({
 }) {
   return (
     <Select>
-      <SelectTrigger className="focus:ring-0 focus:ring-offset-0 text-xs text-textSecondary border-none px-0">
-        <SelectValue placeholder={placeholder} className="text-xs" />
+      <SelectTrigger className="justify-start gap-1 focus:ring-0 focus:ring-offset-0 text-sm sm:text-base text-gray-500 px-0 min-[390px]:px-2 max-[390px]:border-none  ">
+        <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent position="item-aligned">
         <SelectGroup>
-          <SelectLabel>{title}</SelectLabel>
+          <SelectLabel className="text-primaryColor">{title}</SelectLabel>
           {array.map((estado: string) => (
             <SelectItem key={estado} value={estado}>
               {estado}
@@ -34,5 +34,3 @@ function SelectComponent({
     </Select>
   );
 }
-
-export default SelectComponent;

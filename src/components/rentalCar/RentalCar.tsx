@@ -1,9 +1,9 @@
 import React from "react";
-import { TbArrowsDownUp } from "react-icons/tb";
+
 import { useMediaQuery } from "usehooks-ts";
 import { RentalData } from "@/data";
 import type { RentalCar as RentalCarInterface } from "../../interfaces";
-import { Button } from "../ui/button";
+
 import { CardRentalCar } from "./CardRentalCar";
 import SelectDate from "./SelectDate";
 
@@ -12,7 +12,7 @@ export function RentalCar() {
   const [carSelect, setCarSelect] = React.useState<RentalCarInterface[] | []>(RentalData);
   console.log(setCarSelect);
   return (
-    <section className="container flex flex-col justify-between items-center ">
+    <form className="container flex flex-col justify-between items-center ">
       <div className="w-full flex gap-6 justify-center py-8">
         {isMobile ? (
           <CardRentalCar {...carSelect[0]} />
@@ -20,13 +20,9 @@ export function RentalCar() {
           carSelect.map((car, index) => <CardRentalCar {...car} key={index} />)
         )}
       </div>
-      <div className="flex flex-col xl:flex-row justify-between items-center w-full">
-        <SelectDate title="Pick Up" />
-        <Button>
-          <TbArrowsDownUp className="" />
-        </Button>
-        <SelectDate title="Drop Off" />
+      <div className="flex flex-col gap-4 xl:flex-row justify-between items-center w-full">
+        <SelectDate title="Pick-Up & Return" />
       </div>
-    </section>
+    </form>
   );
 }

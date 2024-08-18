@@ -32,5 +32,13 @@ export * from "./details/CarDetailsCard/TableContainer";
 export * from "./IsFavoriteIcon";
 export * from "./details/reviews/StarReviewRating";
 
+export * from "./rentalCar/SelectDate";
+export * from "./rentalCar/SelectComponent";
+export * from "./rentalCar/RentalCar";
+export * from "./rentalCar/CardRentalCar";
+export * from "./rentalCar/DateAndTimePicker";
+export * from "./rentalCar/DatePicker";
+export * from "./rentalCar/ReturnLocationCheckbox";
+
 export * from "./payment/payment/PaymentMain";
 export * from "./payment/summary/RentalSummary";
