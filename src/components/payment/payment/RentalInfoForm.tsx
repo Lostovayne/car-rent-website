@@ -18,7 +18,8 @@ import { useRentalInfoForm } from "../../../hooks";
 import { SectionCards } from "../../sectionCar/SectionCards";
 import { PaymentSectionHeader } from "./PaymentSectionHeader";
 import type { RentalInfoSchemaType } from "../../../schemas";
-import { dataCities } from "../../../data/city.data";
+import { hoursOfDay } from "@/data";
+import { dataCities } from "@/data/city.data";
 
 interface RentalInfoFormProps {
   defaultValues: RentalInfoSchemaType
@@ -26,9 +27,11 @@ interface RentalInfoFormProps {
   setStep: React.Dispatch<React.SetStateAction<number>>
 }
 
-export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues,onSubmit, setStep }) => {
+const cities = dataCities
+const hours = hoursOfDay
+
+export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, onSubmit, setStep }) => {
   const form = useRentalInfoForm(defaultValues)
-  const cities = dataCities
 
   const onClickPrevious = () => {
     setStep((prev) => prev - 1)
@@ -52,7 +55,6 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues,on
         >
           <SectionCards className="grid grid-cols-0 sm:grid-cols-0 gap-7 ">
             {/* Pick Up */}
-
             <h1 className="font-bold">Pick - Up</h1>
 
             <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7 p-0">
@@ -149,9 +151,11 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues,on
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="">
-                        <SelectItem value="06:00-10:00">06:00-10:00</SelectItem>
-                        <SelectItem value="10:00-12:00">10:00-12:00</SelectItem>
-                        <SelectItem value="12:00-18:00">12:00-18:00</SelectItem>
+                        {
+                          hours.map((hour) => (
+                            <SelectItem key={hour} value={hour}>{hour}</SelectItem>
+                          ))
+                        }
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -257,9 +261,11 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues,on
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent side="top" className="">
-                        <SelectItem value="06:00-10:00">06:00-10:00</SelectItem>
-                        <SelectItem value="10:00-12:00">10:00-12:00</SelectItem>
-                        <SelectItem value="12:00-18:00">12:00-18:00</SelectItem>
+                        {
+                          hours.map((hour) => (
+                            <SelectItem key={hour} value={hour}>{hour}</SelectItem>
+                          ))
+                        }
                       </SelectContent>
                     </Select>
                     <FormMessage />
