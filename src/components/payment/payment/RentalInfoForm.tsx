@@ -1,17 +1,8 @@
-import { format } from "date-fns";
 import { Button } from "../../ui/button";
-import { Calendar } from "../../ui/calendar";
 import {
   Form,
-  FormControl,
   FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
 } from "../../ui/form";
-import { Popover, PopoverContent, PopoverTrigger } from "../../ui/popover";
-import { CalendarIcon } from "lucide-react";
-import { cn } from "../../../lib";
 import { useRentalInfoForm } from "../../../hooks";
 import { SectionCards } from "../../sectionCar/SectionCards";
 import { PaymentSectionHeader } from "./PaymentSectionHeader";
@@ -19,6 +10,7 @@ import type { RentalInfoSchemaType } from "../../../schemas";
 import { hoursOfDay } from "@/data";
 import { dataCities } from "@/data/city.data";
 import { SelectFieldForm } from "@/components/form/SelectFieldForm";
+import { CalendarFieldForm } from "@/components/form/CalendarFieldForm";
 
 interface RentalInfoFormProps {
   defaultValues: RentalInfoSchemaType
@@ -45,12 +37,8 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
           stepLabel={2}
         />
 
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className=""
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)}>
           <SectionCards className="grid grid-cols-0 sm:grid-cols-0 gap-7 ">
-            {/* Pick Up */}
             <h1 className="font-bold">Pick - Up</h1>
 
             <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7 p-0">
@@ -59,7 +47,7 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                 control={form.control}
                 name="pickUpLocation"
                 render={({ field }) => (
-                  <SelectFieldForm 
+                  <SelectFieldForm
                     field={field}
                     label="Locations"
                     placeholder="Select your city"
@@ -73,42 +61,13 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                 control={form.control}
                 name="pickUpDate"
                 render={({ field }) => (
-                  <FormItem className="flex flex-col">
-                    <FormLabel>Date</FormLabel>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <FormControl className="">
-                          <Button
-                            variant={"outline"}
-                            className={cn(
-                              "w-[240px] pl-3 text-left font-normal",
-                              !field.value && "text-muted-foreground"
-                            )}
-                          >
-                            {field.value ? (
-                              format(field.value, "PPP")
-                            ) : (
-                              <span>Selecciona tu fecha</span>
-                            )}
-                            <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                          </Button>
-                        </FormControl>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={field.value}
-                          onSelect={field.onChange}
-                          disabled={(date) =>
-                            //date > new Date() || 
-                            date < new Date("1900-01-01")
-                          }
-
-                        />
-                      </PopoverContent>
-                    </Popover>
-                    <FormMessage />
-                  </FormItem>
+                  <CalendarFieldForm
+                    field={field}
+                    mode="single"
+                    selected={field.value}
+                    onSelect={field.onChange}
+                    disabled={(date) => date < new Date() || date < new Date("1900-01-01")}
+                  />
                 )}
               />
 
@@ -137,7 +96,7 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                 control={form.control}
                 name="dropOffLocation"
                 render={({ field }) => (
-                  <SelectFieldForm 
+                  <SelectFieldForm
                     field={field}
                     label="Locations"
                     placeholder="Select your city"
@@ -151,41 +110,13 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                 control={form.control}
                 name="dropOffDate"
                 render={({ field }) => (
-                  <FormItem className="flex flex-col">
-                    <FormLabel>Date</FormLabel>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <FormControl className="">
-                          <Button
-                            variant={"outline"}
-                            className={cn(
-                              "w-[240px] pl-3 text-left font-normal",
-                              !field.value && "text-muted-foreground"
-                            )}
-                          >
-                            {field.value ? (
-                              format(field.value, "PPP")
-                            ) : (
-                              <span>Selecciona tu fecha</span>
-                            )}
-                            <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                          </Button>
-                        </FormControl>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={field.value}
-                          onSelect={field.onChange}
-                          disabled={(date) =>
-                            // date > new Date() || date < new Date("1900-01-01")
-                            date < new Date("1900-01-01")
-                          }
-                        />
-                      </PopoverContent>
-                    </Popover>
-                    <FormMessage />
-                  </FormItem>
+                  <CalendarFieldForm
+                    field={field}
+                    mode="single"
+                    selected={field.value}
+                    onSelect={field.onChange}
+                    disabled={(date) => date < new Date() || date < new Date("1900-01-01")}
+                  />
                 )}
               />
 
@@ -201,7 +132,7 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                     data={hours}
                     side="top"
                   />
-                  
+
                 )}
               />
             </SectionCards>
