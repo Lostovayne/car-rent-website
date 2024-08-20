@@ -199,6 +199,7 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                     label="Time"
                     placeholder="Select your time"
                     data={hours}
+                    side="top"
                   />
                   
                 )}
