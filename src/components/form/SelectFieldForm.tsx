@@ -5,16 +5,16 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 interface SelectFieldProps<T extends FieldValues> extends React.InputHTMLAttributes<HTMLInputElement> {
   field: ControllerRenderProps<T, Path<T>>;
   label: string;
-  data: {id:string, description:string}[];
-
+  data: { id: string, description: string }[];
 }
 
-export const SelectFieldForm: <T extends FieldValues>({ 
-  field, 
-  label, 
+export const SelectFieldForm: <T extends FieldValues>({
+  field,
+  label,
   data,
-  ...props 
-}: SelectFieldProps<T>) => JSX.Element = ({field, label, data, ...props}) => {
+  ...props
+}: SelectFieldProps<T>) => JSX.Element = ({ field, label, data, ...props }) => {
+  const { placeholder, ...restProps } = props
   return (
     <FormItem>
       <FormLabel>{label}</FormLabel>
@@ -24,10 +24,10 @@ export const SelectFieldForm: <T extends FieldValues>({
       >
         <FormControl>
           <SelectTrigger>
-            <SelectValue placeholder="Select your city" />
+            <SelectValue placeholder={placeholder ?? ''} />
           </SelectTrigger>
         </FormControl>
-        <SelectContent {...props}>
+        <SelectContent {...restProps}>
           {data.map((data) => (
             <SelectItem
               key={data.id ?? data.description}

@@ -10,8 +10,6 @@ import {
   FormMessage,
 } from "../../ui/form";
 import { Popover, PopoverContent, PopoverTrigger } from "../../ui/popover";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/select";
-
 import { CalendarIcon } from "lucide-react";
 import { cn } from "../../../lib";
 import { useRentalInfoForm } from "../../../hooks";
@@ -29,7 +27,7 @@ interface RentalInfoFormProps {
 }
 
 const cities = dataCities
-const hours = hoursOfDay
+const hours = hoursOfDay.map((hour) => ({ id: hour, description: hour }))
 
 export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, onSubmit, setStep }) => {
   const form = useRentalInfoForm(defaultValues)
@@ -39,10 +37,7 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
   }
 
   return (
-    // TODO; usar "pointer-events-none opacity-40" para deshabilitar, dependerá de estado
-    // <div className="bg-card pointer-events-none opacity-40">  
     <section className="bg-card ">
-
       <Form {...form}>
         <PaymentSectionHeader
           title="Rental Info"
@@ -67,6 +62,7 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                   <SelectFieldForm 
                     field={field}
                     label="Locations"
+                    placeholder="Select your city"
                     data={cities}
                   />
                 )}
@@ -121,27 +117,12 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                 control={form.control}
                 name="pickUpTime"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Time</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select your time" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent className="">
-                        {
-                          hours.map((hour) => (
-                            <SelectItem key={hour} value={hour}>{hour}</SelectItem>
-                          ))
-                        }
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
+                  <SelectFieldForm
+                    field={field}
+                    label="Time"
+                    placeholder="Select your time"
+                    data={hours}
+                  />
                 )}
               />
             </SectionCards>
@@ -159,6 +140,7 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                   <SelectFieldForm 
                     field={field}
                     label="Locations"
+                    placeholder="Select your city"
                     data={cities}
                   />
                 )}
@@ -212,27 +194,13 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                 control={form.control}
                 name="dropOffTime"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Time</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select your time" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent side="top" className="">
-                        {
-                          hours.map((hour) => (
-                            <SelectItem key={hour} value={hour}>{hour}</SelectItem>
-                          ))
-                        }
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
+                  <SelectFieldForm
+                    field={field}
+                    label="Time"
+                    placeholder="Select your time"
+                    data={hours}
+                  />
+                  
                 )}
               />
             </SectionCards>
