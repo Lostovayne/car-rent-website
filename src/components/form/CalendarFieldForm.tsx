@@ -1,11 +1,11 @@
-import { CalendarIcon } from "lucide-react"
+import { ControllerRenderProps, FieldValues, Path } from "react-hook-form"
+import { format } from "date-fns"
 import { cn } from "../../lib"
+import { CalendarIcon } from "lucide-react"
 import { Button } from "../ui/button"
 import { FormControl, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover"
 import { Calendar, CalendarProps } from "../ui/calendar"
-import { ControllerRenderProps, FieldValues, Path } from "react-hook-form"
-import { format } from "date-fns"
 
 type CalendarFieldProps<T extends FieldValues> = CalendarProps & {
   field: ControllerRenderProps<T, Path<T>>;
@@ -13,11 +13,12 @@ type CalendarFieldProps<T extends FieldValues> = CalendarProps & {
   placeholder?: string;
 };
 
+
 export const CalendarFieldForm= <T extends FieldValues>({
   field,
   label = 'Date',
   placeholder='Select your date',
-  ...props
+  ...calendarProps
 }: CalendarFieldProps<T>): JSX.Element => {
   return (
     <FormItem className="flex flex-col">
@@ -43,10 +44,7 @@ export const CalendarFieldForm= <T extends FieldValues>({
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
           <Calendar
-            //mode="single"
-            //selected={field.value}
-            //onSelect={field.onChange as (SelectSingleEventHandler | undefined)}
-            {...props}
+            {...calendarProps}
           />
         </PopoverContent>
       </Popover>

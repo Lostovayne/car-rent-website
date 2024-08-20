@@ -1,24 +1,17 @@
-"use client"
-
-import { Button } from "../../ui/button"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "../../ui/form"
-import { RadioGroup, RadioGroupItem } from "./../../ui/radio-group"
-import { SectionCards } from "../../sectionCar/SectionCards"
-import { usePaymentMethodForm } from "../../../hooks/payment/usePaymentMethodForm"
-import { PaymentMethodSchemaType } from "../../../schemas/payment/paymentMethod.schema"
-import { PAYMENT_METHODS } from "../../../constants"
+import { usePaymentMethodForm } from "@/hooks/payment/usePaymentMethodForm"
+import { PaymentMethodSchemaType } from "@/schemas/payment/paymentMethod.schema"
+import { Button } from "@/components/ui/button"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { SectionCards } from "@/components/sectionCar/SectionCards"
+import { PAYMENT_METHODS } from "@/constants"
 
 interface PaymentMethodFormProps {
   setStep: React.Dispatch<React.SetStateAction<number>>
   onSubmit: (values: PaymentMethodSchemaType) => void
 }
+const paymentMethods = PAYMENT_METHODS
+
 
 export const PaymentMethodForm: React.FC<PaymentMethodFormProps> = ({ setStep, onSubmit }) => {
   const form = usePaymentMethodForm()
@@ -46,7 +39,7 @@ export const PaymentMethodForm: React.FC<PaymentMethodFormProps> = ({ setStep, o
                     className="flex flex-col space-y-1"
                   >
                     {
-                      PAYMENT_METHODS.map((method) => (
+                      paymentMethods.map((method) => (
                         <FormItem key={method} className="flex items-center space-x-3 space-y-0">
                           <FormControl>
                             <RadioGroupItem value={method} />
@@ -88,12 +81,10 @@ const PaymentMethod: React.FC<{ method: typeof PAYMENT_METHODS[number] }> = ({ m
         </div>
       }
       {
-        method === "Paypal"
-        && <img src="/assets/icons/paypal.svg" alt="Visa Icon" width={20} height={20} />
+        method === "Paypal" && <img src="/assets/icons/paypal.svg" alt="Visa Icon" width={20} height={20} />
       }
       {
-        method === "Bitcoin"
-        && <img src="/assets/icons/bitcoin.svg" alt="Visa Icon" width={20} height={20} />
+        method === "Bitcoin" && <img src="/assets/icons/bitcoin.svg" alt="Visa Icon" width={20} height={20} />
       }
     </div>
   )

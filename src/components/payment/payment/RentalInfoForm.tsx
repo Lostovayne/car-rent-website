@@ -1,16 +1,13 @@
-import { Button } from "../../ui/button";
-import {
-  Form,
-  FormField,
-} from "../../ui/form";
-import { useRentalInfoForm } from "../../../hooks";
-import { SectionCards } from "../../sectionCar/SectionCards";
 import { PaymentSectionHeader } from "./PaymentSectionHeader";
-import type { RentalInfoSchemaType } from "../../../schemas";
-import { hoursOfDay } from "@/data";
-import { dataCities } from "@/data/city.data";
+import { RentalInfoSchemaType } from "@/schemas";
+import { useRentalInfoForm } from "@/hooks";
+import { Button } from "@/components/ui/button";
+import { Form, FormField } from "@/components/ui/form";
+import { SectionCards } from "@/components/sectionCar/SectionCards";
 import { SelectFieldForm } from "@/components/form/SelectFieldForm";
 import { CalendarFieldForm } from "@/components/form/CalendarFieldForm";
+import { dataCities } from "@/data/city.data";
+import { hoursOfDay } from "@/data";
 
 interface RentalInfoFormProps {
   defaultValues: RentalInfoSchemaType
@@ -39,10 +36,9 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
 
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <SectionCards className="grid grid-cols-0 sm:grid-cols-0 gap-7 ">
-            <h1 className="font-bold">Pick - Up</h1>
 
+            <h1 className="font-bold">Pick - Up</h1>
             <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7 p-0">
-              {/* pick-up location */}
               <FormField
                 control={form.control}
                 name="pickUpLocation"
@@ -56,7 +52,6 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                 )}
               />
 
-              {/* pick-up date */}
               <FormField
                 control={form.control}
                 name="pickUpDate"
@@ -71,7 +66,6 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                 )}
               />
 
-              {/* pick-up time */}
               <FormField
                 control={form.control}
                 name="pickUpTime"
@@ -86,12 +80,8 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
               />
             </SectionCards>
 
-            {/* Drop off */}
-
             <h1 className="font-bold">Drop - Off</h1>
-
             <SectionCards className="grid grid-cols-0 sm:grid-cols-2 items-center gap-7 p-0">
-              {/* drop-off location */}
               <FormField
                 control={form.control}
                 name="dropOffLocation"
@@ -105,7 +95,6 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                 )}
               />
 
-              {/* drop-off date */}
               <FormField
                 control={form.control}
                 name="dropOffDate"
@@ -120,7 +109,6 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                 )}
               />
 
-              {/* drop-off time */}
               <FormField
                 control={form.control}
                 name="dropOffTime"
@@ -132,7 +120,6 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                     data={hours}
                     side="top"
                   />
-
                 )}
               />
             </SectionCards>

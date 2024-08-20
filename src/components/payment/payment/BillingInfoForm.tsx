@@ -1,15 +1,16 @@
-import { Button } from "../../ui/button";
-import { Form, FormField } from "../../ui/form";
-import { BillingInfoSchemaType } from "../../../schemas";
-import { useBillingInfoForm } from "../../../hooks";
-import { SectionCards } from "../../sectionCar/SectionCards";
-import { PaymentSectionHeader } from "./PaymentSectionHeader";
+import { useBillingInfoForm } from "@/hooks";
+import { BillingInfoSchemaType } from "@/schemas";
+import { Form, FormField } from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import { SectionCards } from "@/components/sectionCar/SectionCards";
 import { InputFieldForm } from "@/components/form/InputFieldForm";
+import { PaymentSectionHeader } from "./PaymentSectionHeader";
 
 interface BillingInfoFormProps {
   defaultValues: BillingInfoSchemaType;
   onSubmit: (values: BillingInfoSchemaType) => void;
 }
+
 
 export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ defaultValues, onSubmit }) => {
   const form = useBillingInfoForm(defaultValues);

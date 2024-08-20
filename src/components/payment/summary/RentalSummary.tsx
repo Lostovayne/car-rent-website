@@ -1,19 +1,13 @@
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "../../ui/card"
-import { ICar } from "../../../interfaces"
+import type { ICar } from "@/interfaces"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CarCard } from "./CarCard"
 import { CarTotales } from "./CarTotales"
-import { dataReviews } from "../../../data"
+import { dataReviews } from "@/data"
 
 interface RentalSumaryProps {
   car: ICar
 }
+
 
 export const RentalSummary:React.FC<RentalSumaryProps> = ({car}) => {
   const averageRating =
@@ -34,5 +28,3 @@ export const RentalSummary:React.FC<RentalSumaryProps> = ({car}) => {
     </Card>
   )
 }
-
-
