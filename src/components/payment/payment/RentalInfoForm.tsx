@@ -20,6 +20,7 @@ import { PaymentSectionHeader } from "./PaymentSectionHeader";
 import type { RentalInfoSchemaType } from "../../../schemas";
 import { hoursOfDay } from "@/data";
 import { dataCities } from "@/data/city.data";
+import { SelectFieldForm } from "@/components/form/SelectFieldForm";
 
 interface RentalInfoFormProps {
   defaultValues: RentalInfoSchemaType
@@ -63,30 +64,11 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                 control={form.control}
                 name="pickUpLocation"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Locations</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select your city" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent className="">
-                        {cities.map((city) => (
-                          <SelectItem
-                            key={city.id ?? city.description}
-                            value={city.id ?? city.description}
-                          >
-                            {city.description}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
+                  <SelectFieldForm 
+                    field={field}
+                    label="Locations"
+                    data={cities}
+                  />
                 )}
               />
 
@@ -174,30 +156,11 @@ export const RentalInfoForm: React.FC<RentalInfoFormProps> = ({ defaultValues, o
                 control={form.control}
                 name="dropOffLocation"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Locations</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select your city" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent className="">
-                        {cities.map((city) => (
-                          <SelectItem
-                            key={city.id ?? city.description}
-                            value={city.id ?? city.description}
-                          >
-                            {city.description}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
+                  <SelectFieldForm 
+                    field={field}
+                    label="Locations"
+                    data={cities}
+                  />
                 )}
               />
 
