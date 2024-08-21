@@ -1,16 +1,16 @@
 import { usePaymentMethodForm } from "@/hooks/payment/usePaymentMethodForm"
 import { PaymentMethodSchemaType } from "@/schemas/payment/paymentMethod.schema"
 import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Form, FormField } from "@/components/ui/form"
 import { SectionCards } from "@/components/sectionCar/SectionCards"
 import { PAYMENT_METHODS } from "@/constants"
+import { RadioGroupFieldForm } from "@/components/form/RadioGroupFieldForm"
 
 interface PaymentMethodFormProps {
   setStep: React.Dispatch<React.SetStateAction<number>>
   onSubmit: (values: PaymentMethodSchemaType) => void
 }
-const paymentMethods = PAYMENT_METHODS
+const paymentMethods = PAYMENT_METHODS.map((method) => ({ id: method.toLowerCase(), description: method }))
 
 
 export const PaymentMethodForm: React.FC<PaymentMethodFormProps> = ({ setStep, onSubmit }) => {
@@ -28,32 +28,17 @@ export const PaymentMethodForm: React.FC<PaymentMethodFormProps> = ({ setStep, o
             control={form.control}
             name="paymentMethod"
             render={({ field }) => (
-              <FormItem className="space-y-3">
-                <FormControl>
-                  <RadioGroup
-                    onValueChange={(value) => {
-                      field.onChange(value)
-                      form.handleSubmit(onSubmit)();
-                    }}
-                    defaultValue={field.value}
-                    className="flex flex-col space-y-1"
-                  >
-                    {
-                      paymentMethods.map((method) => (
-                        <FormItem key={method} className="flex items-center space-x-3 space-y-0">
-                          <FormControl>
-                            <RadioGroupItem value={method} />
-                          </FormControl>
-                          <FormLabel className="font-normal w-full">
-                            <PaymentMethod method={method} />
-                          </FormLabel>
-                        </FormItem>
-                      ))
-                    }
-                  </RadioGroup>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
+              <RadioGroupFieldForm
+                data={paymentMethods}
+                onValueChange={(value) => {
+                  field.onChange(value)
+                  form.handleSubmit(onSubmit)();
+                }}
+                defaultValue={field.value}
+                action={({ value }) => {
+                  return <PaymentMethod value={value} />;
+                }}
+              />
             )}
           />
         </SectionCards>
@@ -69,22 +54,22 @@ export const PaymentMethodForm: React.FC<PaymentMethodFormProps> = ({ setStep, o
 }
 
 
-const PaymentMethod: React.FC<{ method: typeof PAYMENT_METHODS[number] }> = ({ method }) => {
+export const PaymentMethod: React.FC<{ value: string }> = ({ value }) => {
   return (
     <div className="flex items-center justify-between">
-      {method}
+      {value}
       {
-        method === "Credit Card"
+        value === "Credit Card"
         && <div className="flex gap-5">
           <img src="/assets/icons/visa.svg" alt="Visa Icon" width={28} height={28} />
           <img src="/assets/icons/mastercard.svg" alt="MasterCard Icon" width={28} height={28} />
         </div>
       }
       {
-        method === "Paypal" && <img src="/assets/icons/paypal.svg" alt="Visa Icon" width={20} height={20} />
+        value === "Paypal" && <img src="/assets/icons/paypal.svg" alt="Visa Icon" width={20} height={20} />
       }
       {
-        method === "Bitcoin" && <img src="/assets/icons/bitcoin.svg" alt="Visa Icon" width={20} height={20} />
+        value === "Bitcoin" && <img src="/assets/icons/bitcoin.svg" alt="Visa Icon" width={20} height={20} />
       }
     </div>
   )
