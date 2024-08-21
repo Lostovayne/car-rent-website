@@ -36,7 +36,7 @@ export const PaymentMethodForm: React.FC<PaymentMethodFormProps> = ({ setStep, o
                 }}
                 defaultValue={field.value}
                 action={({ value }) => {
-                  return <PaymentMethod value={value} />;
+                  return <ShowPaymentMethod value={value} />;
                 }}
               />
             )}
@@ -54,7 +54,7 @@ export const PaymentMethodForm: React.FC<PaymentMethodFormProps> = ({ setStep, o
 }
 
 
-export const PaymentMethod: React.FC<{ value: string }> = ({ value }) => {
+const ShowPaymentMethod: React.FC<{ value: string }> = ({ value }) => {
   return (
     <div className="flex items-center justify-between">
       {value}
