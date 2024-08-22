@@ -1,9 +1,9 @@
-import { Button } from "../../ui/button";
-import { Input } from "../../ui/input";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../../ui/form";
-import { BillingInfoSchemaType } from "../../../schemas";
-import { useBillingInfoForm } from "../../../hooks";
-import { SectionCards } from "../../sectionCar/SectionCards";
+import { useBillingInfoForm } from "@/hooks";
+import { BillingInfoSchemaType } from "@/schemas";
+import { Form, FormField } from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import { SectionCards } from "@/components/sectionCar/SectionCards";
+import { InputFieldForm } from "@/components/form/InputFieldForm";
 import { PaymentSectionHeader } from "./PaymentSectionHeader";
 
 interface BillingInfoFormProps {
@@ -11,74 +11,46 @@ interface BillingInfoFormProps {
   onSubmit: (values: BillingInfoSchemaType) => void;
 }
 
+
 export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ defaultValues, onSubmit }) => {
   const form = useBillingInfoForm(defaultValues);
 
   return (
     <section className="bg-card">
       <PaymentSectionHeader title="Billing Info" description="Please enter your billing info" stepLabel={1} />
-      
+
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-
           <SectionCards className="grid grid-cols-0 sm:grid-cols-2 gap-7">
-            {/* name */}
             <FormField
               control={form.control}
               name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Your name" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              render={({ field }) =>
+                <InputFieldForm field={field} label="Name" placeholder="Your name" />
+              }
             />
 
-            {/* phone number */}
             <FormField
               control={form.control}
               name="phoneNumber"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Phone Number</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Phone number" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              render={({ field }) =>
+                <InputFieldForm field={field} label="Phone Number" placeholder="Your phone number" />
+              }
             />
 
-            {/* address */}
             <FormField
               control={form.control}
               name="address"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Address</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Address" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
+                <InputFieldForm field={field} label="Address" placeholder="Your address"/>
               )}
             />
 
-            {/* town/city */}
             <FormField
               control={form.control}
               name="city"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>City</FormLabel>
-                  <FormControl>
-                    <Input placeholder="City" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
+                <InputFieldForm field={field} label="City" placeholder="Your city"/>
               )}
             />
           </SectionCards>

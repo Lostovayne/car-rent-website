@@ -10,7 +10,7 @@ export const InputFieldForm = <T extends FieldValues>({
   label,
   ...props
 }: InputFieldProps<T>): JSX.Element => {
-  const { type } = props
+  const { type, ...rest } = props
   return (
     <FormItem className="flex flex-col">
       <FormLabel>{label}</FormLabel>
@@ -18,7 +18,7 @@ export const InputFieldForm = <T extends FieldValues>({
         <input
           type={type ?? "text"}
           {...field}
-          {...props}
+          {...rest}
         />
       </FormControl>
       <FormMessage />

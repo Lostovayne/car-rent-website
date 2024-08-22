@@ -1,4 +1,4 @@
 export interface ICity {
-    id?: string
+    id: string
     description: string 
 }

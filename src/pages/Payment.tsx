@@ -1,5 +1,7 @@
-import { PaymentMain, RentalSummary } from "../components";
-import { dataCarDetails } from "../data";
+import { PaymentMain, RentalSummary } from "@/components";
+import { dataCarDetails } from "@/data";
+
+
 
 // TODO: obtener luego desde donde corresponda
 const carDetails = dataCarDetails;
