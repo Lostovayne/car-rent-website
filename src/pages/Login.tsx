@@ -20,9 +20,10 @@ export function Login() {
   // Logear al usuario
 
   return (
+    <div className=" w-full max-w-[1200px] lg:mx-auto h-screen max-lg:bg-[#fff6] flex items-center justify-center lg:justify-start">
     <Form {...form} >
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <Card className="mx-auto flex flex-col items-center justify-around  md:size-[500px]">
+        <Card className="mx-auto flex flex-col items-center justify-around max-lg:bg-[#fffd] bg-[#fffc] md:size-[500px]">
           <CardHeader>
             <CardTitle className="text-2xl">Login to your account</CardTitle>
             <CardDescription>Welcome back! Select method to login:</CardDescription>
@@ -93,5 +94,7 @@ export function Login() {
         </Card>
       </form>
     </Form>
+    </div>
+
   );
 }
