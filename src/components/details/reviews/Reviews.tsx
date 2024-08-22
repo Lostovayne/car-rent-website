@@ -1,54 +1,61 @@
-import { useState } from "react";
-import { ReviewDetails } from "./ReviewDetails";
-import { ButtonShowAllReviews } from "./ButtonShowAllReviews";
-import type { IReview } from "../../../interfaces";
+import { CommentIterator } from "@/components";
+import { createContext, useContext } from "react";
+import { IReview } from "@/interfaces";
 
 interface ReviewsProps {
   reviews: IReview[];
 }
 
-export const Reviews: React.FC<ReviewsProps> = ({ reviews }) => {
-  const totalReviews = reviews.length;
+const ReviewsContext = createContext<ReviewsProps | undefined>(undefined);
 
+function useReviewsContext() {
+  const context = useContext(ReviewsContext);
+  if (!context) {
+    throw new Error("useReviews must be used within a ReviewsProvider");
+  }
+  return context;
+}
+
+export const Reviews = ({
+  reviews,
+  children,
+}: {
+  reviews: IReview[];
+  children: React.ReactNode;
+}) => {
   return (
-    <div className="bg-background rounded-md p-6 flex flex-col gap-2 drop-shadow-sm">
-      <ReviewsTitle totalReviews={totalReviews} />
-      {!totalReviews && <ReviewsEmpty />}
-      <ReviewsList reviews={reviews} />
+    <ReviewsContext.Provider value={{ reviews }}>
+      <div className="bg-background rounded-md p-6 flex flex-col gap-2 drop-shadow-sm">
+        {children}
+      </div>
+    </ReviewsContext.Provider>
+  );
+};
+
+Reviews.Title = function ReviewsTitle({ children }: { children?: React.ReactNode }) {
+  return (
+    <div className="flex justify-start gap-4 items-center">
+      <span className="text-xl">Reviews</span>
+      {children}
     </div>
   );
 };
 
+Reviews.CommentCount = function ReviewsCommentCount() {
+  const { reviews } = useReviewsContext();
+  return <span className="bg-primaryColor rounded-sm text-white py-0 px-4">{reviews.length}</span>;
+};
 
-const ReviewsTitle = ({ totalReviews }: { totalReviews: number }) => {
-  return (
-    <div className="flex justify-start gap-4 items-center">
-      <span className="text-xl">Reviews</span>
-      <span className="bg-primaryColor rounded-sm text-white py-0 px-4">{totalReviews}</span>
-    </div>
-  )
-}
+Reviews.NoReviewsMessage = function ReviewsNoRevirewsMessage() {
+  return <div>Aún no hay reseñas</div>;
+};
 
-const ReviewsEmpty: React.FC = () => <div>Aún no hay reseñas</div>
-
-const ReviewsList: React.FC<{ reviews: IReview[] }> = ({ reviews }) => {
-  const [isShowAllReviews, setIsShowAllReviews] = useState(false);
-  const totalReviews = reviews.length;
+Reviews.List = function ReviewsList() {
+  const { reviews } = useReviewsContext();
 
   return (
     <div className="flex flex-col gap-7 mt-3">
-      {reviews.slice(0, 2).map((review) => <ReviewDetails key={review.user.id} review={review} />)}
-      {
-        totalReviews > 0
-        && <ButtonShowAllReviews
-          isShowAllReviews={isShowAllReviews}
-          onClick={() => setIsShowAllReviews(!isShowAllReviews)}
-        />
-      }
-      {
-        isShowAllReviews
-        && reviews.slice(2).map((review) => <ReviewDetails key={review.user.id} review={review} />)
-      }
+      <CommentIterator reviews={reviews} />
     </div>
-  )
-}
+  );
+};

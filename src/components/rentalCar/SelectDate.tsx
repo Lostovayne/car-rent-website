@@ -1,37 +1,31 @@
-import { estadosDeUSA, hoursOfDay } from "../../data";
-import { DatePicker } from "./DataPicker";
-import SelectComponent from "./SelectComponent";
+import { estadosDeUSA } from "@/data";
+import { ReturnLocationCheckbox } from "./ReturnLocationCheckbox";
+
+import { DateAndTimePicker } from "./DateAndTimePicker";
+import { SelectComponent } from "./SelectComponent";
+import { Button } from "@/components/ui/button";
 
 function SelectDate({ title }: { title: string }) {
   return (
-    <div className="bg-white w-full  border border-gray-200 p-6 rounded-lg  shadow-gray-200 ">
-      <div className="flex justify-start items-center w-full">
+    <section className="bg-white w-full border border-gray-200 p-6 rounded-lg  shadow-gray-200 ">
+      <header className=" flex justify-start items-center w-full">
         <img src="/assets/rentalCar/mark.png" alt="" className="size-4" />
-        <p>{title}</p>
-      </div>
-      <div className="flex flex-col sm:flex-row items-center justify-around w-full  ">
-        <div className="w-full   flex flex-col items-start justify-center  ">
-          <p className=" font-bold text-md">Locations</p>
-          <SelectComponent
-            array={estadosDeUSA}
-            placeholder="Select your city"
-            title="Cities"
-          />
+        <h3>{title}</h3>
+      </header>
+
+      <div className="flex flex-col gap-3 pt-4 w-full  ">
+        <div className="flex flex-col items-start justify-center  ">
+          <h4 className=" font-bold text-base text-textPrimary">Locations</h4>
+          <SelectComponent array={estadosDeUSA} placeholder="Select your city" title="Cities" />
         </div>
-        <div className="w-full   flex flex-col items-start justify-center  ">
-          <p className="font-bold text-md">Data</p>
-          <DatePicker />
-        </div>
-        <div className="w-full   flex flex-col items-start justify-center  ">
-          <p className=" font-bold text-md">Time</p>
-          <SelectComponent
-            array={hoursOfDay}
-            placeholder="Select your time"
-            title="Date"
-          />
+        <ReturnLocationCheckbox />
+        <div className="flex flex-col sm:flex-row gap-3">
+          <DateAndTimePicker title="Pick-up" />
+          <DateAndTimePicker title="Return" />
+          <Button>Browse Vehicles</Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
