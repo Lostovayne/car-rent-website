@@ -12,7 +12,7 @@ export function RentalCar() {
   const [carSelect, setCarSelect] = React.useState<RentalCarInterface[] | []>(RentalData);
   console.log(setCarSelect);
   return (
-    <form className="container flex flex-col justify-between items-center ">
+    <section className="container flex flex-col justify-between items-center ">
       <div className="w-full flex gap-6 justify-center py-8">
         {isMobile ? (
           <CardRentalCar {...carSelect[0]} />
@@ -21,8 +21,8 @@ export function RentalCar() {
         )}
       </div>
       <div className="flex justify-center w-full">
-        <SelectDate title="Reserve a Vehicle" />
+        <SelectDate />
       </div>
-    </form>
+    </section>
   );
 }

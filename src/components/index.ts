@@ -35,9 +35,11 @@ export * from "./details/reviews/StarReviewRating";
 export * from "./rentalCar/SelectDate";
 export * from "./rentalCar/SelectComponent";
 export * from "./rentalCar/SelectLocation";
+export * from "./rentalCar/SelecLocationSection";
 export * from "./rentalCar/RentalCar";
 export * from "./rentalCar/CardRentalCar";
 export * from "./rentalCar/DateAndTimePicker";
+export * from "./rentalCar/DateAndTimePickerSection";
 export * from "./rentalCar/DatePicker";
 export * from "./rentalCar/ReturnLocationCheckbox";
 
