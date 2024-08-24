@@ -21,7 +21,7 @@ export function SelectDate({ title }: { title: string }) {
             <DateAndTimePicker title="Pick-up" />
             <DateAndTimePicker title="Drop-off" />
           </div>
-          <Button className="w-full">Search Vehicle</Button>
+          <Button className="w-full text-base md:text-lg">Search Vehicles</Button>
         </section>
       </div>
     </section>
