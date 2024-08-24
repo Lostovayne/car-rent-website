@@ -5,7 +5,7 @@ import { RentalData } from "@/data";
 import type { RentalCar as RentalCarInterface } from "../../interfaces";
 
 import { CardRentalCar } from "./CardRentalCar";
-import SelectDate from "./SelectDate";
+import { SelectDate } from "./SelectDate";
 
 export function RentalCar() {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -20,8 +20,8 @@ export function RentalCar() {
           carSelect.map((car, index) => <CardRentalCar {...car} key={index} />)
         )}
       </div>
-      <div className="flex flex-col gap-4 xl:flex-row justify-between items-center w-full">
-        <SelectDate title="Pick-Up & Return" />
+      <div className="flex justify-center w-full">
+        <SelectDate title="Reserve a Vehicle" />
       </div>
     </form>
   );

@@ -6,20 +6,26 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
-export function SelectComponent({
-  array,
-  placeholder,
-  title,
-}: {
+} from "@/components/ui/select";
+
+interface SelecComponentProps {
   array: string[];
-  title: string;
   placeholder: string;
-}) {
+  title: string;
+  optionalLabel?: string;
+}
+export function SelectComponent({ array, placeholder, title, optionalLabel }: SelecComponentProps) {
   return (
     <Select>
-      <SelectTrigger className="justify-start gap-1 focus:ring-0 focus:ring-offset-0 text-sm sm:text-base text-gray-500 px-0 min-[390px]:px-2 max-[390px]:border-none  ">
-        <SelectValue placeholder={placeholder} />
+      <SelectTrigger className="max-w-80 justify-start gap-1 focus:ring-0 focus:ring-offset-0 text-sm sm:text-base text-gray-500 px-0 py-0 border-none border-b">
+        {optionalLabel ? (
+          <div className="w-full h-full flex flex-col items-start  ">
+            <span className="text-textSecondary text-xs">{optionalLabel}</span>
+            <SelectValue placeholder={placeholder} />
+          </div>
+        ) : (
+          <SelectValue placeholder={placeholder} />
+        )}
       </SelectTrigger>
       <SelectContent position="item-aligned">
         <SelectGroup>

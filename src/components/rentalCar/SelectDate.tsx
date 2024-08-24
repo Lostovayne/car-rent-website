@@ -1,32 +1,27 @@
-import { estadosDeUSA } from "@/data";
-import { ReturnLocationCheckbox } from "./ReturnLocationCheckbox";
-
-import { DateAndTimePicker } from "./DateAndTimePicker";
-import { SelectComponent } from "./SelectComponent";
+import { DateAndTimePicker, ReturnLocationCheckbox, SelectLocation } from "@/components";
 import { Button } from "@/components/ui/button";
 
-function SelectDate({ title }: { title: string }) {
+export function SelectDate({ title }: { title: string }) {
   return (
-    <section className="bg-white w-full border border-gray-200 p-6 rounded-lg  shadow-gray-200 ">
+    <section className="bg-white w-full  p-6 rounded-lg  shadow-gray-200 max-w-screen-lg">
       <header className=" flex justify-start items-center w-full">
-        <img src="/assets/rentalCar/mark.png" alt="" className="size-4" />
-        <h3>{title}</h3>
+        <h3 className="font-bold text-2xl text-primaryColor">{title}</h3>
       </header>
 
-      <div className="flex flex-col gap-3 pt-4 w-full  ">
-        <div className="flex flex-col items-start justify-center  ">
-          <h4 className=" font-bold text-base text-textPrimary">Locations</h4>
-          <SelectComponent array={estadosDeUSA} placeholder="Select your city" title="Cities" />
-        </div>
+      <div className="flex flex-col gap-2 pt-4 w-full  ">
+        <section className="flex flex-col gap-3">
+          <SelectLocation title="Pick-up" />
+          <SelectLocation title="Drop-off" />
+        </section>
+
         <ReturnLocationCheckbox />
-        <div className="flex flex-col sm:flex-row gap-3">
+
+        <div className="flex flex-col md:flex-row md:items-end gap-5">
           <DateAndTimePicker title="Pick-up" />
-          <DateAndTimePicker title="Return" />
-          <Button>Browse Vehicles</Button>
+          <DateAndTimePicker title="Drop-off" />
+          <Button className="px-10">Search</Button>
         </div>
       </div>
     </section>
   );
 }
-
-export default SelectDate;
