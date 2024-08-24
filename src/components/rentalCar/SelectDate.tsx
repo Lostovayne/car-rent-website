@@ -8,19 +8,21 @@ export function SelectDate({ title }: { title: string }) {
         <h3 className="font-bold text-2xl text-primaryColor">{title}</h3>
       </header>
 
-      <div className="flex flex-col gap-2 pt-4 w-full  ">
-        <section className="flex flex-col gap-3">
-          <SelectLocation title="Pick-up" />
+      <div className="flex flex-col gap-3 pt-4 w-full  ">
+        <section className="flex flex-col md:flex-row gap-3 md:gap-10">
+          <SelectLocation title="Pick-up and Drop-off" />
           <SelectLocation title="Drop-off" />
         </section>
 
         <ReturnLocationCheckbox />
 
-        <div className="flex flex-col md:flex-row md:items-end gap-5">
-          <DateAndTimePicker title="Pick-up" />
-          <DateAndTimePicker title="Drop-off" />
-          <Button className="px-10">Search</Button>
-        </div>
+        <section className="flex flex-col items-end gap-5">
+          <div className="w-full flex flex-col md:flex-row gap-4 md:gap-10">
+            <DateAndTimePicker title="Pick-up" />
+            <DateAndTimePicker title="Drop-off" />
+          </div>
+          <Button className="w-full">Search Vehicle</Button>
+        </section>
       </div>
     </section>
   );

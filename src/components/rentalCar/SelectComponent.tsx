@@ -17,7 +17,7 @@ interface SelecComponentProps {
 export function SelectComponent({ array, placeholder, title, optionalLabel }: SelecComponentProps) {
   return (
     <Select>
-      <SelectTrigger className="max-w-80 justify-start gap-1 focus:ring-0 focus:ring-offset-0 text-sm sm:text-base text-gray-500 px-0 py-0 border-none border-b">
+      <SelectTrigger className="justify-start gap-1 focus:ring-0 focus:ring-offset-0 text-sm sm:text-base text-gray-500 px-0 py-0 border-none border-b">
         {optionalLabel ? (
           <div className="w-full h-full flex flex-col items-start  ">
             <span className="text-textSecondary text-xs">{optionalLabel}</span>
