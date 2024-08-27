@@ -22,9 +22,7 @@ export function Login() {
         <Card className="mx-auto max-w-sm">
           <CardHeader>
             <CardTitle className="text-2xl">Login</CardTitle>
-            <CardDescription>
-              Enter your email below to login to your account
-            </CardDescription>
+            <CardDescription>Enter your email below to login to your account</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid gap-4">
@@ -48,11 +46,7 @@ export function Login() {
                 <div className="flex items-center">
                   <Label htmlFor="password">Password</Label>
 
-                  <Link
-                    to="#"
-                    rel="noreferrer"
-                    className="ml-auto inline-block text-sm underline"
-                  >
+                  <Link to="#" rel="noreferrer" className="ml-auto inline-block text-sm underline">
                     Forgot your password?
                   </Link>
                 </div>
@@ -61,12 +55,7 @@ export function Login() {
                     {form.formState.errors.password.message}
                   </span>
                 )}
-                <Input
-                  id="password"
-                  type="password"
-                  required
-                  {...form.register("password")}
-                />
+                <Input id="password" type="password" required {...form.register("password")} />
               </div>
               <Button type="submit" className="w-full">
                 Login
