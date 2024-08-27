@@ -20,11 +20,11 @@ export * from "./carDetail/CarDetail";
 
 export * from "./carousel/CarouselOfImages";
 
-// export * from "./details/reviews/Reviews";
-export * from "./details/reviews/Reviewscopy";
-export * from "./details/reviews/ReviewDetailscopy";
+export * from "./details/reviews/Reviews";
+export * from "./details/reviews/ReviewDetails";
 export * from "./details/reviews/ButtonShowAllReviews";
 export * from "./details/reviews/CommentIterator";
+export * from "./details/reviews/UserReviewComment";
 
 export * from "./details/CarDetailsCard/CarDetailsCard";
 export * from "./details/CarDetailsCard/TableRow";
@@ -32,5 +32,21 @@ export * from "./details/CarDetailsCard/TableContainer";
 export * from "./IsFavoriteIcon";
 export * from "./details/reviews/StarReviewRating";
 
+export * from "./rentalCar/SelectDate";
+export * from "./rentalCar/SelectComponent";
+export * from "./rentalCar/SelectLocation";
+export * from "./rentalCar/SelecLocationSection";
+export * from "./rentalCar/RentalCar";
+export * from "./rentalCar/CardRentalCar";
+export * from "./rentalCar/DateAndTimePicker";
+export * from "./rentalCar/DateAndTimePickerSection";
+export * from "./rentalCar/DatePicker";
+export * from "./rentalCar/ReturnLocationCheckbox";
+
 export * from "./payment/payment/PaymentMain";
 export * from "./payment/summary/RentalSummary";
+
+export * from "./form/InputFieldForm";
+export * from "./form/SelectFieldForm";
+export * from "./form/CalendarFieldForm";
+export * from "./form/RadioGroupFieldForm";

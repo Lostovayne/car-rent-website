@@ -1,21 +1,15 @@
-import React from 'react';
-import {
-  Form,
-  FormField,
-} from '../../ui/form';
-import { CreditCardSchemaType } from '../../../schemas/payment/creditcard.schema';
-import { SectionCards } from '../../sectionCar/SectionCards';
-import { Button } from '../../ui/button';
-import { useCreditCardForm } from '../../../hooks/payment/useCreditCardForm';
-import { InputFieldForm } from '../../form/InputFieldForm';
-import { validateExpirationDate } from '../../../lib/validate-expiration-date';
-
-// Validación de esquema para los campos del formulario
-
+import { useCreditCardForm } from '@/hooks/payment/useCreditCardForm';
+import { CreditCardSchemaType } from '@/schemas/payment/creditcard.schema';
+import { validateExpirationDate } from '@/lib/validate-expiration-date';
+import { Button } from '@/components/ui/button';
+import { Form, FormField } from '@/components/ui/form';
+import { InputFieldForm } from '@/components/form/InputFieldForm';
+import { SectionCards } from '@/components/sectionCar/SectionCards';
 
 interface CreditCardFormProps {
   onSubmit: (values: CreditCardSchemaType) => void;
 }
+
 
 export const CreditCardForm: React.FC<CreditCardFormProps> = ({ onSubmit }) => {
   const form = useCreditCardForm();

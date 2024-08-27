@@ -1,38 +1,16 @@
-import { estadosDeUSA, hoursOfDay } from "../../data";
-import { DatePicker } from "./DataPicker";
-import SelectComponent from "./SelectComponent";
+import { DateAndTimePickerSection, SelecLocationSection } from "@/components";
 
-function SelectDate({ title }: { title: string }) {
+export function SelectDate() {
   return (
-    <div className="bg-white w-full  border border-gray-200 p-6 rounded-lg  shadow-gray-200 ">
-      <div className="flex justify-start items-center w-full">
-        <img src="/assets/rentalCar/mark.png" alt="" className="size-4" />
-        <p>{title}</p>
+    <form className="bg-white w-full  p-6 rounded-lg  shadow-gray-200 max-w-screen-lg">
+      <header className=" flex justify-start items-center w-full">
+        <h3 className="font-bold text-2xl text-primaryColor">Reserve a Vehicle</h3>
+      </header>
+
+      <div className="flex flex-col gap-3 pt-4 w-full  ">
+        <SelecLocationSection />
+        <DateAndTimePickerSection />
       </div>
-      <div className="flex flex-col sm:flex-row items-center justify-around w-full  ">
-        <div className="w-full   flex flex-col items-start justify-center  ">
-          <p className=" font-bold text-md">Locations</p>
-          <SelectComponent
-            array={estadosDeUSA}
-            placeholder="Select your city"
-            title="Cities"
-          />
-        </div>
-        <div className="w-full   flex flex-col items-start justify-center  ">
-          <p className="font-bold text-md">Data</p>
-          <DatePicker />
-        </div>
-        <div className="w-full   flex flex-col items-start justify-center  ">
-          <p className=" font-bold text-md">Time</p>
-          <SelectComponent
-            array={hoursOfDay}
-            placeholder="Select your time"
-            title="Date"
-          />
-        </div>
-      </div>
-    </div>
+    </form>
   );
 }
-
-export default SelectDate;
