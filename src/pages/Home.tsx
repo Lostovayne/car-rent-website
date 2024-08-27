@@ -19,9 +19,7 @@ export const Home: React.FC = () => {
       </SectionCards>
 
       <SectionCards>
-        <h3 className="text-textSecondary font-normal p-5 ">
-          Recomendation Car
-        </h3>
+        <h3 className="text-textSecondary font-normal p-5 ">Recomendation Car</h3>
         <ViewCars cuantity={8} />
       </SectionCards>
     </div>

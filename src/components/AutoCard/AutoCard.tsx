@@ -6,8 +6,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../../components/ui/card";
-import { IsFavoriteIcon, SpecsContainer, PriceDisplay } from "../../components";
+} from "../ui/card";
+import { IsFavoriteIcon, SpecsContainer, PriceDisplay } from "..";
 
 import { AutoCardProps } from "../../interfaces/AutoCard.interface";
 import { Button } from "../ui/button";
@@ -24,7 +24,7 @@ export const AutoCard = ({
 
   return (
     <Card
-      className="flex flex-col justify-between bg-white border-0 p-5 rounded-xl w-80 h-60 sm:h-96 drop-shadow-sm"
+      className="flex flex-col justify-between bg-white p-5 rounded-xl w-80 h-60 sm:h-96 shadow-lg  "
       id={id}
     >
       <CardHeader className="flex flex-col w-full p-0">

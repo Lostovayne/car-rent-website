@@ -1,6 +1,6 @@
 import { ArrayCars } from "../../data";
 import { cn } from "../../lib/utils";
-import { AutoCard } from "../AutoCard/AutoCard";
+import { AutoCard } from "../autoCard/AutoCard";
 
 type AutoCardProps = {
   cuantity: number;
