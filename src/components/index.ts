@@ -1,7 +1,3 @@
-export { AutoCard } from "./autoCard/AutoCard";
-export { SpecsContainer } from "./autoCard/SpecsContainer";
-export { SpecsItem } from "./autoCard/SpecsItem";
-export { PriceDisplay } from "./autoCard/PriceDisplay";
 export { Footer } from "./Footer/Footer";
 export { FooterTitle } from "./Footer/FooterTitle";
 export { ColumnContainer } from "./Footer/ColumnContainer";
