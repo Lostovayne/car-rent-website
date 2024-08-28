@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import { IsFavoriteIcon } from "..";
 import { useFavorite } from "../../hooks";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card";
-import { PriceDisplay } from "./PriceDisplay";
-import { SpecsContainer } from "./SpecsContainer";
+
 
 import { AutoCardProps } from "../../interfaces/AutoCard.interface";
 import { Button } from "../ui/button";
+import { SpecsContainer } from "./SpecsContainer";
+import { PriceDisplay } from "./PriceDisplay";
 
 export const AutoCard = ({ id, model, type, image, price, specs }: AutoCardProps): JSX.Element => {
   const { isFavorite, handleToggleFavorite } = useFavorite();
