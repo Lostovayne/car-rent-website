@@ -20,7 +20,10 @@ export function CheckBoxMultiple({ items }: CheckBoxMultipleProps) {
   return (
     <div className="flex flex-col">
       {items.map((item) => (
-        <div className="flex items-center gap-2 mb-4 font-semibold">
+        <div
+          key={item.id}
+          className="flex items-center gap-2 mb-4 font-semibold"
+        >
           <Checkbox
             checked={checkState[item.id]}
             onCheckedChange={(checked) => {

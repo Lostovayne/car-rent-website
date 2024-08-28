@@ -3,13 +3,13 @@ import { useMediaQuery } from "usehooks-ts";
 
 export const AuthLayout = () => {
   const { pathname } = useLocation();
+  const isMdOrLarger = useMediaQuery("(min-width: 768px)"); 
 
   // Redirigir si la ruta es "/auth" o "/auth/"
   if (pathname === "/auth" || pathname === "/auth/") {
     return <Navigate to="/auth/login" />;
   }
 
-  const isMdOrLarger = useMediaQuery("(min-width: 768px)"); 
 
   return (
     <div

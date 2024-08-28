@@ -1,52 +1,48 @@
-export * from "./autoCard/AutoCard";
-export * from "./autoCard/SpecsContainer";
-export * from "./autoCard/SpecsItem";
-export * from "./autoCard/PriceDisplay";
-export * from "./Footer/Footer";
-export * from "./Footer/FooterTitle";
-export * from "./Footer/ColumnContainer";
-export * from "./Footer/Column";
-export * from "./Footer/FooterBottomSection";
-export * from "./ui/card";
-export * from "./ui/button";
-export * from "./ui/input";
-export * from "./details";
-export * from "./navbar";
-export * from "./ui/label";
-export * from "./ui/form";
-export * from "./ui/calendar";
+export { Footer } from "./Footer/Footer";
+export { FooterTitle } from "./Footer/FooterTitle";
+export { ColumnContainer } from "./Footer/ColumnContainer";
+export { Column } from "./Footer/Column";
+export { FooterBottomSection } from "./Footer/FooterBottomSection";
+export { Card,CardContent,CardDescription,CardHeader,CardTitle } from "./ui/card";
+export { Button } from "./ui/button";
+export { Input } from "./ui/input";
+export { Navbar } from "./navbar";
+export { Label } from "./ui/label";
+export { Form } from "./ui/form";
+export { Calendar } from "./ui/calendar";
 
-export * from "./carDetail/CarDetail";
+export { CarDetail } from "./carDetail/CarDetail";
 
-export * from "./carousel/CarouselOfImages";
+export { CarouselOfImages } from "./carousel/CarouselOfImages";
 
-export * from "./details/reviews/Reviews";
-export * from "./details/reviews/ReviewDetails";
-export * from "./details/reviews/ButtonShowAllReviews";
-export * from "./details/reviews/CommentIterator";
-export * from "./details/reviews/UserReviewComment";
+export { Reviews } from "./details/reviews/Reviews";
+export { ButtonShowAllReviews } from "./details/reviews/ButtonShowAllReviews";
+export { CommentIterator } from "./details/reviews/CommentIterator";
+export { UserReviewComment } from "./details/reviews/UserReviewComment";
 
-export * from "./details/CarDetailsCard/CarDetailsCard";
-export * from "./details/CarDetailsCard/TableRow";
-export * from "./details/CarDetailsCard/TableContainer";
-export * from "./IsFavoriteIcon";
-export * from "./details/reviews/StarReviewRating";
+export { CarDetailsCard } from "./details/CarDetailsCard/CarDetailsCard";
+export { TableRow } from "./details/CarDetailsCard/TableRow";
+export { TableContainer } from "./details/CarDetailsCard/TableContainer";
+export { IsFavoriteIcon } from "./IsFavoriteIcon";
+export { StarReviewRating } from "./details/reviews/StarReviewRating";
 
-export * from "./rentalCar/SelectDate";
-export * from "./rentalCar/SelectComponent";
-export * from "./rentalCar/SelectLocation";
-export * from "./rentalCar/SelecLocationSection";
-export * from "./rentalCar/RentalCar";
-export * from "./rentalCar/CardRentalCar";
-export * from "./rentalCar/DateAndTimePicker";
-export * from "./rentalCar/DateAndTimePickerSection";
-export * from "./rentalCar/DatePicker";
-export * from "./rentalCar/ReturnLocationCheckbox";
+export { SelectDate } from "./rentalCar/SelectDate";
+export { SelectComponent } from "./rentalCar/SelectComponent";
+export { SelectLocation } from "./rentalCar/SelectLocation";
+export { SelecLocationSection } from "./rentalCar/SelecLocationSection";
+export { RentalCar } from "./rentalCar/RentalCar";
+export { CardRentalCar } from "./rentalCar/CardRentalCar";
+export { DateAndTimePicker } from "./rentalCar/DateAndTimePicker";
+export { DateAndTimePickerSection } from "./rentalCar/DateAndTimePickerSection";
+export { DatePicker } from "./rentalCar/DatePicker";
+export { ReturnLocationCheckbox } from "./rentalCar/ReturnLocationCheckbox";
 
-export * from "./payment/payment/PaymentMain";
-export * from "./payment/summary/RentalSummary";
+export { PaymentMain } from "./payment/payment/PaymentMain";
+export { RentalSummary } from "./payment/summary/RentalSummary";
 
-export * from "./form/InputFieldForm";
-export * from "./form/SelectFieldForm";
-export * from "./form/CalendarFieldForm";
-export * from "./form/RadioGroupFieldForm";
+export { InputFieldForm } from "./form/InputFieldForm";
+export { SelectFieldForm } from "./form/SelectFieldForm";
+export { CalendarFieldForm } from "./form/CalendarFieldForm";
+export { RadioGroupFieldForm } from "./form/RadioGroupFieldForm";
+
+export { ReviewsDetails } from "./details/reviews/ReviewDetails";
