@@ -2,6 +2,7 @@ import { ArrayCars } from "../../data";
 import { cn } from "../../lib/utils";
 import { AutoCard } from "../autoCard/AutoCard";
 
+
 type AutoCardProps = {
   cuantity: number;
 } & React.ComponentPropsWithoutRef<"section">;

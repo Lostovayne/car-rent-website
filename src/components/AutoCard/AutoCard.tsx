@@ -1,9 +1,9 @@
-import { useFavorite } from "../../hooks";
 import { Link } from "react-router-dom";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import { IsFavoriteIcon } from "..";
-import { SpecsContainer } from "./SpecsContainer";
+import { useFavorite } from "../../hooks";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import { PriceDisplay } from "./PriceDisplay";
+import { SpecsContainer } from "./SpecsContainer";
 
 import { AutoCardProps } from "../../interfaces/AutoCard.interface";
 import { Button } from "../ui/button";
