@@ -7,7 +7,7 @@ export { FooterTitle } from "./Footer/FooterTitle";
 export { ColumnContainer } from "./Footer/ColumnContainer";
 export { Column } from "./Footer/Column";
 export { FooterBottomSection } from "./Footer/FooterBottomSection";
-export { Card } from "./ui/card";
+export { Card,CardContent,CardDescription,CardHeader,CardTitle } from "./ui/card";
 export { Button } from "./ui/button";
 export { Input } from "./ui/input";
 export { Navbar } from "./navbar";
