@@ -48,3 +48,5 @@ export { InputFieldForm } from "./form/InputFieldForm";
 export { SelectFieldForm } from "./form/SelectFieldForm";
 export { CalendarFieldForm } from "./form/CalendarFieldForm";
 export { RadioGroupFieldForm } from "./form/RadioGroupFieldForm";
+
+export { ReviewsDetails } from "./details/reviews/ReviewDetails";
