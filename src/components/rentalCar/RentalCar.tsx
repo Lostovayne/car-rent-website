@@ -1,7 +1,7 @@
 import React from "react";
 
-import { useMediaQuery } from "usehooks-ts";
 import { RentalData } from "@/data";
+import { useMediaQuery } from "usehooks-ts";
 import type { RentalCar as RentalCarInterface } from "../../interfaces";
 
 import { CardRentalCar } from "./CardRentalCar";
