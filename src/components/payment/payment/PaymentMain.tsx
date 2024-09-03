@@ -34,6 +34,7 @@ export const PaymentMain = () => {
           setStep={setStep}
         />}
       {step === 4 && <PaymentMethod setStep={setStep} />}
+      
     </div>
   );
 };

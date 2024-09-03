@@ -1,6 +1,6 @@
 import { useBillingInfoForm } from "@/hooks";
 import { BillingInfoSchemaType } from "@/schemas";
-import { Form, FormField } from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { SectionCards } from "@/components/sectionCar/SectionCards";
 import { InputFieldForm } from "@/components/form/InputFieldForm";
@@ -22,37 +22,36 @@ export const BillingInfoForm: React.FC<BillingInfoFormProps> = ({ defaultValues,
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <SectionCards className="grid grid-cols-0 sm:grid-cols-2 gap-7">
-            <FormField
+
+            <InputFieldForm
               control={form.control}
               name="name"
-              render={({ field }) =>
-                <InputFieldForm field={field} label="Name" placeholder="Your name" />
-              }
+              label="Name"
+              placeholder="Your name" 
+              autoFocus
             />
 
-            <FormField
+            <InputFieldForm
               control={form.control}
               name="phoneNumber"
-              render={({ field }) =>
-                <InputFieldForm field={field} label="Phone Number" placeholder="Your phone number" />
-              }
+              label="Phone Number"
+              placeholder="Your phone number"
             />
 
-            <FormField
+            <InputFieldForm
               control={form.control}
               name="address"
-              render={({ field }) => (
-                <InputFieldForm field={field} label="Address" placeholder="Your address"/>
-              )}
+              label="Address"
+              placeholder="Your address"
             />
 
-            <FormField
+            <InputFieldForm
               control={form.control}
               name="city"
-              render={({ field }) => (
-                <InputFieldForm field={field} label="City" placeholder="Your city"/>
-              )}
+              label="City"
+              placeholder="Your city"
             />
+
           </SectionCards>
 
           <SectionCards className="flex justify-end">
