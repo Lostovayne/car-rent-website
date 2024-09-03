@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IPaymentInfoForm } from "../../interfaces";
 import { BillingInfoSchemaType, RentalInfoSchemaType } from "../../schemas";
+import { PaymentMethodSchemaType } from "@/schemas/payment/paymentMethod.schema";
 
 const initialStatePaymentInfoForm: IPaymentInfoForm = {
   billingInfo: {
@@ -16,7 +17,11 @@ const initialStatePaymentInfoForm: IPaymentInfoForm = {
     dropOffDate: new Date(),
     dropOffLocation: "",
     dropOffTime: ""
-  }
+  },
+  paymenMethodInfo: {
+    paymentMethod: "Credit Card"
+  },
+
 }
 
 export const usePaymentMain = () => {
@@ -35,11 +40,18 @@ export const usePaymentMain = () => {
     console.log(values);
   }
 
+  const onSubmitPaymentMethodInfo = (values: PaymentMethodSchemaType) => {
+    setPaymentInfoForm({ ...paymentInfoForm, paymenMethodInfo: values })
+    console.log('submitUse', values, step);
+  }
+
+
   return {
     step,
     setStep,
     paymentInfoForm,
     onSubmitBillingInfo,
-    onSubmitRentalInfo
+    onSubmitRentalInfo,
+    onSubmitPaymentMethodInfo,
   }
 }
