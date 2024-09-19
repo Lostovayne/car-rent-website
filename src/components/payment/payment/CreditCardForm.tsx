@@ -2,7 +2,7 @@ import { useCreditCardForm } from '@/hooks/payment/useCreditCardForm';
 import { CreditCardSchemaType } from '@/schemas/payment/creditcard.schema';
 import { validateExpirationDate } from '@/lib/validate-expiration-date';
 import { Button } from '@/components/ui/button';
-import { Form, FormField } from '@/components/ui/form';
+import { Form } from '@/components/ui/form';
 import { InputFieldForm } from '@/components/form/InputFieldForm';
 import { SectionCards } from '@/components/sectionCar/SectionCards';
 
@@ -18,67 +18,51 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({ onSubmit }) => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <SectionCards className="grid grid-cols-0 sm:grid-cols-2 gap-7">
-          <FormField
+
+          <InputFieldForm
             control={form.control}
             name="cardNumber"
-            render={({ field }) => (
-              <InputFieldForm
-                label="Card Number"
-                field={field}
-                placeholder="1234 5678 9012 3456"
-                maxLength={19}
-                onChange={(e) => {
-                  let value = e.target.value.replace(/\D/g, '');
-                  value = value.replace(/(.{4})/g, '$1 ').trim();
-                  field.onChange(value);
-                }}
-              />
-            )}
+            label="Card Number"
+            placeholder="1234 5678 9012 3456"
+            maxLength={19}
+            onChange={(e) => {
+              let value = e.target.value.replace(/\D/g, '');
+              value = value.replace(/(.{4})/g, '$1 ').trim();
+              form.setValue('cardNumber', value);
+              //form.getValues('cardNumber').onChange(value);
+            }}
+            autoFocus
+
           />
 
-          <FormField
+          <InputFieldForm
             control={form.control}
             name="expirationDate"
-            render={({ field }) => (
-              <InputFieldForm
-                label='Expiration Date (MM/YY)'
-                field={field}
-                placeholder="MM/YY"
-                maxLength={5}
-                onChange={(e) => {
-                  let value = e.target.value;
-                  value = validateExpirationDate(value)
-                  field.onChange(value);
-                }}
-              />
-            )}
+            label='Expiration Date (MM/YY)'
+            placeholder="MM/YY"
+            maxLength={5}
+            onChange={(e) => {
+              let value = e.target.value;
+              value = validateExpirationDate(value)
+              form.setValue('expirationDate', value)
+            }}
           />
 
-          <FormField
+          <InputFieldForm
             control={form.control}
             name="cvv"
-            render={({ field }) => (
-              <InputFieldForm
-                label='CVV'
-                field={field}
-                placeholder="CVV"
-                maxLength={3}
-              />
-            )}
+            label='CVV'
+            placeholder="CVV"
+            maxLength={3}
           />
 
-          <FormField
+          <InputFieldForm
             control={form.control}
             name="cardHolderName"
-            render={({ field }) => (
-              <InputFieldForm
-                label='Card Holder Name'
-                field={field}
-                placeholder="Card Holder Name"
-              />
-
-            )}
+            label='Card Holder Name'
+            placeholder="Card Holder Name"
           />
+
         </SectionCards>
 
         <SectionCards className="flex justify-end">

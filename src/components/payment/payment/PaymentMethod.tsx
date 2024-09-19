@@ -8,29 +8,36 @@ import { CreditCardForm } from "./CreditCardForm"
 
 interface PaymentMethodFormProps {
   setStep: React.Dispatch<React.SetStateAction<number>>
+  onSubmitPaymentMethodInfo: (values: PaymentMethodSchemaType) => void
+  savePayment: (data: CreditCardSchemaType) => void
 }
 
-export const PaymentMethod: React.FC<PaymentMethodFormProps> = ({setStep}) => {
+export const PaymentMethod: React.FC<PaymentMethodFormProps> = ({ 
+  setStep,
+  onSubmitPaymentMethodInfo,
+  savePayment
+}) => {
   const [paymnentMethod, setPaymnentMethod] = useState<typeof PAYMENT_METHODS[number]>("Credit Card")
-  
+
   const onSubmitPaymentMethod = (data: PaymentMethodSchemaType) => {
     setPaymnentMethod(data.paymentMethod)
-    console.log({ data })
+    onSubmitPaymentMethodInfo(data)
   }
-
-  const onSubmitCreditCard = (data: CreditCardSchemaType) => {  
-    console.log({ data })
+  
+  const onSubmitCreditCard = (data: CreditCardSchemaType) => {
+    console.log('card', data)
+    savePayment(data)
   }
 
   return (
     <section className="bg-card ">
-      <PaymentSectionHeader 
-        title="Payment Method" 
-        description="Please enter your payment method" 
-        stepLabel={4} 
+      <PaymentSectionHeader
+        title="Payment Method"
+        description="Please enter your payment method"
+        stepLabel={4}
       />
-      <PaymentMethodForm setStep={setStep} onSubmit={onSubmitPaymentMethod} />     
-      {paymnentMethod==="Credit Card" && <CreditCardForm onSubmit={onSubmitCreditCard} />}
+      <PaymentMethodForm setStep={setStep} onSubmit={onSubmitPaymentMethod} />
+      {paymnentMethod === "Credit Card" && <CreditCardForm onSubmit={onSubmitCreditCard} />}
     </section>
   )
 }
